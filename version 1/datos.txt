@@ -1,0 +1,13 @@
+# Nodos (nombre, x, y)
+N A 1 20
+N B 8 17
+N C 15 20
+N D 18 15
+N E 2 4
+
+# Segmentos (nombre, origen, destino)
+S AB A B
+S AE A E
+S AK A K
+S BC B C
+S BF B F
