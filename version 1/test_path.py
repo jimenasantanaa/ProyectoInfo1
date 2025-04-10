@@ -1,3 +1,8 @@
+from node import *
+from graph import *
+from interface import*
+
+
 # Crear algunos nodos de ejemplo
 node_A = Node("A", 1, 2)
 node_B = Node("B", 5, 5)
