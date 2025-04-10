@@ -8,9 +8,11 @@ class Path:
         self.nodes = [origin_node]
         self.cost = 0
 
-    def AddNodeToPath(self, node, cost):
+    def AddNodeToPath(self, node):
+        last_node = self.nodes[-1]
+        distance = Distance(last_node, node)
         self.nodes.append(node)
-        self.cost = self.cost + cost
+        self.cost = self.cost + distance
 
     def ContainsNode(self, node):
         for n in self.nodes:
@@ -19,15 +21,24 @@ class Path:
         return False
 
     def CostToNode(self, node):
-        if node in self.nodes:
-            return self.cost
-        return -1
-
-    def PlotPath(self, graph):
+        total_cost = 0
+        found = False
         for i in range(len(self.nodes) -1):
             node1 = self.nodes[i]
             node2 = self.nodes[i + 1]
-            x_values = [node1.coordinate_x, node2.coordinate_x]
-            y_values = [node1.coordinate_y, node2.coordinate_y]
-            plt.plot(x_values, y_values, color ='purple')
+            total_cost = total_cost + Distance(node1, node2)
+            if node == node2:
+                found = True
+                break
+        return total_cost if found else -1
 
+    def PlotPath(self, ax):
+        for i in range(len(self.nodes) -1):
+            node1 = self.nodes[i]
+            node2 = self.nodes[i + 1]
+            ax.plot([node1.coordinate_x, node2.coordinate_x], [node1.coordinate_y, node2.coordinate_y])
+            ax.annotate('', xy = node2.coordinate_x, node2.coordinate_y), xytext = (node1.coordinate_x, node1.coordinate_y), arrowprops = dict(facecolor = 'red', edgecolor = 'red', arrowstyle = '->'))
+
+        for node in self.nodes:
+            ax.scatter(node.coordinate_x, node.coordinate_y, color = 'blue')
+            ax.text(node.coordinate_x, node.coordinate_y, node.name, color = 'black', frontsize = 10, ha = 'right')
