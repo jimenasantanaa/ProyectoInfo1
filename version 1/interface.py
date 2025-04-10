@@ -248,4 +248,4 @@ btn_save_graph.pack(pady=10)
 window.mainloop()
 
 #nuevo
-
+#nuevo 1
