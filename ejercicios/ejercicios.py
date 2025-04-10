@@ -1,17 +1,20 @@
-F = open("personas.txt", "r")
-linea = F.readline()
+def palabra_invertida(frase, caracter):
+    palabras = frase.split()
 
-conteo_edades = {}
+    i = 0
+    while i < len(palabras):
+        palabra = palabras[i]
+        if palabra[0].lower() == caracter.lower():
+            print(palabra[::-1])
+            return
+        i += 1
 
-while linea:
-    trozos = linea.split()
-    edad = int(trozos[1])
+    print("No se encontró ninguna palabra")
 
-    if edad in conteo_edades:
-        conteo_edades[edad] += 1
-    else:
-        conteo_edades[edad] = 1
+frase = input("Introduce una frase: ")
+caracter = input("Introduce el carácter: ")
 
-    linea = F.readline()
+palabra_invertida(frase, caracter)
 
-F.close()
+
+
