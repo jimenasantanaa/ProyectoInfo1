@@ -246,3 +246,5 @@ btn_save_graph = tk.Button(window, text="Guardar gráfico", command=save_current
 btn_save_graph.pack(pady=10)
 
 window.mainloop()
+
+#nuevo
