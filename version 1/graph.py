@@ -72,6 +72,7 @@ def PlotNode(g, nameOrigin):
     for node in g.node:
         if node.name == nameOrigin:
             origin_node = node
+            break
     if origin_node is None:
         return False
     for node in g.node:
@@ -104,7 +105,6 @@ def PlotNode(g, nameOrigin):
     plt.grid(True)
 
 def Data(filename):
-
     import os
     g = Graph()
     if os.path.exists(filename):
@@ -124,4 +124,24 @@ def Data(filename):
     else:
         print("El archivo no es correcto")
 
+def DeleteNode(g, node_name):
+    node_to_delete = None
+    for node in g.node:
+        if node.name == node_name:
+            node_to_delete = node
+            break
+
+    if node_to_delete is None:
+        return False
+
+    g.segment = [segment for segment in g.segment if segment.origin != node_to_delete and segment.destination != node_to_delete]
+    g.node.remove(node_to_delete)
+    return True
+
+def SaveGraph(g, filename):
+    with open(filename, 'w') as file:
+        for node in g.node:
+            file.write(f"N {node.name} {node.coordinate_x} {node.coordinate_y}\n")
+        for segment in g.segment:
+            file.write(f"S {segment.name} {segment.origin.name} {segment.destination.name}\n")
 

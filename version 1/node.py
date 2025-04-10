@@ -15,5 +15,3 @@ def AddNeighbor(n1, n2):
 
 def Distance(n1, n2):
     return math.sqrt((n1.coordinate_x - n2.coordinate_x)**2 + (n1.coordinate_y - n2.coordinate_y)**2)
-
-# nuevo
