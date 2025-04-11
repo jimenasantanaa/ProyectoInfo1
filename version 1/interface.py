@@ -48,11 +48,16 @@ def CreateGraph_1():
 window = tk.Tk()
 window.title("Graph Viewer")
 
-button_frame = tk.Frame(window)
-button_frame.pack(side="top", fill="x", pady=10)
+# Crear el marco para los botones
+button_container = tk.Frame(window)
+button_container.grid(row=0, column=0, pady=10, padx=10, sticky="w")
 
+# Crear el marco para el gráfico
 graph_frame = tk.Frame(window)
-graph_frame.pack(side="top", fill="both", expand=True)
+graph_frame.grid(row=1, column=0, sticky="nsew")
+
+window.grid_rowconfigure(1, weight=1)  # Asegura que la segunda fila, donde está el gráfico, se expanda
+window.grid_columnconfigure(0, weight=1)
 
 selected_node = None
 origin_node = None
@@ -87,11 +92,10 @@ def on_click(event, g):
                 origin_node = None
                 destination_node = None
                 segment_mode = False
-                show_graph(segment_mode)  # Mostrar el gráfico con el nuevo segmento
+                show_graph()  # Mostrar el gráfico con el nuevo segmento
         else:
             selected_node = closest_node
             messagebox.showinfo("Nodo Seleccionado", f"Has seleccionado el nodo: {selected_node.name}")
-
 
 def show_graph():
     global actual
@@ -135,7 +139,6 @@ def load_graph():
     canvas.get_tk_widget().pack(fill="both", expand=True)
     canvas.draw()
 
-
 def file_graph():
     global actual
     esconder()
@@ -151,7 +154,6 @@ def file_graph():
     canvas = FigureCanvasTkAgg(fig, master=graph_frame)
     canvas.get_tk_widget().pack(fill="both", expand=True)
     canvas.draw()
-
 
 def add_node():
     global actual
@@ -224,25 +226,67 @@ def save_current_graph():
         SaveGraph(actual, filename)
         messagebox.showinfo("Guardar gráfico", f"El gráfico se ha guardado correctamente en {filename}")
 
-btn_show_graph = tk.Button(button_frame, text="Gráfico Ejemplo", command=new_example_graph)
-btn_show_graph.pack(side="left", padx=5)
+def show_neighbors():
+    global actual, selected_node
+    if actual is None:
+        messagebox.showwarning("Gráfico no cargado", "Primero carga o crea un gráfico.")
+        return
 
-btn_load_graph = tk.Button(button_frame, text="Gráfico Inventado", command=load_graph)
-btn_load_graph.pack(side="left", padx=5)
+    if selected_node is None:
+        messagebox.showwarning("Nodo no seleccionado", "Selecciona un nodo primero.")
+        return
 
-btn_file_graph = tk.Button(button_frame, text="Gráfico Cargado", command=file_graph)
-btn_file_graph.pack(side="left", padx=5)
+    filtered_graph = Graph()
+    AddNode(filtered_graph, selected_node)
+    for neighbor in selected_node.neighbors:
+        AddNode(filtered_graph, neighbor)
 
-btn_add_node = tk.Button(window, text="Agregar Nodo", command=add_node)
-btn_add_node.pack(pady=10)
+    for segment in actual.segment:
+        if (segment.origin == selected_node and segment.destination in selected_node.neighbors) or \
+           (segment.destination == selected_node and segment.origin in selected_node.neighbors):
+            AddSegment(filtered_graph, segment.name, segment.origin.name, segment.destination.name)
 
-btn_add_segment = tk.Button(window, text="Modo Segmento", command=add_segment_button)
-btn_add_segment.pack(pady=10)
+    esconder()
 
-btn_remove_node = tk.Button(window, text="Eliminar nodo", command=remove_selected_node)
-btn_remove_node.pack(pady=10)
+    fig, ax = plt.subplots(figsize=(5, 5))
+    Plot(filtered_graph)
+    ax.set_title(f"Vecinos de {selected_node.name}")
 
-btn_save_graph = tk.Button(window, text="Guardar gráfico", command=save_current_graph)
-btn_save_graph.pack(pady=10)
+    canvas = FigureCanvasTkAgg(fig, master=graph_frame)
+    canvas.get_tk_widget().pack(fill="both", expand=True)
+    canvas.draw()
+
+
+# Grupo de botones de Gráficos
+label_graph = tk.Label(button_container, text="Gráficos", font=("Helvetica", 12, "bold"))
+label_graph.grid(row=0, column=0, pady=5, padx=10, sticky="w")
+
+btn_show_graph = tk.Button(button_container, text="Gráfico Ejemplo", command=new_example_graph)
+btn_show_graph.grid(row=1, column=0, padx=5, sticky="w")
+
+btn_load_graph = tk.Button(button_container, text="Gráfico Inventado", command=load_graph)
+btn_load_graph.grid(row=1, column=1, padx=5, sticky="w")
+
+btn_file_graph = tk.Button(button_container, text="Gráfico Cargado", command=file_graph)
+btn_file_graph.grid(row=1, column=2, padx=5, sticky="w")
+
+# Grupo de botones de Funciones
+label_functions = tk.Label(button_container, text="Funciones", font=("Helvetica", 12, "bold"))
+label_functions.grid(row=2, column=0, pady=5, padx=10, sticky="w")
+
+btn_add_node = tk.Button(button_container, text="Agregar Nodo", command=add_node)
+btn_add_node.grid(row=3, column=0, padx=5, sticky="w")
+
+btn_add_segment = tk.Button(button_container, text="Modo Segmento", command=add_segment_button)
+btn_add_segment.grid(row=3, column=1, padx=5, sticky="w")
+
+btn_remove_node = tk.Button(button_container, text="Eliminar Nodo", command=remove_selected_node)
+btn_remove_node.grid(row=3, column=2, padx=5, sticky="w")
+
+btn_show_neighbors = tk.Button(button_container, text="Mostrar Vecinos", command=show_neighbors)
+btn_show_neighbors.grid(row=4, column=0, padx=5, pady=5, sticky="w")
+
+btn_save_current_graph = tk.Button(button_container, text="Guardar Gráfico", command=save_current_graph)
+btn_save_current_graph.grid(row=4, column=1, padx=5, pady=5, sticky="w")
 
 window.mainloop()
