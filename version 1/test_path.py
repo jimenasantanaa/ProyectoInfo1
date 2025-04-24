@@ -1,6 +1,5 @@
 from node import *
 from graph import *
-from interface import*
 import matplotlib.pyplot as plt
 
 node_A = Node("A", 1, 2)
