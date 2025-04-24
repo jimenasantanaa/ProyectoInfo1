@@ -95,7 +95,7 @@ def on_click(event, g):
                 segment_mode = False
                 show_graph()  # Mostrar el gráfico con el nuevo segmento
 
-            elif shortest_path_mode:
+        elif shortest_path_mode:
             # Lógica para seleccionar el nodo de origen y destino para el Camino más Corto
             if origin_node is None:
                 origin_node = closest_node
