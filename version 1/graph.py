@@ -10,6 +10,7 @@ class Graph:
         self.node = []
         self.segment = []
 
+    # Lista vecinos de un nodo
     def get_neighbors(self, node):
         neighbors = []
         for segment in self.segment:
@@ -19,12 +20,14 @@ class Graph:
                 neighbors.append(segment.origin)
         return neighbors
 
+# Añadir nodo
 def AddNode(g, n):
     if n in g.node:
         return False
     g.node.append(n)
     return True
 
+# Añadir segmento
 def AddSegment(g, name, nameOriginNode, nameDestinationNode):
     origin = None
     destination = None
@@ -42,6 +45,7 @@ def AddSegment(g, name, nameOriginNode, nameDestinationNode):
         return True
     return False
 
+# Nodo más cercano
 def GetClosest(g, x, y):
     if not g.node:
         return None
@@ -58,6 +62,7 @@ def GetClosest(g, x, y):
         i = i + 1
     return closest
 
+# Dibujar gráfico
 def Plot(g):
     for segment in g.segment:
         x_values = [segment.origin.coordinate_x, segment.destination.coordinate_x]
@@ -77,6 +82,7 @@ def Plot(g):
     plt.title("Gráfico con nodos y segmentos")
     plt.grid(True)
 
+# Dibujar nodo
 def PlotNode(g, nameOrigin):
     origin_node = None
     for node in g.node:
@@ -114,6 +120,7 @@ def PlotNode(g, nameOrigin):
     plt.title("Gráfico con nodos y segmentos")
     plt.grid(True)
 
+# Cargar gráfico
 def Data(filename):
     import os
     g = Graph()
@@ -134,6 +141,7 @@ def Data(filename):
     else:
         print("El archivo no es correcto")
 
+# Eliminar nodo
 def DeleteNode(g, node_name):
     node_to_delete = None
     for node in g.node:
@@ -148,6 +156,7 @@ def DeleteNode(g, node_name):
     g.node.remove(node_to_delete)
     return True
 
+# Guardar gráfico
 def SaveGraph(g, filename):
     with open(filename, 'w') as file:
         for node in g.node:
@@ -155,6 +164,7 @@ def SaveGraph(g, filename):
         for segment in g.segment:
             file.write(f"S {segment.name} {segment.origin.name} {segment.destination.name}\n")
 
+# Encontrar camino más corto
 def FindShortestPath(graph, origin_node, destination_node):
     distances = {node: float('inf') for node in graph.node}
     previous_nodes = {node: None for node in graph.node}
@@ -164,10 +174,8 @@ def FindShortestPath(graph, origin_node, destination_node):
 
     while priority_queue:
         current_distance, current_node = heapq.heappop(priority_queue)
-
         if current_node == destination_node:
             break
-
         if current_distance > distances[current_node]:
             continue
 
@@ -191,4 +199,5 @@ def FindShortestPath(graph, origin_node, destination_node):
         current_node = previous_nodes[current_node]
 
     return path
+
 

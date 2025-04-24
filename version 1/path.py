@@ -8,18 +8,21 @@ class Path:
         self.nodes = [origin_node]
         self.cost = 0
 
+    # Añadir nodo al camino
     def AddNodeToPath(self, node):
         last_node = self.nodes[-1]
         distance = Distance(last_node, node)
         self.nodes.append(node)
         self.cost = self.cost + distance
 
+    # Verificar si nodo esta en el camino
     def ContainsNode(self, node):
         for n in self.nodes:
             if n == node:
                 return True
         return False
 
+    #Distancia hasta un nodo
     def CostToNode(self, node):
         total_cost = 0
         found = False
@@ -32,6 +35,7 @@ class Path:
                 break
         return total_cost if found else -1
 
+    # Dibujar camino
     def PlotPath(self, ax):
         for i in range(len(self.nodes) -1):
             node1 = self.nodes[i]

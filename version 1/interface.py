@@ -5,6 +5,14 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from graph import *
 from path import *
 
+selected_node = None
+origin_node = None
+destination_node = None
+actual = None
+segment_mode = False
+shortest_path_mode = False
+
+# Crear gráfico de ejemplo
 def CreateGraph_1():
     G = Graph()
     AddNode(G, Node("A", 1, 20))
@@ -46,36 +54,12 @@ def CreateGraph_1():
     AddSegment(G, "LF", "L", "F")
     return G
 
-window = tk.Tk()
-window.title("Graph Viewer")
-
-# Crear el marco para los botones
-button_container = tk.Frame(window)
-button_container.grid(row=0, column=0, pady=10, padx=10, sticky="w")
-
-# Crear el marco para el gráfico
-graph_frame = tk.Frame(window)
-graph_frame.grid(row=1, column=0, sticky="nsew")
-
-window.grid_rowconfigure(1, weight=1)  # Asegura que la segunda fila, donde está el gráfico, se expanda
-window.grid_columnconfigure(0, weight=1)
-
-selected_node = None
-origin_node = None
-destination_node = None
-actual = None
-segment_mode = False  # Variable para controlar el modo de creación de segmentos
-
+# Ocultar gráfico actual
 def esconder():
     for widget in graph_frame.winfo_children():
         widget.destroy()
 
-# Variables de control
-shortest_path_mode = False  # Modo de Camino Más Corto
-origin_node = None
-destination_node = None
-segment_mode = False  # Modo de Segmento
-
+# Clicks
 def on_click(event, g):
     global selected_node, origin_node, destination_node, segment_mode, shortest_path_mode
     x, y = event.xdata, event.ydata
@@ -120,6 +104,7 @@ def on_click(event, g):
             selected_node = closest_node
             messagebox.showinfo("Nodo Seleccionado", f"Has seleccionado el nodo: {selected_node.name}")
 
+# Mostrar gráfico de ejemplo
 def show_graph():
     global actual
     esconder()
@@ -137,16 +122,19 @@ def show_graph():
     canvas.get_tk_widget().pack(fill="both", expand=True)
     canvas.draw()
 
+# Nuevo gráfico de ejemplo
 def new_example_graph():
     global actual
     actual = CreateGraph_1()
     show_graph()
 
+# Activar modo segmento
 def add_segment_button():
     global segment_mode
     segment_mode = True
     messagebox.showinfo("Modo Segmento Activado", "Haz clic en un nodo para seleccionar el origen y luego en otro nodo para seleccionar el destino.")
 
+# Gráfico cargado ejemplo
 def load_graph():
     global actual
     esconder()
@@ -162,6 +150,7 @@ def load_graph():
     canvas.get_tk_widget().pack(fill="both", expand=True)
     canvas.draw()
 
+# Cargar gráfico
 def file_graph():
     global actual
     esconder()
@@ -178,6 +167,7 @@ def file_graph():
     canvas.get_tk_widget().pack(fill="both", expand=True)
     canvas.draw()
 
+# Agregar nodo
 def add_node():
     global actual
     if actual is None:
@@ -215,6 +205,7 @@ def add_node():
     else:
         messagebox.showwarning("Entrada vacía", "Por favor, introduce los datos del nodo.")
 
+# Eliminar nodo
 def remove_selected_node():
     global actual, selected_node
     if actual is None:
@@ -237,6 +228,7 @@ def remove_selected_node():
             selected_node = None
             show_graph()
 
+# Guardar gráfico actual
 def save_current_graph():
     global actual
     if actual is None:
@@ -249,6 +241,7 @@ def save_current_graph():
         SaveGraph(actual, filename)
         messagebox.showinfo("Guardar gráfico", f"El gráfico se ha guardado correctamente en {filename}")
 
+# Mostrar vecinos
 def show_neighbors():
     global actual, selected_node
     if actual is None:
@@ -279,14 +272,13 @@ def show_neighbors():
     canvas.get_tk_widget().pack(fill="both", expand=True)
     canvas.draw()
 
-# Variable para controlar el modo de selección de Camino Más Corto
-shortest_path_mode = False
-
+# Habilitar camino más corto
 def set_shortest_path_mode():
     global shortest_path_mode
     shortest_path_mode = True
     messagebox.showinfo("Modo Camino Más Corto", "Haz clic en un nodo para seleccionar el nodo de origen y luego en otro nodo para seleccionar el destino.")
 
+# Mostrar camino más corto
 def show_shortest_path():
     global actual, origin_node, destination_node
 
@@ -294,7 +286,6 @@ def show_shortest_path():
         messagebox.showwarning("Nodos no seleccionados", "Por favor, selecciona tanto el nodo de origen como el nodo de destino.")
         return
 
-    # Llamar a la función FindShortestPath para obtener el camino más corto
     shortest_path = FindShortestPath(actual, origin_node, destination_node)
 
     if shortest_path:
@@ -303,15 +294,12 @@ def show_shortest_path():
     else:
         messagebox.showinfo("Resultado", "No se encontró un camino entre los nodos seleccionados.")
 
-    # Reiniciar nodos para permitir nuevas selecciones
     origin_node = None
     destination_node = None
 
-
+# Activar modo camino más corto
 def add_shortest_path_button():
     global shortest_path_mode, origin_node, destination_node
-
-    # 👇 Esto reinicia la vista limpia
     show_graph()
 
     shortest_path_mode = True
@@ -319,19 +307,15 @@ def add_shortest_path_button():
     destination_node = None
     messagebox.showinfo("Modo Camino Más Corto Activado", "Haz clic en un nodo para seleccionar el origen y luego en otro nodo para seleccionar el destino.")
 
-
+# Dibujar camino más corto
 def plot_shortest_path(graph, shortest_path):
     global actual
-
-    # 👇 Esta línea es clave para borrar el gráfico anterior (incluyendo cualquier camino dibujado)
     esconder()
 
     fig, ax = plt.subplots(figsize=(5, 5))
 
-    # Dibujar el gráfico completo
     Plot(graph)
 
-    # Dibujar el camino más corto
     for i in range(len(shortest_path) - 1):
         node1 = shortest_path[i]
         node2 = shortest_path[i + 1]
@@ -345,7 +329,20 @@ def plot_shortest_path(graph, shortest_path):
     canvas.get_tk_widget().pack(fill="both", expand=True)
     canvas.draw()
 
-# Grupo de botones de Gráficos
+
+window = tk.Tk()
+window.title("Graph Viewer")
+
+button_container = tk.Frame(window)
+button_container.grid(row=0, column=0, pady=10, padx=10, sticky="w")
+
+graph_frame = tk.Frame(window)
+graph_frame.grid(row=1, column=0, sticky="nsew")
+
+window.grid_rowconfigure(1, weight=1)  # Asegura que la segunda fila, donde está el gráfico, se expanda
+window.grid_columnconfigure(0, weight=1)
+
+# Botones gráfico
 label_graph = tk.Label(button_container, text="Gráficos", font=("Helvetica", 12, "bold"))
 label_graph.grid(row=0, column=0, pady=5, padx=10, sticky="w")
 
@@ -358,7 +355,7 @@ btn_load_graph.grid(row=1, column=1, padx=5, sticky="w")
 btn_file_graph = tk.Button(button_container, text="Gráfico Cargado", command=file_graph)
 btn_file_graph.grid(row=1, column=2, padx=5, sticky="w")
 
-# Grupo de botones de Funciones
+# Botones funciones
 label_functions = tk.Label(button_container, text="Funciones", font=("Helvetica", 12, "bold"))
 label_functions.grid(row=2, column=0, pady=5, padx=10, sticky="w")
 
