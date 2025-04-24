@@ -94,9 +94,26 @@ def on_click(event, g):
                 destination_node = None
                 segment_mode = False
                 show_graph()  # Mostrar el gráfico con el nuevo segmento
-        else:
-            selected_node = closest_node
-            messagebox.showinfo("Nodo Seleccionado", f"Has seleccionado el nodo: {selected_node.name}")
+
+            elif shortest_path_mode:
+            # Lógica para seleccionar el nodo de origen y destino para el Camino más Corto
+            if origin_node is None:
+                origin_node = closest_node
+                messagebox.showinfo("Nodo Origen Seleccionado", f"Has seleccionado el nodo de origen: {origin_node.name}")
+            elif destination_node is None:
+                destination_node = closest_node
+                messagebox.showinfo("Nodo Destino Seleccionado",
+                                    f"Has seleccionado el nodo de destino: {destination_node.name}")
+
+                # Llamar a la función para calcular y mostrar el camino más corto
+                show_shortest_path()
+
+                # Restablecer el modo de camino más corto
+                shortest_path_mode = False
+                origin_node = None
+                destination_node = None
+                show_graph()
+
 
 def show_graph():
     global actual
@@ -256,6 +273,15 @@ def show_neighbors():
     canvas = FigureCanvasTkAgg(fig, master=graph_frame)
     canvas.get_tk_widget().pack(fill="both", expand=True)
     canvas.draw()
+
+# Variable para controlar el modo de selección de Camino Más Corto
+shortest_path_mode = False
+
+def set_shortest_path_mode():
+    global shortest_path_mode
+    shortest_path_mode = True
+    messagebox.showinfo("Modo Camino Más Corto", "Haz clic en un nodo para seleccionar el nodo de origen y luego en otro nodo para seleccionar el destino.")
+
 
 # Función para mostrar el camino más corto
 def show_shortest_path():
