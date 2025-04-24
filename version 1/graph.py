@@ -1,8 +1,9 @@
 from node import *
 from segment import *
-
 import matplotlib.pyplot as plt
 import math
+import heapq
+from path import *
 
 class Graph:
     def __init__(self):
@@ -145,3 +146,30 @@ def SaveGraph(g, filename):
         for segment in g.segment:
             file.write(f"S {segment.name} {segment.origin.name} {segment.destination.name}\n")
 
+def FindShortestPath(graph, origin, destination):
+    current_paths = []
+    start_path = Path(origin)
+    heapq.heappush(current_paths, (start_path.cost + Distance(origin, destination), start_path))
+    visited = set()
+
+    while current_paths:
+        cost_estimation, current_path = heapq.heappop(current_paths)
+        current_node = current_path.nodes[-1]
+
+        if current_node == destination:
+            return current_path
+        if current_node in visited:
+            continue
+
+        visited.add(current_node)
+
+        for neighbor in graph.get_neighbors(current_node):
+            new_path = Path(current_path.nodes[0])
+            new_path.nodes = current_path.nodes.copy()
+            new_path.cost = current_path.cost
+            new_path.AddNodeToPath(neighbor)
+
+            estimated_cost = new_path.cost + Distance(neighbor, destination)
+            heapq.heappush(current_paths, (estimated_cost, new_path))
+
+    return None
