@@ -286,6 +286,7 @@ def set_shortest_path_mode():
     global shortest_path_mode
     shortest_path_mode = True
     messagebox.showinfo("Modo Camino Más Corto", "Haz clic en un nodo para seleccionar el nodo de origen y luego en otro nodo para seleccionar el destino.")
+
 def show_shortest_path():
     global actual, origin_node, destination_node
 
@@ -297,52 +298,52 @@ def show_shortest_path():
     shortest_path = FindShortestPath(actual, origin_node, destination_node)
 
     if shortest_path:
-        # Ocultar el gráfico actual
         esconder()
-
-        # Llamar a la función para dibujar el gráfico con el camino más corto
         plot_shortest_path(actual, shortest_path)
     else:
         messagebox.showinfo("Resultado", "No se encontró un camino entre los nodos seleccionados.")
 
+    # Reiniciar nodos para permitir nuevas selecciones
+    origin_node = None
+    destination_node = None
+
 
 def add_shortest_path_button():
     global shortest_path_mode, origin_node, destination_node
-    shortest_path_mode = True  # Activamos el modo Camino Más Corto
+
+    # 👇 Esto reinicia la vista limpia
+    show_graph()
+
+    shortest_path_mode = True
     origin_node = None
     destination_node = None
     messagebox.showinfo("Modo Camino Más Corto Activado", "Haz clic en un nodo para seleccionar el origen y luego en otro nodo para seleccionar el destino.")
 
-import matplotlib.pyplot as plt
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
 def plot_shortest_path(graph, shortest_path):
     global actual
+
+    # 👇 Esta línea es clave para borrar el gráfico anterior (incluyendo cualquier camino dibujado)
+    esconder()
+
     fig, ax = plt.subplots(figsize=(5, 5))
 
-    # Dibujar el gráfico completo con todos los nodos y conexiones
-    Plot(graph)  # Asumimos que Plot es la función que dibuja todos los nodos y conexiones del gráfico original
+    # Dibujar el gráfico completo
+    Plot(graph)
 
-    # Dibujar las conexiones del camino más corto
+    # Dibujar el camino más corto
     for i in range(len(shortest_path) - 1):
         node1 = shortest_path[i]
         node2 = shortest_path[i + 1]
-
-        # Dibuja la línea que conecta los nodos
         ax.plot([node1.coordinate_x, node2.coordinate_x], [node1.coordinate_y, node2.coordinate_y], color='red', linewidth=2)
-
-        # Opcional: Añadir flechas para indicar la dirección del camino
         ax.annotate('', xy=(node2.coordinate_x, node2.coordinate_y), xytext=(node1.coordinate_x, node1.coordinate_y),
                     arrowprops=dict(facecolor='red', edgecolor='red', arrowstyle='->'))
 
-    # Título del gráfico
     ax.set_title("Camino más corto entre los nodos seleccionados")
 
-    # Dibujar la figura en el canvas de Tkinter
-    canvas = FigureCanvasTkAgg(fig, master=graph_frame)  # 'graph_frame' es el contenedor en tu interfaz de Tkinter
+    canvas = FigureCanvasTkAgg(fig, master=graph_frame)
     canvas.get_tk_widget().pack(fill="both", expand=True)
-    canvas.draw()  # Mostrar el gráfico
-
+    canvas.draw()
 
 # Grupo de botones de Gráficos
 label_graph = tk.Label(button_container, text="Gráficos", font=("Helvetica", 12, "bold"))
