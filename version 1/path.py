@@ -37,7 +37,7 @@ class Path:
             node1 = self.nodes[i]
             node2 = self.nodes[i + 1]
             ax.plot([node1.coordinate_x, node2.coordinate_x], [node1.coordinate_y, node2.coordinate_y])
-            ax.annotate('', xy = node2.coordinate_x, node2.coordinate_y), xytext = (node1.coordinate_x, node1.coordinate_y), arrowprops = dict(facecolor = 'red', edgecolor = 'red', arrowstyle = '->'))
+            ax.annotate('', xy = (node2.coordinate_x, node2.coordinate_y), xytext = (node1.coordinate_x, node1.coordinate_y), arrowprops = dict(facecolor = 'red', edgecolor = 'red', arrowstyle = '->'))
 
         for node in self.nodes:
             ax.scatter(node.coordinate_x, node.coordinate_y, color = 'blue')
