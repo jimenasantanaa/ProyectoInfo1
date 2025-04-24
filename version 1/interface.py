@@ -3,6 +3,7 @@ from tkinter import filedialog, messagebox, simpledialog
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from graph import *
+from path import *
 
 def CreateGraph_1():
     G = Graph()
@@ -257,6 +258,7 @@ def show_neighbors():
     canvas.draw()
 
 
+
 # Grupo de botones de Gráficos
 label_graph = tk.Label(button_container, text="Gráficos", font=("Helvetica", 12, "bold"))
 label_graph.grid(row=0, column=0, pady=5, padx=10, sticky="w")
@@ -288,5 +290,8 @@ btn_show_neighbors.grid(row=4, column=0, padx=5, pady=5, sticky="w")
 
 btn_save_current_graph = tk.Button(button_container, text="Guardar Gráfico", command=save_current_graph)
 btn_save_current_graph.grid(row=4, column=1, padx=5, pady=5, sticky="w")
+
+btn_shortest_path = tk.Button(button_container, text="Camino más corto", command=show_shortest_path)
+btn_shortest_path.grid(row=4, column=2, padx=5, pady=5, sticky="w")
 
 window.mainloop()
