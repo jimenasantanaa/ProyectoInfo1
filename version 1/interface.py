@@ -49,29 +49,32 @@ def CreateGraph_1():
 window = tk.Tk()
 window.title("Graph Viewer")
 
+# Crear el marco para los botones
 button_container = tk.Frame(window)
 button_container.grid(row=0, column=0, pady=10, padx=10, sticky="w")
 
+# Crear el marco para el gráfico
 graph_frame = tk.Frame(window)
 graph_frame.grid(row=1, column=0, sticky="nsew")
 
-window.grid_rowconfigure(1, weight=1)
+window.grid_rowconfigure(1, weight=1)  # Asegura que la segunda fila, donde está el gráfico, se expanda
 window.grid_columnconfigure(0, weight=1)
 
 selected_node = None
 origin_node = None
 destination_node = None
 actual = None
-segment_mode = False
+segment_mode = False  # Variable para controlar el modo de creación de segmentos
 
 def esconder():
     for widget in graph_frame.winfo_children():
         widget.destroy()
 
-shortest_path_mode = False
+# Variables de control
+shortest_path_mode = False  # Modo de Camino Más Corto
 origin_node = None
 destination_node = None
-segment_mode = False
+segment_mode = False  # Modo de Segmento
 
 def on_click(event, g):
     global selected_node, origin_node, destination_node, segment_mode, shortest_path_mode
@@ -79,15 +82,18 @@ def on_click(event, g):
     if x is None or y is None:
         return
 
+    # Obtener el nodo más cercano al clic
     closest_node = GetClosest(g, x, y)
     if closest_node:
         if segment_mode:
+            # Modo Segmento: Selección de origen y destino para crear un segmento
             if origin_node is None:
                 origin_node = closest_node
                 messagebox.showinfo("Nodo Origen Seleccionado", f"Has seleccionado el nodo de origen: {origin_node.name}")
             elif destination_node is None:
                 destination_node = closest_node
                 messagebox.showinfo("Nodo Destino Seleccionado", f"Has seleccionado el nodo de destino: {destination_node.name}")
+                # Añadir el segmento
                 segment_name = f"{origin_node.name}{destination_node.name}"
                 if origin_node != destination_node:
                     AddSegment(g, segment_name, origin_node.name, destination_node.name)
@@ -95,19 +101,22 @@ def on_click(event, g):
                 origin_node = None
                 destination_node = None
                 segment_mode = False
-                show_graph()
+                show_graph()  # Mostrar el gráfico con el nuevo segmento
         elif shortest_path_mode:
+            # Modo Camino Más Corto: Selección de nodos de origen y destino
             if origin_node is None:
                 origin_node = closest_node
                 messagebox.showinfo("Nodo Origen Seleccionado", f"Has seleccionado el nodo de origen: {origin_node.name}")
             elif destination_node is None:
                 destination_node = closest_node
                 messagebox.showinfo("Nodo Destino Seleccionado", f"Has seleccionado el nodo de destino: {destination_node.name}")
-                show_shortest_path()
-                shortest_path_mode = False
+                # Calcular el camino más corto
+                show_shortest_path()  # Llamamos a la función para calcular y mostrar el camino más corto
+                shortest_path_mode = False  # Desactivamos el modo de camino más corto
                 origin_node = None
-                destination_node = None
+                destination_node = None  # Actualizamos el gráfico para reflejar el camino más corto
         else:
+            # Si no estamos en modo de segmento ni camino más corto, seleccionamos un nodo normal
             selected_node = closest_node
             messagebox.showinfo("Nodo Seleccionado", f"Has seleccionado el nodo: {selected_node.name}")
 
@@ -270,62 +279,72 @@ def show_neighbors():
     canvas.get_tk_widget().pack(fill="both", expand=True)
     canvas.draw()
 
+# Variable para controlar el modo de selección de Camino Más Corto
 shortest_path_mode = False
 
 def set_shortest_path_mode():
     global shortest_path_mode
     shortest_path_mode = True
     messagebox.showinfo("Modo Camino Más Corto", "Haz clic en un nodo para seleccionar el nodo de origen y luego en otro nodo para seleccionar el destino.")
-
 def show_shortest_path():
     global actual, origin_node, destination_node
 
     if origin_node is None or destination_node is None:
-        messagebox.showwarning("Nodos no seleccionados",
-                               "Por favor, selecciona tanto el nodo de origen como el nodo de destino.")
+        messagebox.showwarning("Nodos no seleccionados", "Por favor, selecciona tanto el nodo de origen como el nodo de destino.")
         return
 
+    # Llamar a la función FindShortestPath para obtener el camino más corto
     shortest_path = FindShortestPath(actual, origin_node, destination_node)
 
     if shortest_path:
+        # Ocultar el gráfico actual
         esconder()
 
+        # Llamar a la función para dibujar el gráfico con el camino más corto
         plot_shortest_path(actual, shortest_path)
-
-        origin_node = None
-        destination_node = None
     else:
         messagebox.showinfo("Resultado", "No se encontró un camino entre los nodos seleccionados.")
 
+
 def add_shortest_path_button():
     global shortest_path_mode, origin_node, destination_node
-    shortest_path_mode = True
+    shortest_path_mode = True  # Activamos el modo Camino Más Corto
     origin_node = None
     destination_node = None
     messagebox.showinfo("Modo Camino Más Corto Activado", "Haz clic en un nodo para seleccionar el origen y luego en otro nodo para seleccionar el destino.")
+
+import matplotlib.pyplot as plt
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
 def plot_shortest_path(graph, shortest_path):
     global actual
     fig, ax = plt.subplots(figsize=(5, 5))
 
-    Plot(graph)
+    # Dibujar el gráfico completo con todos los nodos y conexiones
+    Plot(graph)  # Asumimos que Plot es la función que dibuja todos los nodos y conexiones del gráfico original
 
+    # Dibujar las conexiones del camino más corto
     for i in range(len(shortest_path) - 1):
         node1 = shortest_path[i]
         node2 = shortest_path[i + 1]
 
+        # Dibuja la línea que conecta los nodos
         ax.plot([node1.coordinate_x, node2.coordinate_x], [node1.coordinate_y, node2.coordinate_y], color='red', linewidth=2)
 
+        # Opcional: Añadir flechas para indicar la dirección del camino
         ax.annotate('', xy=(node2.coordinate_x, node2.coordinate_y), xytext=(node1.coordinate_x, node1.coordinate_y),
                     arrowprops=dict(facecolor='red', edgecolor='red', arrowstyle='->'))
 
+    # Título del gráfico
     ax.set_title("Camino más corto entre los nodos seleccionados")
 
-    canvas = FigureCanvasTkAgg(fig, master=graph_frame)
+    # Dibujar la figura en el canvas de Tkinter
+    canvas = FigureCanvasTkAgg(fig, master=graph_frame)  # 'graph_frame' es el contenedor en tu interfaz de Tkinter
     canvas.get_tk_widget().pack(fill="both", expand=True)
-    canvas.draw()
+    canvas.draw()  # Mostrar el gráfico
 
 
+# Grupo de botones de Gráficos
 label_graph = tk.Label(button_container, text="Gráficos", font=("Helvetica", 12, "bold"))
 label_graph.grid(row=0, column=0, pady=5, padx=10, sticky="w")
 
@@ -338,7 +357,7 @@ btn_load_graph.grid(row=1, column=1, padx=5, sticky="w")
 btn_file_graph = tk.Button(button_container, text="Gráfico Cargado", command=file_graph)
 btn_file_graph.grid(row=1, column=2, padx=5, sticky="w")
 
-
+# Grupo de botones de Funciones
 label_functions = tk.Label(button_container, text="Funciones", font=("Helvetica", 12, "bold"))
 label_functions.grid(row=2, column=0, pady=5, padx=10, sticky="w")
 
