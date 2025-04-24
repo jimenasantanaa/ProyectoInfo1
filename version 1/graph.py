@@ -10,6 +10,15 @@ class Graph:
         self.node = []
         self.segment = []
 
+    def get_neighbors(self, node):
+        neighbors = []
+        for segment in self.segment:
+            if segment.origin == node:
+                neighbors.append(segment.destination)
+            elif segment.destination == node:
+                neighbors.append(segment.origin)
+        return neighbors
+
 def AddNode(g, n):
     if n in g.node:
         return False
@@ -146,52 +155,39 @@ def SaveGraph(g, filename):
         for segment in g.segment:
             file.write(f"S {segment.name} {segment.origin.name} {segment.destination.name}\n")
 
-
 def FindShortestPath(graph, origin_node, destination_node):
-    unvisited_nodes = list(graph.nodes.values())  # Lista de nodos no visitados
-    shortest_path = {}  # Para almacenar las distancias más cortas
-    previous_nodes = {}  # Para almacenar los nodos previos
+    distances = {node: float('inf') for node in graph.node}
+    previous_nodes = {node: None for node in graph.node}
+    distances[origin_node] = 0
 
-    # Inicializar la distancia de todos los nodos a infinito
-    for node in unvisited_nodes:
-        shortest_path[node] = float('inf')
-    shortest_path[origin_node] = 0
+    priority_queue = [(0, origin_node)]
 
-    # Bucle principal de Dijkstra (o tu algoritmo de camino más corto)
-    while unvisited_nodes:
-        # Buscar el nodo no visitado con la distancia más corta
-        current_node = min(unvisited_nodes, key=lambda node: shortest_path[node])
+    while priority_queue:
+        current_distance, current_node = heapq.heappop(priority_queue)
 
-        # Obtener los vecinos del nodo actual
-        neighbors = graph.get_neighbors(current_node)
+        if current_node == destination_node:
+            break
 
-        for neighbor in neighbors:
-            tentative_value = shortest_path[current_node] + 1  # Asumiendo que todos los caminos tienen el mismo peso
-            if tentative_value < shortest_path[neighbor]:
-                shortest_path[neighbor] = tentative_value
+        if current_distance > distances[current_node]:
+            continue
+
+        for neighbor in graph.get_neighbors(current_node):
+            for segment in graph.segment:
+                if (segment.origin == current_node and segment.destination == neighbor) or \
+                        (segment.origin == neighbor and segment.destination == current_node):
+                    cost = segment.cost
+                    break
+
+            distance = current_distance + cost
+            if distance < distances[neighbor]:
+                distances[neighbor] = distance
                 previous_nodes[neighbor] = current_node
+                heapq.heappush(priority_queue, (distance, neighbor))
 
-        unvisited_nodes.remove(current_node)
-
-    # Reconstruir el camino más corto
     path = []
     current_node = destination_node
-    while current_node != origin_node:
-        path.append(current_node)
-        current_node = previous_nodes.get(current_node)
-
-    path.append(origin_node)
-    path.reverse()
+    while current_node is not None:
+        path.insert(0, current_node)
+        current_node = previous_nodes[current_node]
 
     return path
-
-
-def get_neighbors(self, node):
-    """ Devuelve los vecinos de un nodo. """
-    neighbors = []
-    for segment in self.edges:
-        if segment.origin == node:
-            neighbors.append(segment.destination)
-        elif segment.destination == node:
-            neighbors.append(segment.origin)
-    return neighbors

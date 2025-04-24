@@ -42,5 +42,3 @@ class Path:
         for node in self.nodes:
             ax.scatter(node.coordinate_x, node.coordinate_y, color = 'blue')
             ax.text(node.coordinate_x, node.coordinate_y, node.name, color = 'black', fontsize = 10, ha = 'right')
-
-
