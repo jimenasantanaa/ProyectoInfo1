@@ -285,24 +285,20 @@ def set_shortest_path_mode():
 
 # Función para mostrar el camino más corto
 def show_shortest_path():
-    global actual
-    if actual is None:
-        messagebox.showwarning("Gráfico no cargado", "Primero carga o crea un gráfico.")
+    global actual, origin_node, destination_node
+    if actual is None or origin_node is None or destination_node is None:
+        messagebox.showwarning("Nodos no seleccionados", "Por favor, selecciona tanto el nodo de origen como el nodo de destino.")
         return
 
-    # Seleccionamos los nodos de origen y destino
-    origin = actual.node[0]  # Por ejemplo, nodo 'A'
-    destination = actual.node[1]  # Por ejemplo, nodo 'B'
-
     # Llamar a la función FindShortestPath para obtener el camino más corto
-    shortest_path = FindShortestPath(actual, origin, destination)
+    shortest_path = FindShortestPath(actual, origin_node, destination_node)
 
     if shortest_path:
         plot_shortest_path(shortest_path)
     else:
         messagebox.showinfo("Resultado", "No se encontró un camino entre los nodos seleccionados.")
 
-# Función para trazar el camino más corto
+
 def plot_shortest_path(path):
     global actual
     fig, ax = plt.subplots(figsize=(5, 5))
@@ -354,7 +350,7 @@ btn_show_neighbors.grid(row=4, column=0, padx=5, pady=5, sticky="w")
 btn_save_current_graph = tk.Button(button_container, text="Guardar Gráfico", command=save_current_graph)
 btn_save_current_graph.grid(row=4, column=1, padx=5, pady=5, sticky="w")
 
-btn_shortest_path = tk.Button(button_container, text="Camino más corto", command=show_shortest_path)
+btn_shortest_path = tk.Button(button_container, text="Camino más corto", command=set_shortest_path_mode)
 btn_shortest_path.grid(row=4, column=2, padx=5, pady=5, sticky="w")
 
 window.mainloop()
