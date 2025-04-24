@@ -257,6 +257,43 @@ def show_neighbors():
     canvas.get_tk_widget().pack(fill="both", expand=True)
     canvas.draw()
 
+# Función para mostrar el camino más corto
+def show_shortest_path():
+    global actual
+    if actual is None:
+        messagebox.showwarning("Gráfico no cargado", "Primero carga o crea un gráfico.")
+        return
+
+    # Seleccionamos los nodos de origen y destino
+    origin = actual.node[0]  # Por ejemplo, nodo 'A'
+    destination = actual.node[1]  # Por ejemplo, nodo 'B'
+
+    # Llamar a la función FindShortestPath para obtener el camino más corto
+    shortest_path = FindShortestPath(actual, origin, destination)
+
+    if shortest_path:
+        plot_shortest_path(shortest_path)
+    else:
+        messagebox.showinfo("Resultado", "No se encontró un camino entre los nodos seleccionados.")
+
+# Función para trazar el camino más corto
+def plot_shortest_path(path):
+    global actual
+    fig, ax = plt.subplots(figsize=(5, 5))
+    Plot(actual)  # Asumiendo que Plot dibuja el gráfico
+
+    # Dibujar el camino más corto en rojo
+    for i in range(len(path.nodes) - 1):
+        node1 = path.nodes[i]
+        node2 = path.nodes[i + 1]
+        ax.plot([node1.coordinate_x, node2.coordinate_x], [node1.coordinate_y, node2.coordinate_y], color='red')
+        ax.annotate('', xy=(node2.coordinate_x, node2.coordinate_y), xytext=(node1.coordinate_x, node1.coordinate_y),
+                     arrowprops=dict(facecolor='red', edgecolor='red', arrowstyle='->'))
+
+    ax.set_title("Camino más corto")
+    canvas = FigureCanvasTkAgg(fig, master=graph_frame)
+    canvas.get_tk_widget().pack(fill="both", expand=True)
+    canvas.draw()
 
 
 # Grupo de botones de Gráficos
