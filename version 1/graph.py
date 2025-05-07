@@ -9,13 +9,15 @@ class Graph:
         self.node = []
         self.segment = []
 
-def AddNode(g, n):
+# Añadir navpoint
+def AddNavPoint(g, n):
     if n in g.node:
         return False
     g.node.append(n)
     return True
 
-def AddSegment(g, name, nameOriginNode, nameDestinationNode):
+# Añadir segmento
+def AddNavSegment(g, name, nameOriginNode, nameDestinationNode):
     origin = None
     destination = None
     i = 0
