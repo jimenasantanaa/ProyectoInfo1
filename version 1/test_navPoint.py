@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 from navPoint import load_navpoints
 
 def load_and_draw():
+    # Abrir el archivo de NavPoints
     file_path = filedialog.askopenfilename(
         title="Selecciona el archivo de NavPoints",
         filetypes=(("Text Files", "*.txt"), ("All Files", "*.*"))
@@ -12,7 +13,10 @@ def load_and_draw():
     if not file_path:
         return
 
+    # Cargar los NavPoints
     grafo = load_navpoints(file_path)
+
+    # Dibujar el gráfico con los puntos
     draw_graph(grafo)
 
 def draw_graph(grafo):
@@ -22,9 +26,10 @@ def draw_graph(grafo):
 
     fig, ax = plt.subplots(figsize=(8, 6))
 
-    lats = [n.latitude for n in grafo.node]
-    longs = [n.longitude for n in grafo.node]
-    names = [n.name for n in grafo.node]
+    # Usar navPoint en lugar de node
+    lats = [n.latitude for n in grafo.navPoint]  # Cambiado de node a navPoint
+    longs = [n.longitude for n in grafo.navPoint]  # Cambiado de node a navPoint
+    names = [n.name for n in grafo.navPoint]  # Cambiado de node a navPoint
 
     ax.scatter(longs, lats, s=10, c='blue')
     for i, name in enumerate(names):
@@ -35,12 +40,12 @@ def draw_graph(grafo):
     ax.set_ylabel("Latitud")
     ax.grid(True)
 
+    # Mostrar el gráfico en Tkinter
     canvas = FigureCanvasTkAgg(fig, master=plot_frame)
     canvas.draw()
     canvas.get_tk_widget().pack(fill=tk.BOTH, expand=True)
 
 # ----- Interfaz Tkinter principal -----
-
 root = tk.Tk()
 root.title("Visualizador de NavPoints")
 root.geometry("900x700")

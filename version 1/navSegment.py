@@ -6,17 +6,19 @@ class NavSegment:
         self.destination_number = destination_number
         self.distance = distance
 
-# Cargar gráfico
-def load_navsegment(filename):
+# Cargar segmentos de navegación
+def load_navsegment(filename, g):
     import os
-    g = Graph()
     if os.path.exists(filename):
         with open(filename, 'r') as file:
             for line in file:
                 line = line.strip()
                 parts = line.split()
-                origin_num, destination_num, distance = float(parts[0]), parts[1], float(parts[2])
-                AddNavSegment(g, NavSegment(origin_num, destination_num, distance))
+                origin_num = int(parts[0])
+                destination_num = int(parts[1])
+                distance = float(parts[2])
+                AddNavSegment(g, origin_num, destination_num, distance)  # Añadir el segmento al gráfico
         return g
     else:
         print("El archivo no es correcto")
+        return g

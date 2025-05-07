@@ -17,7 +17,7 @@ def load_navpoints(filename):
                 line = line.strip()
                 parts = line.split()
                 num, name, lat, long = float(parts[0]), parts[1], float(parts[2]), float(parts[3])
-                AddNavPoint(g, NavPoint(num, name, lat, long))
+                AddNavPoint(g, NavPoint(num, name, lat, long))  # Añadir el punto al gráfico
         return g
     else:
         print("El archivo no es correcto")

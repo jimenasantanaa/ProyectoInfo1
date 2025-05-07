@@ -6,33 +6,36 @@ import math
 
 class Graph:
     def __init__(self):
-        self.node = []
-        self.segment = []
+        self.navPoint = []  # Lista de puntos de navegación
+        self.navSegment = []  # Lista de segmentos de navegación
 
 # Añadir navpoint
 def AddNavPoint(g, n):
-    if n in g.node:
+    if n in g.navPoint:
         return False
-    g.node.append(n)
+    g.navPoint.append(n)
     return True
 
 # Añadir segmento
-def AddNavSegment(g, name, nameOriginNode, nameDestinationNode):
+def AddNavSegment(g, origin_number, destination_number, distance):
     origin = None
     destination = None
-    i = 0
-    while i < len(g.node) and (origin is None or destination is None):
-        if g.node[i].name == nameOriginNode:
-            origin = g.node[i]
-        elif g.node[i].name == nameDestinationNode:
-            destination = g.node[i]
-        i = i + 1
+    for navPoint in g.navPoint:
+        if hasattr(navPoint, "number"):  # Asegura que sea un NavPoint válido
+            if navPoint.number == origin_number:
+                origin = navPoint
+            elif navPoint.number == destination_number:
+                destination = navPoint
+        if origin and destination:
+            break
+
     if origin and destination:
-        AddNeighbor(origin, destination)
-        segment = Segment(name, origin, destination)
-        g.segment.append(segment)
+        AddNeighbor(origin, destination)  # Asegúrate de tener la función AddNeighbor definida
+        segment = Segment(f"SEG_{origin.name}_{destination.name}", origin, destination, distance)
+        g.navSegment.append(segment)  # Asegúrate de agregar el segmento a navSegment
         return True
     return False
+
 
 def GetClosest(g, x, y):
     if not g.node:

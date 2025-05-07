@@ -2,48 +2,76 @@ import tkinter as tk
 from tkinter import filedialog
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import matplotlib.pyplot as plt
-from navPoint import load_navpoints  # Importa la función load_navpoints
-from navSegment import load_navsegment  # Importa la función load_navsegment
-from graph import Graph  # Asegúrate de tener la clase Graph definida correctamente
 
-# Crear la ventana de Tkinter
+from navPoint import load_navpoints
+from navSegment import load_navsegment
+
+def load_and_draw():
+    nav_file = filedialog.askopenfilename(
+        title="Selecciona el archivo de NavPoints (Cat_nav.txt)",
+        filetypes=(("Text Files", "*.txt"), ("All Files", "*.*"))
+    )
+    if not nav_file:
+        return
+
+    grafo = load_navpoints(nav_file)
+
+    seg_file = filedialog.askopenfilename(
+        title="Selecciona el archivo de segmentos (Cat_seg.txt)",
+        filetypes=(("Text Files", "*.txt"), ("All Files", "*.*"))
+    )
+    if not seg_file:
+        return
+
+    load_navsegment(seg_file, grafo)
+    draw_graph(grafo)
+
+def draw_graph(grafo):
+    global canvas
+    if canvas:
+        canvas.get_tk_widget().destroy()
+
+    fig, ax = plt.subplots(figsize=(8, 6))
+
+    # Dibujar puntos
+    lats = [n.latitude for n in grafo.navPoint]
+    longs = [n.longitude for n in grafo.navPoint]
+    names = [n.name for n in grafo.navPoint]
+
+    ax.scatter(longs, lats, s=10, c='blue')
+    for i, name in enumerate(names):
+        ax.text(longs[i], lats[i], name, fontsize=6, alpha=0.6)
+
+    # Dibujar segmentos
+    for seg in grafo.navSegment:
+        origin = next((n for n in grafo.navPoint if n.number == seg.origin_number), None)
+        destination = next((n for n in grafo.navPoint if n.number == seg.destination_number), None)
+        if origin and destination:
+            ax.plot([origin.longitude, destination.longitude],
+                    [origin.latitude, destination.latitude],
+                    'k-', linewidth=0.5)
+
+    ax.set_title("Red de Navegación Aérea")
+    ax.set_xlabel("Longitud")
+    ax.set_ylabel("Latitud")
+    ax.grid(True)
+
+    canvas = FigureCanvasTkAgg(fig, master=plot_frame)
+    canvas.draw()
+    canvas.get_tk_widget().pack(fill=tk.BOTH, expand=True)
+
+# ---- Interfaz ----
+
 root = tk.Tk()
 root.title("Visualizador de Rutas Aéreas")
-root.geometry("800x600")
+root.geometry("900x700")
 
-# Crear la figura para el gráfico
-fig, ax = plt.subplots(figsize=(8, 6))
-canvas = FigureCanvasTkAgg(fig, master=root)
-canvas.get_tk_widget().pack(fill=tk.BOTH, expand=True)
+load_button = tk.Button(root, text="Cargar NavPoints y Segmentos", command=load_and_draw)
+load_button.pack(pady=10)
 
-global_graph = None
+plot_frame = tk.Frame(root)
+plot_frame.pack(fill=tk.BOTH, expand=True)
 
-# Función para dibujar el gráfico
-def draw_graph(g):
-    ax.clear()  # Limpia el gráfico previo
-    for node in g.navPoint:
-        ax.plot(node.longitude, node.latitude, 'bo')  # Dibuja puntos (Lon, Lat)
-        ax.text(node.longitude + 0.01, node.latitude + 0.01, node.name, fontsize=6)
-    for segment in g.navSegment:
-        origin = next((np for np in g.navPoint if np.number == segment.origin_number), None)
-        destination = next((np for np in g.navPoint if np.number == segment.destination_number), None)
-        if origin and destination:
-            ax.plot([origin.longitude, destination.longitude], [origin.latitude, destination.latitude], 'k-', linewidth=0.5)
-    ax.set_title("Red de Navegación Aérea")
-    canvas.draw()
+canvas = None
 
-# Función para cargar los archivos de puntos y segmentos
-def load_files():
-    global global_graph
-    nav_file = filedialog.askopenfilename(title="Selecciona el archivo de puntos de navegación (Cat_nav.txt)")
-    global_graph = load_navpoints(nav_file)  # Usar la función de carga de NavPoint
-    seg_file = filedialog.askopenfilename(title="Selecciona el archivo de segmentos de navegación (Cat_seg.txt)")
-    load_navsegment(seg_file, global_graph)  # Usar la función de carga de NavSegment
-    draw_graph(global_graph)
-
-# Botón para cargar los archivos y generar el gráfico
-button = tk.Button(root, text="Cargar Rutas de Catalunya", command=load_files)
-button.pack(pady=10)
-
-# Ejecutar la ventana de Tkinter
 root.mainloop()
