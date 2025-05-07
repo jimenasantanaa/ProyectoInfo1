@@ -6,4 +6,3 @@ class Segment:
         self.origin = origin
         self.destination = destination
         self.cost = Distance(origin, destination)
-

@@ -1,13 +1,13 @@
 from node import *
 from segment import *
-
 import matplotlib.pyplot as plt
 import math
+from navPoint import *
 
 class Graph:
     def __init__(self):
-        self.navPoint = []  # Lista de puntos de navegación
-        self.navSegment = []  # Lista de segmentos de navegación
+        self.navPoint = []
+        self.navSegment = []
 
 # Añadir navpoint
 def AddNavPoint(g, n):
@@ -17,25 +17,20 @@ def AddNavPoint(g, n):
     return True
 
 # Añadir segmento
-def AddNavSegment(g, origin_number, destination_number, distance):
+def AddNavSegment(grafo, segmento):
     origin = None
     destination = None
-    for navPoint in g.navPoint:
-        if hasattr(navPoint, "number"):  # Asegura que sea un NavPoint válido
-            if navPoint.number == origin_number:
-                origin = navPoint
-            elif navPoint.number == destination_number:
-                destination = navPoint
-        if origin and destination:
-            break
+
+    for nav_point in grafo.navPoint:
+        if nav_point.number == segmento.origin_number:
+            origin = nav_point
+        elif nav_point.number == segmento.destination_number:
+            destination = nav_point
 
     if origin and destination:
-        AddNeighbor(origin, destination)  # Asegúrate de tener la función AddNeighbor definida
-        segment = Segment(f"SEG_{origin.name}_{destination.name}", origin, destination, distance)
-        g.navSegment.append(segment)  # Asegúrate de agregar el segmento a navSegment
+        grafo.navSegment.append(segmento)
         return True
     return False
-
 
 def GetClosest(g, x, y):
     if not g.node:

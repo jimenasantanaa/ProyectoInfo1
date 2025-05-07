@@ -5,12 +5,14 @@ import matplotlib.pyplot as plt
 
 from navPoint import load_navpoints
 from navSegment import load_navsegment
+from node import *
+from segment import *
+from graph import *
 
 def load_and_draw():
     nav_file = filedialog.askopenfilename(
         title="Selecciona el archivo de NavPoints (Cat_nav.txt)",
-        filetypes=(("Text Files", "*.txt"), ("All Files", "*.*"))
-    )
+        filetypes=(("Text Files", "*.txt"), ("All Files", "*.*")))
     if not nav_file:
         return
 
