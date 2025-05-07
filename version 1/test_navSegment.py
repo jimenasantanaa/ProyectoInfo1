@@ -57,7 +57,7 @@ def mostrar_vecinos():
     vecinos = GetNavNeighbors(grafo, nodo)
 
     ax.clear()
-    ax.set_title("Red de Navegación Aérea")
+    ax.set_title("Gráfico")
     ax.set_xlabel("Longitud")
     ax.set_ylabel("Latitud")
     ax.grid(True)
@@ -160,7 +160,7 @@ def draw_graph(g):
         ax.scatter(n.longitude, n.latitude, color='blue', s=10)
         ax.text(n.longitude, n.latitude, n.name, fontsize=6, alpha=0.6)
 
-    ax.set_title("Red de Navegación Aérea")
+    ax.set_title("Gráfico")
     ax.set_xlabel("Longitud")
     ax.set_ylabel("Latitud")
     ax.grid(True)
@@ -188,19 +188,19 @@ def load_and_draw():
     draw_graph(grafo)
 
 root = tk.Tk()
-root.title("Visualizador de Rutas Aéreas")
+root.title("Visualizador")
 root.geometry("900x700")
 
-btn_cargar = tk.Button(root, text="Cargar NavPoints y Segmentos", command=load_and_draw)
+btn_cargar = tk.Button(root, text="Cargar NavPoints y NavSegmentos", command=load_and_draw)
 btn_cargar.pack(pady=10)
 
-btn_vecinos = tk.Button(root, text="Mostrar vecinos del nodo seleccionado", command=preparar_mostrar_vecinos)
+btn_vecinos = tk.Button(root, text="Mostrar vecinos ", command=preparar_mostrar_vecinos)
 btn_vecinos.pack(pady=5)
 
-btn_camino = tk.Button(root, text="Camino más corto entre dos puntos", command=preparar_camino_mas_corto)
+btn_camino = tk.Button(root, text="Camino más corto", command=preparar_camino_mas_corto)
 btn_camino.pack(pady=5)
 
-btn_todos = tk.Button(root, text="Volver al gráfico completo", command=lambda: draw_graph(grafo) if grafo else None)
+btn_todos = tk.Button(root, text="Volver gráfico completo", command=lambda: draw_graph(grafo) if grafo else None)
 btn_todos.pack(pady=5)
 
 plot_frame = tk.Frame(root)
