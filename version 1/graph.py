@@ -144,4 +144,3 @@ def SaveGraph(g, filename):
             file.write(f"N {node.name} {node.coordinate_x} {node.coordinate_y}\n")
         for segment in g.segment:
             file.write(f"S {segment.name} {segment.origin.name} {segment.destination.name}\n")
-
