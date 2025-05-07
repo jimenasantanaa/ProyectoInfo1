@@ -16,9 +16,12 @@ grafo = None
 selected_node = [None]
 fig = None
 ax = None
+waiting_for_neighbor_selection = False
 
 # Selección por clic
 def on_click(event):
+    global waiting_for_neighbor_selection
+
     if grafo is None:
         return
     x, y = event.xdata, event.ydata
@@ -27,10 +30,14 @@ def on_click(event):
 
     closest = min(grafo.navPoint, key=lambda n: math.hypot(n.longitude - x, n.latitude - y))
     selected_node[0] = closest
-    messagebox.showinfo("Nodo seleccionado", f"Has seleccionado el nodo: {closest.name}")
 
-# Mostrar solo los vecinos del nodo
-# Mostrar solo los vecinos del nodo
+    if waiting_for_neighbor_selection:
+        waiting_for_neighbor_selection = False
+        mostrar_vecinos()
+    else:
+        messagebox.showinfo("Nodo seleccionado", f"Has seleccionado el nodo: {closest.name}")
+
+
 # Mostrar solo los vecinos del nodo
 def mostrar_vecinos():
     if selected_node[0] is None:
@@ -79,7 +86,10 @@ def mostrar_vecinos():
 
     canvas.draw()
 
-
+def preparar_mostrar_vecinos():
+    global waiting_for_neighbor_selection
+    waiting_for_neighbor_selection = True
+    messagebox.showinfo("Selecciona nodo", "Haz clic en un nodo para mostrar sus vecinos.")
 
 # Dibujar gráfico completo
 def draw_graph(g):
@@ -142,7 +152,7 @@ root.geometry("900x700")
 btn_cargar = tk.Button(root, text="Cargar NavPoints y Segmentos", command=load_and_draw)
 btn_cargar.pack(pady=10)
 
-btn_vecinos = tk.Button(root, text="Mostrar vecinos del nodo seleccionado", command=mostrar_vecinos)
+btn_vecinos = tk.Button(root, text="Mostrar vecinos del nodo seleccionado", command=preparar_mostrar_vecinos)
 btn_vecinos.pack(pady=5)
 
 btn_todos = tk.Button(root, text="Volver al gráfico completo", command=lambda: draw_graph(grafo) if grafo else None)
