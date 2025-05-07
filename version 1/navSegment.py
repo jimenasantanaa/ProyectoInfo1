@@ -6,7 +6,7 @@ class NavSegment:
         self.destination_number = destination_number
         self.distance = distance
 
-# Cargar segmentos de navegación
+# Cargar segmentos
 def load_navsegment(filename, grafo):
     import os
     if os.path.exists(filename):
