@@ -30,6 +30,8 @@ def on_click(event):
     messagebox.showinfo("Nodo seleccionado", f"Has seleccionado el nodo: {closest.name}")
 
 # Mostrar solo los vecinos del nodo
+# Mostrar solo los vecinos del nodo
+# Mostrar solo los vecinos del nodo
 def mostrar_vecinos():
     if selected_node[0] is None:
         messagebox.showwarning("Advertencia", "Por favor selecciona un nodo haciendo clic en el gráfico.")
@@ -38,23 +40,46 @@ def mostrar_vecinos():
     nodo = selected_node[0]
     vecinos = GetNavNeighbors(grafo, nodo)
 
-    # Dibujar vecinos
+    # Dibujar el gráfico completo como fondo
     global ax, fig, canvas
     ax.clear()
-    ax.set_title(f"Vecinos de {nodo.name}")
+    ax.set_title("Red de Navegación Aérea")
     ax.set_xlabel("Longitud")
     ax.set_ylabel("Latitud")
     ax.grid(True)
 
+    # Dibujar todos los puntos de la red
+    lats = [n.latitude for n in grafo.navPoint]
+    longs = [n.longitude for n in grafo.navPoint]
+    names = [n.name for n in grafo.navPoint]
+    ax.scatter(longs, lats, s=10, c='blue')
+    for i, name in enumerate(names):
+        ax.text(longs[i], lats[i], name, fontsize=6, alpha=0.6)
+
+    # Dibujar solo los segmentos que conectan el nodo seleccionado con sus vecinos
+    for seg in grafo.navSegment:
+        origin = next((n for n in grafo.navPoint if n.number == seg.origin_number), None)
+        destination = next((n for n in grafo.navPoint if n.number == seg.destination_number), None)
+        if origin and destination:
+            # Solo dibujamos los segmentos entre el nodo seleccionado y sus vecinos
+            if origin == nodo or destination == nodo:
+                ax.plot([origin.longitude, destination.longitude], [origin.latitude, destination.latitude], 'c-', linewidth=0.5)  # Turquesa y más fina
+
+    # Marcar el nodo seleccionado
     ax.plot(nodo.longitude, nodo.latitude, 'ro')
     ax.text(nodo.longitude, nodo.latitude, nodo.name, fontsize=8, color='red')
 
+    # Dibujar los vecinos
     for vecino in vecinos:
         ax.plot(vecino.longitude, vecino.latitude, 'bo')
         ax.text(vecino.longitude, vecino.latitude, vecino.name, fontsize=6, alpha=0.6)
-        ax.plot([nodo.longitude, vecino.longitude], [nodo.latitude, vecino.latitude], 'k--', linewidth=0.8)
+
+        # Dibujar la línea de conexión turquesa y continua
+        ax.plot([nodo.longitude, vecino.longitude], [nodo.latitude, vecino.latitude], 'c-', linewidth=0.5)  # Turquesa y más fina
 
     canvas.draw()
+
+
 
 # Dibujar gráfico completo
 def draw_graph(g):
