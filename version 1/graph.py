@@ -48,6 +48,20 @@ def GetClosest(g, x, y):
         i = i + 1
     return closest
 
+def GetNavNeighbors(grafo, navpoint):
+    vecinos = []
+    for seg in grafo.navSegment:
+        if seg.origin_number == navpoint.number:
+            vecino = next((n for n in grafo.navPoint if n.number == seg.destination_number), None)
+            if vecino:
+                vecinos.append(vecino)
+        elif seg.destination_number == navpoint.number:
+            vecino = next((n for n in grafo.navPoint if n.number == seg.origin_number), None)
+            if vecino:
+                vecinos.append(vecino)
+    return vecinos
+
+
 def Plot(g):
     for segment in g.segment:
         x_values = [segment.origin.coordinate_x, segment.destination.coordinate_x]
@@ -144,3 +158,5 @@ def SaveGraph(g, filename):
             file.write(f"N {node.name} {node.coordinate_x} {node.coordinate_y}\n")
         for segment in g.segment:
             file.write(f"S {segment.name} {segment.origin.name} {segment.destination.name}\n")
+
+
