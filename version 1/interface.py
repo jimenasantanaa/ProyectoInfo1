@@ -362,7 +362,7 @@ label_functions.grid(row=2, column=0, pady=5, padx=10, sticky="w")
 btn_add_node = tk.Button(button_container, text="Agregar Nodo", command=add_node)
 btn_add_node.grid(row=3, column=0, padx=5, sticky="w")
 
-btn_add_segment = tk.Button(button_container, text="Modo Segmento", command=add_segment_button)
+btn_add_segment = tk.Button(button_container, text="Agregar Segmento", command=add_segment_button)
 btn_add_segment.grid(row=3, column=1, padx=5, sticky="w")
 
 btn_remove_node = tk.Button(button_container, text="Eliminar Nodo", command=remove_selected_node)
