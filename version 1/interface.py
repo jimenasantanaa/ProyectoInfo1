@@ -366,7 +366,7 @@ btn_add_segment = tk.Button(button_container, text="Modo Segmento", command=add_
 btn_add_segment.grid(row=3, column=1, padx=5, sticky="w")
 
 btn_remove_node = tk.Button(button_container, text="Eliminar Nodo", command=remove_selected_node)
-btn_remove_node.grid(row=3, column=2, padx=5, sticky="w")
+btn_remove_node.grid(row=4, column=2, padx=5, sticky="w")
 
 btn_show_neighbors = tk.Button(button_container, text="Mostrar Vecinos", command=show_neighbors)
 btn_show_neighbors.grid(row=4, column=0, padx=5, pady=5, sticky="w")
