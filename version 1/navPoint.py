@@ -7,7 +7,7 @@ class NavPoint:
         self.latitude = latitude
         self.longitude = longitude
 
-# Cargar gráfico
+# Cargar puntos
 def load_navpoints(filename):
     import os
     g = Graph()
