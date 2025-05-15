@@ -4,6 +4,7 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import matplotlib.pyplot as plt
 import math
 from collections import deque
+import tkinter.simpledialog as simpledialog
 
 from navPoint import load_navpoints
 from navSegment import load_navsegment
@@ -197,6 +198,46 @@ def load_and_draw():
     load_navsegment(seg_file, grafo)
     draw_graph(grafo)
 
+
+def camino_mas_corto_por_aeropuerto():
+    global airports, grafo
+
+    if not grafo or not airports:
+        messagebox.showwarning("Advertencia", "Carga los archivos primero.")
+        return
+
+    nombres = [a.name for a in airports]
+
+    origen = simpledialog.askstring("Aeropuerto origen",
+                                    f"Introduce el aeropuerto de origen:\nOpciones: {', '.join(nombres)}")
+    if origen is None or origen not in nombres:
+        messagebox.showerror("Error", "Aeropuerto de origen no válido o cancelado.")
+        return
+
+    destino = simpledialog.askstring("Aeropuerto destino",
+                                     f"Introduce el aeropuerto de destino:\nOpciones: {', '.join(nombres)}")
+    if destino is None or destino not in nombres:
+        messagebox.showerror("Error", "Aeropuerto de destino no válido o cancelado.")
+        return
+
+    aeropuerto_origen = next(a for a in airports if a.name == origen)
+    aeropuerto_destino = next(a for a in airports if a.name == destino)
+
+    nodo_sid = next((n for n in grafo.navPoint if n.name == aeropuerto_origen.sid), None)
+    nodo_star = next((n for n in grafo.navPoint if n.name == aeropuerto_destino.star), None)
+
+    if nodo_sid is None:
+        messagebox.showerror("Error",
+                             f"No se encontró el nodo SID {aeropuerto_origen.sid} para el aeropuerto de origen.")
+        return
+
+    if nodo_star is None:
+        messagebox.showerror("Error",
+                             f"No se encontró el nodo STAR {aeropuerto_destino.star} para el aeropuerto de destino.")
+        return
+
+    mostrar_camino_mas_corto(nodo_sid, nodo_star)
+
 root = tk.Tk()
 root.title("Visualizador")
 root.geometry("900x700")
@@ -212,6 +253,11 @@ btn_camino.pack(pady=5)
 
 btn_todos = tk.Button(root, text="Volver gráfico completo", command=lambda: draw_graph(grafo) if grafo else None)
 btn_todos.pack(pady=5)
+
+btn_camino_aero = tk.Button(root, text="Camino más corto (por aeropuerto)", command=camino_mas_corto_por_aeropuerto)
+btn_camino_aero.pack(pady=5)
+
+
 
 plot_frame = tk.Frame(root)
 plot_frame.pack(fill=tk.BOTH, expand=True)
