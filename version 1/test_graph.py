@@ -1,58 +1,48 @@
 from graph import *
-def CreateGraph_1 ():
+from navPoint import *
+import matplotlib.pyplot as plt
+from navSegment import *
+
+def CreateGraphNav():
     G = Graph()
-    AddNode(G, Node("A",1,20))
-    AddNode(G, Node("B",8,17))
-    AddNode(G, Node("C",15,20))
-    AddNode(G, Node("D",18,15))
-    AddNode(G, Node("E",2,4))
-    AddNode(G, Node("F",6,5))
-    AddNode(G, Node("G",12,12))
-    AddNode(G, Node("H",10,3))
-    AddNode(G, Node("I",19,1))
-    AddNode(G, Node("J",13,5))
-    AddNode(G, Node("K",3,15))
-    AddNode(G, Node("L",4,10))
-    AddSegment(G, "AB","A","B")
-    AddSegment(G, "AE","A","E")
-    AddSegment(G, "AK","A","K")
-    AddSegment(G, "BA","B","A")
-    AddSegment(G, "BC","B","C")
-    AddSegment(G, "BF","B","F")
-    AddSegment(G, "BK", "B", "K")
-    AddSegment(G, "BG", "B", "G")
-    AddSegment(G, "CD", "C", "D")
-    AddSegment(G, "CG", "C", "G")
-    AddSegment(G, "DG", "D", "G")
-    AddSegment(G, "DH", "D", "H")
-    AddSegment(G, "DI", "D", "I")
-    AddSegment(G, "EF", "E", "F")
-    AddSegment(G, "FL", "F", "L")
-    AddSegment(G, "GB", "G", "B")
-    AddSegment(G, "GF", "G", "F")
-    AddSegment(G, "GH", "G", "H")
-    AddSegment(G, "ID", "I", "D")
-    AddSegment(G, "IJ", "I", "J")
-    AddSegment(G, "JI", "J", "I")
-    AddSegment(G, "KA", "K", "A")
-    AddSegment(G, "KL", "K", "L")
-    AddSegment(G, "LK", "L", "K")
-    AddSegment(G, "LF", "L", "F")
+    AddNavPoint(G, NavPoint(1, "A", 1, 20))
+    AddNavPoint(G, NavPoint(2, "B", 8, 17))
+    AddNavPoint(G, NavPoint(3, "C", 15, 20))
+    AddNavPoint(G, NavPoint(4, "D", 18, 15))
+    AddNavPoint(G, NavPoint(5, "E", 2, 4))
+    AddNavPoint(G, NavPoint(6, "F", 6, 5))
+    AddNavPoint(G, NavPoint(7, "G", 12, 12))
+    AddNavPoint(G, NavPoint(8, "H", 10, 3))
+    AddNavPoint(G, NavPoint(9, "I", 19, 1))
+    AddNavPoint(G, NavPoint(10, "J", 13, 5))
+    AddNavPoint(G, NavPoint(11, "K", 3, 15))
+    AddNavPoint(G, NavPoint(12, "L", 4, 10))
+
+
+    segmentos = [
+        ("AB", 1, 2), ("AE", 1, 5), ("AK", 1, 11),
+        ("BA", 2, 1), ("BC", 2, 3), ("BF", 2, 6), ("BK", 2, 11), ("BG", 2, 7),
+        ("CD", 3, 4), ("CG", 3, 7),
+        ("DG", 4, 7), ("DH", 4, 8), ("DI", 4, 9),
+        ("EF", 5, 6), ("FL", 6, 12),
+        ("GB", 7, 2), ("GF", 7, 6), ("GH", 7, 8),
+        ("ID", 9, 4), ("IJ", 9, 10), ("JI", 10, 9),
+        ("KA", 11, 1), ("KL", 11, 12), ("LK", 12, 11), ("LF", 12, 6)
+    ]
+
+    for name, origin, dest in segmentos:
+        AddNavSegment(G, NavSegment(name, origin, dest))
+
     return G
 
 print("Probando el grafo...")
-G = CreateGraph_1()
+G = CreateGraphNav()
 plt.figure()
 Plot(G)
-plt.figure()
-PlotNode(G, "C")
-n = GetClosest(G, 15, 5)
-print(n.name)  # La respuesta debe ser J
-n = GetClosest(G, 8, 19)
-print(n.name)  # La respuesta debe ser B
 
-g_file = Data('datos.txt')
-plt.figure()
-Plot(g_file)
+origin = GetClosest(G, 15, 5)
+print(origin.name)  # Debería ser J
+origin = GetClosest(G, 8, 19)
+print(origin.name)  # Debería ser B
 
 plt.show()
