@@ -8,16 +8,17 @@ class NavPoint:
         self.longitude = longitude
 
 # Cargar puntos
-def load_navpoints(filename):
-    import os
-    g = Graph()
-    if os.path.exists(filename):
-        with open(filename, 'r') as file:
-            for line in file:
+    def load_navpoints(filename):
+        navpoints = []
+        with open(filename, 'r') as f:
+            for line in f:
                 line = line.strip()
+                if not line:
+                    continue
                 parts = line.split()
-                num, name, lat, long = float(parts[0]), parts[1], float(parts[2]), float(parts[3])
-                AddNavPoint(g, NavPoint(num, name, lat, long))
-        return g
-    else:
-        print("El archivo no es correcto")
+                num = float(parts[0])
+                name = parts[1]
+                lat = float(parts[2])
+                lon = float(parts[3])
+                navpoints.append(NavPoint(num,name,lat,lon))
+        return navpoints

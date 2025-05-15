@@ -1,10 +1,26 @@
 from NavAirport import *
+from navPoint import *
 from graph import *
+
+
+navpoints_list = NavPoint.load_navpoints("Cat_nav.txt")
+
+
+graph = Graph()
+graph.navPoint = navpoints_list  # Asignar la lista cargada
 
 airports = read_airport("Cat_aer.txt")
 
 nombre = input("Introduce el nombre del aeropuerto: ")
 
-print(f"sid aeropuerto {Airport.name}:")
-for nav in Airport.sid:
-    print(f"-{nav.name}: lat {nav.lat}, lon {nav.lon}")
+aeropuerto = airports.get(nombre)
+if aeropuerto is None:
+    print(f"Aeropuerto {nombre} no encontrado")
+else:
+    aeropuerto.relacionar(graph)
+
+    print(f"sid aeropuerto {aeropuerto.name}:")
+    for nav in aeropuerto.sid:
+        print(f"- {nav.name}: lat {nav.latitude}, lon {nav.longitude}")
+    for nav in aeropuerto.star:
+        print(f"- {nav.name}: lat {nav.latitude}, lon {nav.longitude}")
