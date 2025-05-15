@@ -21,5 +21,7 @@ else:
     print(f"sid aeropuerto {aeropuerto.name}:")
     for nav in aeropuerto.sid:
         print(f"- {nav.name}: lat {nav.latitude}, lon {nav.longitude}")
+
+    print(f"star aeropuerto {aeropuerto.name}:")
     for nav in aeropuerto.star:
         print(f"- {nav.name}: lat {nav.latitude}, lon {nav.longitude}")
