@@ -1,19 +1,18 @@
-from navPoint import NavPoint, load_navpoints
-from NavSegment import NavSegment, load_navsegment
-from NavAirport import Airport, read_airport
+from navPoint import *
+from navSegment import *
+from NavAirport import *
 
 class AirSpace:
     def __init__(self, navpoints, navsegments, navairports):
-        self.navpoints = navpoints      # Lista de NavPoint
-        self.navsegments = navsegments  # Lista de NavSegment
-        self.navairports = navairports  # Diccionario de Airport
+        self.navpoints = []
+        self.navsegments = []
+        self.navairports = {}
 
     def cargar_navpoints(self, filename):
         self.navpoints = load_navpoints(filename)
 
     def cargar_navsegments(self, filename, grafo):
         self.navsegments = []
-        # Se asume que grafo.navPoint ya contiene los NavPoints
         self.navsegments = load_navsegment(filename, grafo)
 
     def cargar_navairports(self, filename, grafo):
@@ -27,9 +26,9 @@ class AirSpace:
         navairports_file = f"{prefijo}_aer.txt"
 
         self.cargar_navpoints(navpoints_file)
-        grafo.navPoint = self.navpoints  # Asignar los puntos al grafo
+        grafo.navPoint = self.navpoints
 
         self.cargar_navsegments(navsegments_file, grafo)
-        self.navsegments = grafo.navSegment  # Actualizar desde el grafo
+        self.navsegments = grafo.navSegment
 
         self.cargar_navairports(navairports_file, grafo)
