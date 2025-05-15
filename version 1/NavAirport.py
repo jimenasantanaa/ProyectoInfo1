@@ -20,7 +20,6 @@ class Airport:
 
         self.sid = sid_nuevo
 
-
         star_nuevo = []
         for name in self.star:
             for nav in graph.navPoint:
