@@ -1,34 +1,28 @@
+from graph import Graph, AddNavPoint
 from navPoint import *
 from navSegment import *
 from NavAirport import *
 
-class AirSpace:
-    def __init__(self, navpoints, navsegments, navairports):
-        self.navpoints = []
-        self.navsegments = []
-        self.navairports = {}
+def load_airspace(prefix):
+    nav_filename = f"{prefix}_nav.txt"
+    seg_filename = f"{prefix}_seg.txt"
+    aer_filename = f"{prefix}_aer.txt"
 
-    def cargar_navpoints(self, filename):
-        self.navpoints = load_navpoints(filename)
+    g = Graph()
 
-    def cargar_navsegments(self, filename, grafo):
-        self.navsegments = []
-        self.navsegments = load_navsegment(filename, grafo)
+    # Cargar NavPoints
+    navpoints = load_navpoints(nav_filename)
+    for nav in navpoints:
+        AddNavPoint(g, nav)
 
-    def cargar_navairports(self, filename, grafo):
-        self.navairports = read_airport(filename)
-        for aeropuerto in self.navairports.values():
-            aeropuerto.relacionar(grafo)
+    # Cargar NavSegments
+    load_navsegment(seg_filename, g)
 
-    def cargar_datos(self, prefijo, grafo):
-        navpoints_file = f"{prefijo}_nav.txt"
-        navsegments_file = f"{prefijo}_seg.txt"
-        navairports_file = f"{prefijo}_aer.txt"
+    # Cargar Aeropuertos
+    airports = read_airport(aer_filename)
 
-        self.cargar_navpoints(navpoints_file)
-        grafo.navPoint = self.navpoints
+    # Relacionar SID y STAR
+    for airport in airports.values():
+        airport.relacionar(g)
 
-        self.cargar_navsegments(navsegments_file, grafo)
-        self.navsegments = grafo.navSegment
-
-        self.cargar_navairports(navairports_file, grafo)
+    return g, airports

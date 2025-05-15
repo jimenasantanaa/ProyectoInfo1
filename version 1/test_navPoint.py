@@ -23,9 +23,9 @@ def draw_graph(grafo):
 
     fig, ax = plt.subplots(figsize=(8, 6))
 
-    lats = [n.latitude for n in grafo.navPoint]
-    longs = [n.longitude for n in grafo.navPoint]
-    names = [n.name for n in grafo.navPoint]
+    lats = [n.latitude for n in grafo]
+    longs = [n.longitude for n in grafo]
+    names = [n.name for n in grafo]
 
     ax.scatter(longs, lats, s=10, c='blue')
     for i, name in enumerate(names):

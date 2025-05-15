@@ -8,17 +8,17 @@ class NavPoint:
         self.longitude = longitude
 
 # Cargar puntos
-    def load_navpoints(filename):
-        navpoints = []
-        with open(filename, 'r') as f:
-            for line in f:
-                line = line.strip()
-                if not line:
-                    continue
-                parts = line.split()
-                num = float(parts[0])
-                name = parts[1]
-                lat = float(parts[2])
-                lon = float(parts[3])
-                navpoints.append(NavPoint(num,name,lat,lon))
-        return navpoints
+def load_navpoints(filename):
+    navpoints = []
+    with open(filename, 'r') as f:
+        for line in f:
+            line = line.strip()
+            if not line:
+                continue
+            parts = line.split()
+            num = float(parts[0])
+            name = parts[1]
+            lat = float(parts[2])
+            lon = float(parts[3])
+            navpoints.append(NavPoint(num,name,lat,lon))
+    return navpoints
