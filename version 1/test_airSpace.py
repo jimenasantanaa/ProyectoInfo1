@@ -1,11 +1,11 @@
 from airSpace import *
 from navPoint import *
 
-prefix = input("Introduce el prefijo del espacio aéreo (cat, esp, eu...): ").strip().lower()
+prefix = input("Introduce el prefijo del espacio aéreo (cat, esp, eu): ").strip().lower()
 
 graph, airports = load_airspace(prefix)
 
-nombre = input("Introduce el nombre del aeropuerto (ej. LEIB): ").strip().upper()
+nombre = input("Introduce el nombre del aeropuerto: ").strip().upper()
 
 if nombre in airports:
     aeropuerto = airports[nombre]
