@@ -6,10 +6,11 @@ import math
 from collections import deque
 import tkinter.simpledialog as simpledialog
 
-from navPoint import load_navpoints
-from navSegment import load_navsegment
-from path import Path
-from graph import Graph, AddNavPoint, GetNavNeighbors
+from navPoint import *
+from navSegment import *
+from path import *
+from graph import *
+from NavAirport import *
 
 # Variables globales
 canvas = None
@@ -175,8 +176,9 @@ def draw_graph(g):
 
 # Cargar y dibujar datos
 def load_and_draw():
-    global grafo
+    global grafo, airports
 
+    # Selección de archivos
     airport_file = filedialog.askopenfilename(title="Selecciona el archivo de aeropuertos (Cat_aer.txt)", filetypes=(("Text Files", "*.txt"), ("All Files", "*.*")))
     if not airport_file:
         return
@@ -185,17 +187,26 @@ def load_and_draw():
     if not nav_file:
         return
 
-    # Crear grafo y añadir navpoints
+    seg_file = filedialog.askopenfilename(title="Selecciona el archivo de segmentos (Cat_seg.txt)", filetypes=(("Text Files", "*.txt"), ("All Files", "*.*")))
+    if not seg_file:
+        return
+
+    # Crear grafo y cargar navpoints
     grafo = Graph()
     navpoints = load_navpoints(nav_file)
     for nav in navpoints:
         AddNavPoint(grafo, nav)
 
-    seg_file = filedialog.askopenfilename(title="Selecciona el archivo de segmentos (Cat_seg.txt)", filetypes=(("Text Files", "*.txt"), ("All Files", "*.*")))
-    if not seg_file:
-        return
-
+    # Cargar segmentos
     load_navsegment(seg_file, grafo)
+
+    # Cargar aeropuertos y relacionar
+    airports_dict = read_airport(airport_file)
+    airports = list(airports_dict.values())
+
+    for aeropuerto in airports:
+        aeropuerto.relacionar(grafo)
+
     draw_graph(grafo)
 
 
