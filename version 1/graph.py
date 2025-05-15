@@ -32,6 +32,7 @@ def AddNavSegment(grafo, segmento):
         return True
     return False
 
+# Obtener más cercano
 def GetClosest(g, latitude, longitude):
     if not g.navPoint:
         return None
@@ -48,15 +49,14 @@ def GetClosest(g, latitude, longitude):
 
     return closest
 
+# Obtener vecinos
 def GetNavNeighbors(grafo, navpoint):
     vecinos = []
     for seg in grafo.navSegment:
-        # Si el navpoint es el origen del segmento, añado el destino
         if seg.origin_number == navpoint.number:
             vecino = next((n for n in grafo.navPoint if n.number == seg.destination_number), None)
             if vecino and vecino not in vecinos:
                 vecinos.append(vecino)
-        # Si el navpoint es el destino del segmento, añado el origen
         elif seg.destination_number == navpoint.number:
             vecino = next((n for n in grafo.navPoint if n.number == seg.origin_number), None)
             if vecino and vecino not in vecinos:

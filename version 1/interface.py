@@ -21,6 +21,7 @@ ax = None
 waiting_for_neighbor_selection = False
 waiting_for_path_selection = 0
 origin_node = None
+airports = []
 
 # Selección click
 def on_click(event):
@@ -95,6 +96,24 @@ def preparar_camino_mas_corto():
     waiting_for_path_selection = 1
     messagebox.showinfo("Selecciona origen", "Haz clic en el nodo de origen del camino más corto.")
 
+# Dibujar el gráfico base
+def draw_base_graph():
+    ax.clear()
+    ax.set_title("Gráfico base")
+    ax.set_xlabel("Longitud")
+    ax.set_ylabel("Latitud")
+    ax.grid(True)
+
+    for seg in grafo.navSegment:
+        origin = next((n for n in grafo.navPoint if n.number == seg.origin_number), None)
+        destination = next((n for n in grafo.navPoint if n.number == seg.destination_number), None)
+        if origin and destination:
+            ax.plot([origin.longitude, destination.longitude], [origin.latitude, destination.latitude], 'k-', linewidth=0.5)
+
+    for n in grafo.navPoint:
+        ax.scatter(n.longitude, n.latitude, color='blue', s=10)
+        ax.text(n.longitude, n.latitude, n.name, fontsize=6, alpha=0.6)
+
 # Mostrar camino más corto
 def mostrar_camino_mas_corto(origen, destino):
     visitados = set()
@@ -123,25 +142,19 @@ def mostrar_camino_mas_corto(origen, destino):
     for n in camino_final[1:]:
         ruta.AddNodeToPath(n)
 
-    ax.clear()
-    ax.set_title("Camino más corto")
-    ax.set_xlabel("Longitud")
-    ax.set_ylabel("Latitud")
-    ax.grid(True)
+    draw_base_graph()
 
-    for n in grafo.navPoint:
-        ax.scatter(n.longitude, n.latitude, color='lightgray', s=8)
-        ax.text(n.longitude, n.latitude, n.name, fontsize=6, alpha=0.5)
+    ax.set_title("Camino más corto (sobre gráfico base)")
 
-    for i in range(len(ruta.nodes) - 1):
-        n1, n2 = ruta.nodes[i], ruta.nodes[i + 1]
-        ax.plot([n1.longitude, n2.longitude], [n1.latitude, n2.latitude], 'r-', linewidth=2)
+    for i in range(len(ruta.navPoints) - 1):
+        n1, n2 = ruta.navPoints[i], ruta.navPoints[i + 1]
+        ax.plot([n1.longitude, n2.longitude], [n1.latitude, n2.latitude], 'r-', linewidth=3, zorder=5)
         ax.annotate('', xy=(n2.longitude, n2.latitude), xytext=(n1.longitude, n1.latitude),
-                    arrowprops=dict(facecolor='red', edgecolor='red', arrowstyle='->'))
+                    arrowprops=dict(facecolor='red', edgecolor='red', arrowstyle='->', lw=2), zorder=6)
 
-    for n in ruta.nodes:
-        ax.scatter(n.longitude, n.latitude, color='blue')
-        ax.text(n.longitude, n.latitude, n.name, fontsize=8, ha='right')
+    for n in ruta.navPoints:
+        ax.scatter(n.longitude, n.latitude, color='red', s=40, zorder=7)
+        ax.text(n.longitude, n.latitude, n.name, fontsize=9, ha='right', color='darkred', zorder=8)
 
     canvas.draw()
 
@@ -178,7 +191,6 @@ def draw_graph(g):
 def load_and_draw():
     global grafo, airports
 
-    # Selección de archivos
     airport_file = filedialog.askopenfilename(title="Selecciona el archivo de aeropuertos (Cat_aer.txt)", filetypes=(("Text Files", "*.txt"), ("All Files", "*.*")))
     if not airport_file:
         return
@@ -191,16 +203,13 @@ def load_and_draw():
     if not seg_file:
         return
 
-    # Crear grafo y cargar navpoints
     grafo = Graph()
     navpoints = load_navpoints(nav_file)
     for nav in navpoints:
         AddNavPoint(grafo, nav)
 
-    # Cargar segmentos
     load_navsegment(seg_file, grafo)
 
-    # Cargar aeropuertos y relacionar
     airports_dict = read_airport(airport_file)
     airports = list(airports_dict.values())
 
@@ -209,7 +218,7 @@ def load_and_draw():
 
     draw_graph(grafo)
 
-
+# Camino más corto (escrito)
 def camino_mas_corto_por_aeropuerto():
     global airports, grafo
 
@@ -231,21 +240,20 @@ def camino_mas_corto_por_aeropuerto():
         messagebox.showerror("Error", "Aeropuerto de destino no válido o cancelado.")
         return
 
+
     aeropuerto_origen = next(a for a in airports if a.name == origen)
     aeropuerto_destino = next(a for a in airports if a.name == destino)
 
-    nodo_sid = next((n for n in grafo.navPoint if n.name == aeropuerto_origen.sid), None)
-    nodo_star = next((n for n in grafo.navPoint if n.name == aeropuerto_destino.star), None)
-
-    if nodo_sid is None:
-        messagebox.showerror("Error",
-                             f"No se encontró el nodo SID {aeropuerto_origen.sid} para el aeropuerto de origen.")
+    if not aeropuerto_origen.sid:
+        messagebox.showerror("Error", f"El aeropuerto {aeropuerto_origen.name} no tiene SID asociado.")
         return
 
-    if nodo_star is None:
-        messagebox.showerror("Error",
-                             f"No se encontró el nodo STAR {aeropuerto_destino.star} para el aeropuerto de destino.")
+    if not aeropuerto_destino.star:
+        messagebox.showerror("Error", f"El aeropuerto {aeropuerto_destino.name} no tiene STAR asociado.")
         return
+
+    nodo_sid = aeropuerto_origen.sid[0]
+    nodo_star = aeropuerto_destino.star[0]
 
     mostrar_camino_mas_corto(nodo_sid, nodo_star)
 
@@ -253,22 +261,23 @@ root = tk.Tk()
 root.title("Visualizador")
 root.geometry("900x700")
 
-btn_cargar = tk.Button(root, text="Cargar archivos", command=load_and_draw)
-btn_cargar.pack(pady=10)
+button_frame = tk.Frame(root)
+button_frame.pack(anchor='nw', pady=5, padx=5)
 
-btn_vecinos = tk.Button(root, text="Mostrar vecinos ", command=preparar_mostrar_vecinos)
-btn_vecinos.pack(pady=5)
+btn_cargar = tk.Button(button_frame, text="Cargar archivos", command=load_and_draw)
+btn_cargar.pack(side=tk.LEFT, padx=5, pady=5)
 
-btn_camino = tk.Button(root, text="Camino más corto", command=preparar_camino_mas_corto)
-btn_camino.pack(pady=5)
+btn_vecinos = tk.Button(button_frame, text="Mostrar vecinos", command=preparar_mostrar_vecinos)
+btn_vecinos.pack(side=tk.LEFT, padx=5, pady=5)
 
-btn_todos = tk.Button(root, text="Volver gráfico completo", command=lambda: draw_graph(grafo) if grafo else None)
-btn_todos.pack(pady=5)
+btn_camino = tk.Button(button_frame, text="Camino más corto", command=preparar_camino_mas_corto)
+btn_camino.pack(side=tk.LEFT, padx=5, pady=5)
 
-btn_camino_aero = tk.Button(root, text="Camino más corto (por aeropuerto)", command=camino_mas_corto_por_aeropuerto)
-btn_camino_aero.pack(pady=5)
+btn_todos = tk.Button(button_frame, text="Volver gráfico completo", command=lambda: draw_graph(grafo) if grafo else None)
+btn_todos.pack(side=tk.LEFT, padx=5, pady=5)
 
-
+btn_camino_aero = tk.Button(button_frame, text="Camino más corto (por aeropuerto)", command=camino_mas_corto_por_aeropuerto)
+btn_camino_aero.pack(side=tk.LEFT, padx=5, pady=5)
 
 plot_frame = tk.Frame(root)
 plot_frame.pack(fill=tk.BOTH, expand=True)

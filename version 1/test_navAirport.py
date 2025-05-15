@@ -6,7 +6,7 @@ from graph import *
 navpoints_list = load_navpoints("Cat_nav.txt")
 
 graph = Graph()
-graph.navPoint = navpoints_list  # Asignar la lista cargada
+graph.navPoint = navpoints_list
 
 airports = read_airport("Cat_aer.txt")
 
