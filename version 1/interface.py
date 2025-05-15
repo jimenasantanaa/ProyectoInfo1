@@ -8,7 +8,7 @@ from collections import deque
 from navPoint import load_navpoints
 from navSegment import load_navsegment
 from path import Path
-from graph import *
+from graph import Graph, AddNavPoint, GetNavNeighbors
 
 # Variables globales
 canvas = None
@@ -134,7 +134,8 @@ def mostrar_camino_mas_corto(origen, destino):
     for i in range(len(ruta.nodes) - 1):
         n1, n2 = ruta.nodes[i], ruta.nodes[i + 1]
         ax.plot([n1.longitude, n2.longitude], [n1.latitude, n2.latitude], 'r-', linewidth=2)
-        ax.annotate('', xy=(n2.longitude, n2.latitude), xytext=(n1.longitude, n1.latitude), arrowprops=dict(facecolor='red', edgecolor='red', arrowstyle='->'))
+        ax.annotate('', xy=(n2.longitude, n2.latitude), xytext=(n1.longitude, n1.latitude),
+                    arrowprops=dict(facecolor='red', edgecolor='red', arrowstyle='->'))
 
     for n in ruta.nodes:
         ax.scatter(n.longitude, n.latitude, color='blue')
@@ -175,7 +176,7 @@ def draw_graph(g):
 def load_and_draw():
     global grafo
 
-    airport_file = filedialog.askopenfilename(title="Selecciona el archivo de aeropuertos (Cat_aer.txt", filetypes=(("Text Files", "*.txt"), ("All Files", "*.*")))
+    airport_file = filedialog.askopenfilename(title="Selecciona el archivo de aeropuertos (Cat_aer.txt)", filetypes=(("Text Files", "*.txt"), ("All Files", "*.*")))
     if not airport_file:
         return
 
@@ -183,7 +184,11 @@ def load_and_draw():
     if not nav_file:
         return
 
-    grafo = load_navpoints(nav_file)
+    # Crear grafo y añadir navpoints
+    grafo = Graph()
+    navpoints = load_navpoints(nav_file)
+    for nav in navpoints:
+        AddNavPoint(grafo, nav)
 
     seg_file = filedialog.askopenfilename(title="Selecciona el archivo de segmentos (Cat_seg.txt)", filetypes=(("Text Files", "*.txt"), ("All Files", "*.*")))
     if not seg_file:

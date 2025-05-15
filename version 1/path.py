@@ -2,6 +2,7 @@ import math
 from node import *
 from segment import *
 from graph import *
+from navPoint import Distance  # Importar Distance aquí
 
 class Path:
     def __init__(self, origin_node):
@@ -13,23 +14,20 @@ class Path:
         last_node = self.nodes[-1]
         distance = Distance(last_node, node)
         self.nodes.append(node)
-        self.cost = self.cost + distance
+        self.cost += distance
 
-    # Verificar si nodo esta en el camino
+    # Verificar si nodo está en el camino
     def ContainsNode(self, node):
-        for n in self.nodes:
-            if n == node:
-                return True
-        return False
+        return node in self.nodes
 
-    #Distancia hasta un nodo
+    # Distancia hasta un nodo
     def CostToNode(self, node):
         total_cost = 0
         found = False
-        for i in range(len(self.nodes) -1):
+        for i in range(len(self.nodes) - 1):
             node1 = self.nodes[i]
             node2 = self.nodes[i + 1]
-            total_cost = total_cost + Distance(node1, node2)
+            total_cost += Distance(node1, node2)
             if node == node2:
                 found = True
                 break
@@ -37,12 +35,18 @@ class Path:
 
     # Dibujar camino
     def PlotPath(self, ax):
-        for i in range(len(self.nodes) -1):
+        for i in range(len(self.nodes) - 1):
             node1 = self.nodes[i]
             node2 = self.nodes[i + 1]
-            ax.plot([node1.coordinate_x, node2.coordinate_x], [node1.coordinate_y, node2.coordinate_y])
-            ax.annotate('', xy = (node2.coordinate_x, node2.coordinate_y), xytext = (node1.coordinate_x, node1.coordinate_y), arrowprops = dict(facecolor = 'red', edgecolor = 'red', arrowstyle = '->'))
+            # Usar longitude y latitude para las coordenadas
+            ax.plot([node1.longitude, node2.longitude], [node1.latitude, node2.latitude], 'r-')
+            ax.annotate(
+                '',
+                xy=(node2.longitude, node2.latitude),
+                xytext=(node1.longitude, node1.latitude),
+                arrowprops=dict(facecolor='red', edgecolor='red', arrowstyle='->')
+            )
 
         for node in self.nodes:
-            ax.scatter(node.coordinate_x, node.coordinate_y, color = 'blue')
-            ax.text(node.coordinate_x, node.coordinate_y, node.name, color = 'black', fontsize = 10, ha = 'right')
+            ax.scatter(node.longitude, node.latitude, color='blue')
+            ax.text(node.longitude, node.latitude, node.name, color='black', fontsize=10, ha='right')
