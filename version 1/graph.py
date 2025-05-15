@@ -62,3 +62,18 @@ def GetNavNeighbors(grafo, navpoint):
             if vecino and vecino not in vecinos:
                 vecinos.append(vecino)
     return vecinos
+
+def Plot(g):
+    fig, ax = plt.subplots()
+    for np in g.navPoint:
+        ax.scatter(np.latitude, np.longitude, color='blue')
+        ax.text(np.latitude, np.longitude, np.name)
+
+    for seg in g.navSegment:
+        origin = next((n for n in g.navPoint if n.number == seg.origin_number), None)
+        dest = next((n for n in g.navPoint if n.number == seg.destination_number), None)
+        if origin and dest:
+            ax.plot([origin.latitude, dest.latitude], [origin.longitude, dest.longitude], 'r-')
+
+    plt.grid(True)
+    plt.show()

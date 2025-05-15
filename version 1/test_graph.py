@@ -18,30 +18,30 @@ def CreateGraphNav():
     AddNavPoint(G, NavPoint(11, "K", 3, 15))
     AddNavPoint(G, NavPoint(12, "L", 4, 10))
 
-
     segmentos = [
-        ("AB", 1, 2), ("AE", 1, 5), ("AK", 1, 11),
-        ("BA", 2, 1), ("BC", 2, 3), ("BF", 2, 6), ("BK", 2, 11), ("BG", 2, 7),
-        ("CD", 3, 4), ("CG", 3, 7),
-        ("DG", 4, 7), ("DH", 4, 8), ("DI", 4, 9),
-        ("EF", 5, 6), ("FL", 6, 12),
-        ("GB", 7, 2), ("GF", 7, 6), ("GH", 7, 8),
-        ("ID", 9, 4), ("IJ", 9, 10), ("JI", 10, 9),
-        ("KA", 11, 1), ("KL", 11, 12), ("LK", 12, 11), ("LF", 12, 6)
-    ]
+        (1, 2, 5), (1, 5, 17), (1, 11, 14),
+        (2, 1, 5), (2, 3, 7), (2, 6, 13), (2, 11, 8), (2, 7, 9),
+        (3, 4, 6), (3, 7, 10),
+        (4, 7, 8), (4, 8, 7), (4, 9, 9),
+        (5, 6, 6), (6, 12, 9),
+        (7, 2, 9), (7, 6, 4), (7, 8, 6),
+        (9, 4, 9), (9, 10, 8), (10, 9, 8),
+        (11, 1, 14), (11, 12, 6), (12, 11, 6), (12, 6, 10)]
 
-    for name, origin, dest in segmentos:
-        AddNavSegment(G, NavSegment(name, origin, dest))
+    for origin, dest, dist in segmentos:
+        AddNavSegment(G, NavSegment(origin, dest, dist))
 
     return G
 
 print("Probando el grafo...")
 G = CreateGraphNav()
+
 plt.figure()
 Plot(G)
 
 origin = GetClosest(G, 15, 5)
 print(origin.name)  # Debería ser J
+
 origin = GetClosest(G, 8, 19)
 print(origin.name)  # Debería ser B
 
