@@ -64,19 +64,19 @@ def GetNavNeighbors(grafo, navpoint):
 
 def Plot(g):
     for segment in g.segment:
-        x_values = [segment.origin.coordinate_x, segment.destination.coordinate_x]
-        y_values = [segment.origin.coordinate_y, segment.destination.coordinate_y]
+        x_values = [segment.origin.longitude, segment.destination.longitude]
+        y_values = [segment.origin.latitude, segment.destination.latitude]
         plt.plot(x_values, y_values, color = 'blue')
 
-        plt.annotate('', xy=(segment.destination.coordinate_x, segment.destination.coordinate_y), xytext=(segment.origin.coordinate_x, segment.origin.coordinate_y), arrowprops=dict(facecolor='blue', edgecolor='blue', arrowstyle='->'))
+        plt.annotate('', xy=(segment.destination.longitude, segment.destination.latitude), xytext=(segment.origin.longitude, segment.origin.latitude), arrowprops=dict(facecolor='blue', edgecolor='blue', arrowstyle='->'))
 
-        mid_x = (segment.origin.coordinate_x + segment.destination.coordinate_x) / 2
-        mid_y = (segment.origin.coordinate_y + segment.destination.coordinate_y) / 2
+        mid_x = (segment.origin.longitude + segment.destination.longitude) / 2
+        mid_y = (segment.origin.latitude + segment.destination.latitude) / 2
         plt.text(mid_x, mid_y, f"{segment.cost:.2f}")
 
     for node in g.node:
-        plt.scatter(node.coordinate_x, node.coordinate_y, label = node.name, color = 'red')
-        plt.text(node.coordinate_x, node.coordinate_y, node.name, color = 'black')
+        plt.scatter(node.longitude, node.latitude, label = node.name, color = 'red')
+        plt.text(node.longitude, node.latitude, node.name, color = 'black')
 
     plt.title("Gráfico con nodos y segmentos")
     plt.grid(True)
@@ -91,17 +91,17 @@ def PlotNode(g, nameOrigin):
         return False
     for node in g.node:
         if node == origin_node:
-            plt.scatter(node.coordinate_x, node.coordinate_y, color='blue')
-            plt.text(node.coordinate_x, node.coordinate_y, node.name)
+            plt.scatter(node.longitude, node.latitude, color='blue')
+            plt.text(node.longitude, node.latitude, node.name)
         elif node == origin_node.neighbors:
-            plt.scatter(node.coordinate_x, node.coordinate_y, color='green')
-            plt.text(node.coordinate_x, node.coordinate_y, node.name)
+            plt.scatter(node.longitude, node.latitude, color='green')
+            plt.text(node.longitude, node.latitude, node.name)
         else:
-            plt.scatter(node.coordinate_x, node.coordinate_y, color='gray')
-            plt.text(node.coordinate_x, node.coordinate_y, node.name)
+            plt.scatter(node.longitude, node.latitude, color='gray')
+            plt.text(node.longitude, node.latitude, node.name)
     for neighbor in origin_node.neighbors:
-        x_values = [origin_node.coordinate_x, neighbor.coordinate_x]
-        y_values = [origin_node.coordinate_y, neighbor.coordinate_y]
+        x_values = [origin_node.longitude, neighbor.longitude]
+        y_values = [origin_node.latitude, neighbor.latitude]
         plt.plot(x_values, y_values, color='red')
 
     cost = None
@@ -110,8 +110,8 @@ def PlotNode(g, nameOrigin):
             cost = segment.cost
             break
         if cost is not None:
-            mid_x = (origin_node.coordinate_x + neighbor.coordinate_x) / 2
-            mid_y = (origin_node.coordinate_y + neighbor.coordinate_y) / 2
+            mid_x = (origin_node.longitude + neighbor.longitude) / 2
+            mid_y = (origin_node.latitude + neighbor.latitude) / 2
             plt.text(mid_x, mid_y, f'{cost:.2f}')
     return True
 
@@ -155,8 +155,6 @@ def DeleteNode(g, node_name):
 def SaveGraph(g, filename):
     with open(filename, 'w') as file:
         for node in g.node:
-            file.write(f"N {node.name} {node.coordinate_x} {node.coordinate_y}\n")
+            file.write(f"N {node.name} {node.longitude} {node.latitude}\n")
         for segment in g.segment:
             file.write(f"S {segment.name} {segment.origin.name} {segment.destination.name}\n")
-
-
