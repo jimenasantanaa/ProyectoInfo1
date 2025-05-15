@@ -13,5 +13,4 @@ def AddNeighbor(n1, n2):
         return True
     return False
 
-def Distance(n1, n2):
-    return math.sqrt((n1.longitude - n2.longitude)**2 + (n1.latitude - n2.latitude)**2)
+

@@ -22,3 +22,6 @@ def load_navpoints(filename):
             lon = float(parts[3])
             navpoints.append(NavPoint(num,name,lat,lon))
     return navpoints
+
+def Distance(n1, n2):
+    return math.sqrt((n1.longitude - n2.longitude)**2 + (n1.latitude - n2.latitude)**2)

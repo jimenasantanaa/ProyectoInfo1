@@ -32,20 +32,20 @@ def AddNavSegment(grafo, segmento):
         return True
     return False
 
-def GetClosest(g, x, y):
-    if not g.node:
+def GetClosest(g, latitude, longitude):
+    if not g.navPoint:
         return None
-    closest = g.node[0]
-    punto = Node('punto', x, y)
-    minimo = Distance(g.node[0], punto)
-    i = 1
-    while i < len(g.node):
-        node = g.node[i]
-        d = Distance(node, punto)
+
+    punto = NavPoint(-1, "temp", latitude, longitude)
+    closest = g.navPoint[0]
+    minimo = Distance(g.navPoint[0], punto)
+
+    for navpoint in g.navPoint[1:]:
+        d = Distance(navpoint, punto)
         if d < minimo:
             minimo = d
-            closest = node
-        i = i + 1
+            closest = navpoint
+
     return closest
 
 def GetNavNeighbors(grafo, navpoint):
