@@ -56,7 +56,10 @@ def load_and_draw():
     if not nav_file:
         return
 
-    grafo = load_navpoints(nav_file)
+    grafo = Graph()
+    navpoints = load_navpoints(nav_file)
+    for np in navpoints:
+        AddNavPoint(grafo, np)
 
     seg_file = filedialog.askopenfilename(title="Selecciona el archivo de segmentos (Cat_seg.txt)", filetypes=(("Text Files", "*.txt"), ("All Files", "*.*")))
     if not seg_file:
