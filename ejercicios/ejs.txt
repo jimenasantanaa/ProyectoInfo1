@@ -1,3 +1,0 @@
-Bilbao 3 Barcelona 2
-Albacete 1 Madrid 3
-Madrid 1 Barcelona 3
