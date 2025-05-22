@@ -130,31 +130,11 @@ def draw_graph(g):
     canvas.mpl_connect("button_press_event", on_click)
 
 def mostrar_camino_mas_corto(origen, destino):
-    visitados = set()
-    cola = deque([[origen]])
-    camino_final = None
+    ruta = FindShortestPath(grafo, origen, destino)
 
-    while cola:
-        camino = cola.popleft()
-        actual = camino[-1]
-        if actual == destino:
-            camino_final = camino
-            break
-
-        visitados.add(actual)
-        for vecino in GetNavNeighbors(grafo, actual):
-            if vecino not in visitados:
-                nueva_ruta = list(camino)
-                nueva_ruta.append(vecino)
-                cola.append(nueva_ruta)
-
-    if not camino_final:
+    if not ruta:
         messagebox.showerror("Error", "No se encontró camino entre los puntos seleccionados.")
         return
-
-    ruta = Path(camino_final[0])
-    for n in camino_final[1:]:
-        ruta.AddNodeToPath(n)
 
     draw_graph(grafo)
 
@@ -172,6 +152,7 @@ def mostrar_camino_mas_corto(origen, destino):
 
     export_path_to_kml(ruta)
     messagebox.showinfo("KML generado", "Se ha modificado 'shortest_path.kml' con el camino más corto actual.")
+
 
 
 def camino_mas_corto_por_aeropuerto():
@@ -207,34 +188,12 @@ def camino_mas_corto_por_aeropuerto():
     nodo_sid = aeropuerto_origen.sid[0]
     nodo_star = aeropuerto_destino.star[0]
 
-    # BUSCAR CAMINO
-    visitados = set()
-    cola = deque([[nodo_sid]])
-    camino_final = None
+    ruta = FindShortestPath(grafo, nodo_sid, nodo_star)
 
-    while cola:
-        camino = cola.popleft()
-        actual = camino[-1]
-        if actual == nodo_star:
-            camino_final = camino
-            break
-
-        visitados.add(actual)
-        for vecino in GetNavNeighbors(grafo, actual):
-            if vecino not in visitados:
-                nueva_ruta = list(camino)
-                nueva_ruta.append(vecino)
-                cola.append(nueva_ruta)
-
-    if not camino_final:
+    if not ruta:
         messagebox.showerror("Error", "No se encontró camino entre los aeropuertos seleccionados.")
         return
 
-    ruta = Path(camino_final[0])
-    for n in camino_final[1:]:
-        ruta.AddNodeToPath(n)
-
-    # MOSTRAR EN EL GRÁFICO
     draw_graph(grafo)
 
     for i in range(len(ruta.navPoints) - 1):
@@ -251,6 +210,7 @@ def camino_mas_corto_por_aeropuerto():
 
     export_path_to_kml(ruta, "shortest_path.kml")
     messagebox.showinfo("KML generado", "Se ha modificado 'shortest_path.kml' con el camino actual.")
+
 
 def main_interface(prefix):
     global root, plot_frame

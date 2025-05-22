@@ -45,3 +45,25 @@ class Path:
         for np in self.navPoints:
             ax.scatter(np.longitude, np.latitude, color='blue')
             ax.text(np.longitude, np.latitude, np.name, color='black', fontsize=10, ha='right')
+
+def FindShortestPath(grafo, origen, destino):
+    visitados = set()
+    cola = deque([[origen]])
+
+    while cola:
+        camino = cola.popleft()
+        actual = camino[-1]
+        if actual == destino:
+            ruta = Path(camino[0])
+            for n in camino[1:]:
+                ruta.AddNodeToPath(n)
+            return ruta
+
+        visitados.add(actual)
+        for vecino in GetNavNeighbors(grafo, actual):
+            if vecino not in visitados:
+                nueva_ruta = list(camino)
+                nueva_ruta.append(vecino)
+                cola.append(nueva_ruta)
+
+    return None
