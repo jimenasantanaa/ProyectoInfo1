@@ -106,3 +106,34 @@ def export_neighbors_to_kml(node, neighbors, segments, filename="neighbors.kml")
 
         f.write("  </Document>\n")
         f.write("</kml>\n")
+
+def export_path_to_kml(path, filename="shortest_path.kml"):
+    with open(filename, "w") as f:
+        f.write("<kml xmlns='http://www.opengis.net/kml/2.2'>\n")
+        f.write("  <Document>\n")
+
+        # Escribimos la línea de la ruta
+        f.write("    <Placemark>\n")
+        f.write("      <name>Camino más corto</name>\n")
+        f.write("      <LineString>\n")
+        f.write("        <tessellate>1</tessellate>\n")
+        f.write("        <coordinates>\n")
+
+        for point in path.navPoints:
+            f.write(f"          {point.longitude},{point.latitude},0\n")
+
+        f.write("        </coordinates>\n")
+        f.write("      </LineString>\n")
+        f.write("    </Placemark>\n")
+
+        # Escribimos cada punto de la ruta
+        for point in path.navPoints:
+            f.write("    <Placemark>\n")
+            f.write(f"      <name>{point.name}</name>\n")
+            f.write("      <Point>\n")
+            f.write(f"        <coordinates>{point.longitude},{point.latitude},0</coordinates>\n")
+            f.write("      </Point>\n")
+            f.write("    </Placemark>\n")
+
+        f.write("  </Document>\n")
+        f.write("</kml>\n")

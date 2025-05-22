@@ -170,6 +170,10 @@ def mostrar_camino_mas_corto(origen, destino):
 
     canvas.draw()
 
+    export_path_to_kml(ruta)
+    messagebox.showinfo("KML generado", "Se ha creado 'shortest_path.kml' con el camino más corto.")
+
+
 def camino_mas_corto_por_aeropuerto():
     global airports, grafo
 
