@@ -5,91 +5,35 @@
       <LineString>
         <tessellate>1</tessellate>
         <coordinates>
-          -0.52489605,39.48674135,0
-          -0.9863888889,39.7072222222,0
-          -1.0405555556,39.9116666667,0
-          -1.2633333333,40.7402777778,0
-          -1.2980555556,40.8672222222,0
-          -1.7019444444,42.7338888889,0
-          -1.4508333333,43.0583333333,0
-          -0.1530555556,44.6769444444,0
-          0.1555555556,44.98,0
-          1.0255555556,45.8158333333,0
-          1.4777777778,46.4741666667,0
-          1.6941269667,46.8509647833,0
+          1.1648040167,41.1367288833,0
+          0.9115302,41.0547276833,0
+          1.7058333333,40.9738888889,0
+          2.0844560333,41.29943885,0
         </coordinates>
       </LineString>
     </Placemark>
     <Placemark>
-      <name>VLC.D</name>
+      <name>RES.D</name>
       <Point>
-        <coordinates>-0.52489605,39.48674135,0</coordinates>
+        <coordinates>1.1648040167,41.1367288833,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
-      <name>CLS</name>
+      <name>RES01</name>
       <Point>
-        <coordinates>-0.9863888889,39.7072222222,0</coordinates>
+        <coordinates>0.9115302,41.0547276833,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
-      <name>MANDY</name>
+      <name>RUBOT</name>
       <Point>
-        <coordinates>-1.0405555556,39.9116666667,0</coordinates>
+        <coordinates>1.7058333333,40.9738888889,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
-      <name>DISVU</name>
+      <name>BCN.A</name>
       <Point>
-        <coordinates>-1.2633333333,40.7402777778,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>CMA</name>
-      <Point>
-        <coordinates>-1.2980555556,40.8672222222,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>PPN</name>
-      <Point>
-        <coordinates>-1.7019444444,42.7338888889,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>BEGUY</name>
-      <Point>
-        <coordinates>-1.4508333333,43.0583333333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>SAU</name>
-      <Point>
-        <coordinates>-0.1530555556,44.6769444444,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>VELIN</name>
-      <Point>
-        <coordinates>0.1555555556,44.98,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>LMG</name>
-      <Point>
-        <coordinates>1.0255555556,45.8158333333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>GUSON</name>
-      <Point>
-        <coordinates>1.4777777778,46.4741666667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>LFX.A</name>
-      <Point>
-        <coordinates>1.6941269667,46.8509647833,0</coordinates>
+        <coordinates>2.0844560333,41.29943885,0</coordinates>
       </Point>
     </Placemark>
   </Document>

@@ -3,6 +3,7 @@ from navPoint import *
 from segment import *
 from graph import *
 from navPoint import Distance
+from collections import deque
 
 class Path:
     def __init__(self, origin_navPoint):
@@ -65,5 +66,4 @@ def FindShortestPath(grafo, origen, destino):
                 nueva_ruta = list(camino)
                 nueva_ruta.append(vecino)
                 cola.append(nueva_ruta)
-
     return None

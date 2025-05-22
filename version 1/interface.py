@@ -153,8 +153,6 @@ def mostrar_camino_mas_corto(origen, destino):
     export_path_to_kml(ruta)
     messagebox.showinfo("KML generado", "Se ha modificado 'shortest_path.kml' con el camino más corto actual.")
 
-
-
 def camino_mas_corto_por_aeropuerto():
     global airports, grafo
 
@@ -164,12 +162,12 @@ def camino_mas_corto_por_aeropuerto():
 
     nombres = [a.name for a in airports]
 
-    origen = simpledialog.askstring("Aeropuerto origen", f"Introduce el aeropuerto de origen:\nOpciones: {', '.join(nombres)}")
+    origen = simpledialog.askstring("Aeropuerto origen", f"Introduce el aeropuerto de origen: ")
     if origen is None or origen not in nombres:
         messagebox.showerror("Error", "Aeropuerto de origen no válido o cancelado.")
         return
 
-    destino = simpledialog.askstring("Aeropuerto destino", f"Introduce el aeropuerto de destino:\nOpciones: {', '.join(nombres)}")
+    destino = simpledialog.askstring("Aeropuerto destino", f"Introduce el aeropuerto de destino: ")
     if destino is None or destino not in nombres:
         messagebox.showerror("Error", "Aeropuerto de destino no válido o cancelado.")
         return
