@@ -58,9 +58,7 @@ def mostrar_vecinos():
         ax.plot([nodo.longitude, vecino.longitude], [nodo.latitude, vecino.latitude], 'c-', linewidth=0.5)
 
     canvas.draw()
-
-    export_neighbors_to_kml(nodo, vecinos, grafo.navSegment)
-    messagebox.showinfo("Exportación KML", "Se ha generado 'neighbors.kml' con el nodo y sus vecinos.")
+    messagebox.showinfo("Exportación KML", "Se ha modificado 'neighbors.kml' con el nodo y los vecinos actuales.")
 
 
 
@@ -170,8 +168,7 @@ def mostrar_camino_mas_corto(origen, destino):
 
     canvas.draw()
 
-    export_path_to_kml(ruta)
-    messagebox.showinfo("KML generado", "Se ha creado 'shortest_path.kml' con el camino más corto.")
+    messagebox.showinfo("KML generado", "Se ha modificado 'shortest_path.kml' con el camino más corto actual.")
 
 
 def camino_mas_corto_por_aeropuerto():
