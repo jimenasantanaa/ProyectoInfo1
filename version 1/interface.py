@@ -59,6 +59,11 @@ def mostrar_vecinos():
 
     canvas.draw()
 
+    export_neighbors_to_kml(nodo, vecinos, grafo.navSegment)
+    messagebox.showinfo("Exportación KML", "Se ha generado 'neighbors.kml' con el nodo y sus vecinos.")
+
+
+
 def preparar_mostrar_vecinos():
     global waiting_for_neighbor_selection
     waiting_for_neighbor_selection = True

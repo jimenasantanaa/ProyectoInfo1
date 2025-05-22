@@ -26,7 +26,6 @@ def load_airspace(prefix):
 
 def export_navpoints_to_kml(navpoints, filename="points.kml"):
     with open(filename, "w") as f:
-        f.write("<?xml version='1.0' encoding='UTF-8'?>\n")
         f.write("<kml xmlns='http://www.opengis.net/kml/2.2'>\n")
         f.write("  <Document>\n")
 
@@ -45,7 +44,6 @@ def export_navsegments_to_kml(navsegments, navpoints, filename="segments.kml"):
     id_to_point = {p.number: p for p in navpoints}
 
     with open(filename, "w") as f:
-        f.write("<?xml version='1.0' encoding='UTF-8'?>\n")
         f.write("<kml xmlns='http://www.opengis.net/kml/2.2'>\n")
         f.write("  <Document>\n")
 
@@ -64,6 +62,47 @@ def export_navsegments_to_kml(navsegments, navpoints, filename="segments.kml"):
             f.write("        </coordinates>\n")
             f.write("      </LineString>\n")
             f.write("    </Placemark>\n")
+
+        f.write("  </Document>\n")
+        f.write("</kml>\n")
+
+def export_neighbors_to_kml(node, neighbors, segments, filename="neighbors.kml"):
+    with open(filename, "w") as f:
+        f.write("<kml xmlns='http://www.opengis.net/kml/2.2'>\n")
+        f.write("  <Document>\n")
+
+        # Nodo central
+        f.write("    <Placemark>\n")
+        f.write(f"      <name>{node.name} (Central)</name>\n")
+        f.write("      <Point>\n")
+        f.write(f"        <coordinates>{node.longitude},{node.latitude},0</coordinates>\n")
+        f.write("      </Point>\n")
+        f.write("    </Placemark>\n")
+
+        # Vecinos
+        for neighbor in neighbors:
+            f.write("    <Placemark>\n")
+            f.write(f"      <name>{neighbor.name}</name>\n")
+            f.write("      <Point>\n")
+            f.write(f"        <coordinates>{neighbor.longitude},{neighbor.latitude},0</coordinates>\n")
+            f.write("      </Point>\n")
+            f.write("    </Placemark>\n")
+
+        # Segmentos
+        for seg in segments:
+            if (seg.origin_number == node.number and any(n.number == seg.destination_number for n in neighbors)) or \
+               (seg.destination_number == node.number and any(n.number == seg.origin_number for n in neighbors)):
+                origin = node if seg.origin_number == node.number else next(n for n in neighbors if n.number == seg.origin_number)
+                destination = next(n for n in neighbors if n.number == seg.destination_number) if seg.destination_number != node.number else node
+                f.write("    <Placemark>\n")
+                f.write("      <LineString>\n")
+                f.write("        <tessellate>1</tessellate>\n")
+                f.write("        <coordinates>\n")
+                f.write(f"          {origin.longitude},{origin.latitude},0\n")
+                f.write(f"          {destination.longitude},{destination.latitude},0\n")
+                f.write("        </coordinates>\n")
+                f.write("      </LineString>\n")
+                f.write("    </Placemark>\n")
 
         f.write("  </Document>\n")
         f.write("</kml>\n")
