@@ -249,10 +249,8 @@ def camino_mas_corto_por_aeropuerto():
 
     canvas.draw()
 
-    # EXPORTAR A KML
-    export_path_to_kml(ruta, "airport_path.kml")
-    messagebox.showinfo("KML generado", "Se ha creado 'airport_path.kml' con el camino entre aeropuertos.")
-
+    export_path_to_kml(ruta, "shortest_path.kml")
+    messagebox.showinfo("KML generado", "Se ha modificado 'shortest_path.kml' con el camino actual.")
 
 def main_interface(prefix):
     global root, plot_frame
@@ -260,7 +258,6 @@ def main_interface(prefix):
 
     grafo, airports_dict = load_airspace(prefix)
     airports = list(airports_dict.values())
-
 
     export_navpoints_to_kml(grafo.navPoint, f"points.kml")
     export_navsegments_to_kml(grafo.navSegment, grafo.navPoint, f"segments.kml")
