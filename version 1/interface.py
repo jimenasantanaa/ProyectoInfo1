@@ -207,8 +207,52 @@ def camino_mas_corto_por_aeropuerto():
     nodo_sid = aeropuerto_origen.sid[0]
     nodo_star = aeropuerto_destino.star[0]
 
-    export_path_to_kml(ruta)
-    mostrar_camino_mas_corto(nodo_sid, nodo_star)
+    # BUSCAR CAMINO
+    visitados = set()
+    cola = deque([[nodo_sid]])
+    camino_final = None
+
+    while cola:
+        camino = cola.popleft()
+        actual = camino[-1]
+        if actual == nodo_star:
+            camino_final = camino
+            break
+
+        visitados.add(actual)
+        for vecino in GetNavNeighbors(grafo, actual):
+            if vecino not in visitados:
+                nueva_ruta = list(camino)
+                nueva_ruta.append(vecino)
+                cola.append(nueva_ruta)
+
+    if not camino_final:
+        messagebox.showerror("Error", "No se encontró camino entre los aeropuertos seleccionados.")
+        return
+
+    ruta = Path(camino_final[0])
+    for n in camino_final[1:]:
+        ruta.AddNodeToPath(n)
+
+    # MOSTRAR EN EL GRÁFICO
+    draw_graph(grafo)
+
+    for i in range(len(ruta.navPoints) - 1):
+        n1, n2 = ruta.navPoints[i], ruta.navPoints[i + 1]
+        ax.plot([n1.longitude, n2.longitude], [n1.latitude, n2.latitude], 'r-', linewidth=3, zorder=5)
+        ax.annotate('', xy=(n2.longitude, n2.latitude), xytext=(n1.longitude, n1.latitude),
+                    arrowprops=dict(facecolor='red', edgecolor='red', arrowstyle='->', lw=2), zorder=6)
+
+    for n in ruta.navPoints:
+        ax.scatter(n.longitude, n.latitude, color='red', s=40, zorder=7)
+        ax.text(n.longitude, n.latitude, n.name, fontsize=9, ha='right', color='darkred', zorder=8)
+
+    canvas.draw()
+
+    # EXPORTAR A KML
+    export_path_to_kml(ruta, "airport_path.kml")
+    messagebox.showinfo("KML generado", "Se ha creado 'airport_path.kml' con el camino entre aeropuertos.")
+
 
 def main_interface(prefix):
     global root, plot_frame
