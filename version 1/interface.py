@@ -234,6 +234,7 @@ def main_interface(prefix):
     tk.Button(button_frame, text="Volver gráfico completo", command=lambda: draw_graph(grafo) if grafo else None).pack(side=tk.LEFT, padx=5)
     tk.Button(button_frame, text="Camino más corto (por aeropuerto)", command=camino_mas_corto_por_aeropuerto).pack(side=tk.LEFT, padx=5)
 
+
     plot_frame = tk.Frame(root)
     plot_frame.pack(fill=tk.BOTH, expand=True)
 
