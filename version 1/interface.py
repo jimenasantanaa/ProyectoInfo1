@@ -11,6 +11,7 @@ from navSegment import *
 from path import *
 from graph import *
 from NavAirport import *
+from airSpace import *
 
 # Variables globales
 canvas = None
@@ -257,6 +258,33 @@ def camino_mas_corto_por_aeropuerto():
 
     mostrar_camino_mas_corto(nodo_sid, nodo_star)
 
+def seleccionar_espacio_aereo():
+    ventana_seleccion = tk.Toplevel(root)
+    ventana_seleccion.title("Selecciona el espacio aéreo")
+    ventana_seleccion.geometry("300x100")
+    ventana_seleccion.grab_set()  # Bloquea hasta que elijan
+
+    label = tk.Label(ventana_seleccion, text="¿Qué espacio aéreo quieres visualizar?", font=("Arial", 10))
+    label.pack(pady=5)
+
+    def cargar_y_mostrar(prefix):
+        global grafo, airports
+        grafo, airports_dict = load_airspace(prefix)
+        airports = list(airports_dict.values())
+        draw_graph(grafo)
+        ventana_seleccion.destroy()
+
+    frame_botones = tk.Frame(ventana_seleccion)
+    frame_botones.pack(pady=5)
+
+    btn_cat = tk.Button(frame_botones, text="Cataluña", width=12, command=lambda: cargar_y_mostrar("Cat"))
+    btn_cat.pack(side=tk.LEFT, padx=10)
+
+    btn_spain = tk.Button(frame_botones, text="España", width=12, command=lambda: cargar_y_mostrar("Spain"))
+    btn_spain.pack(side=tk.LEFT, padx=10)
+
+
+
 root = tk.Tk()
 root.title("Visualizador")
 root.geometry("900x700")
@@ -282,4 +310,5 @@ btn_camino_aero.pack(side=tk.LEFT, padx=5, pady=5)
 plot_frame = tk.Frame(root)
 plot_frame.pack(fill=tk.BOTH, expand=True)
 
+seleccionar_espacio_aereo()
 root.mainloop()
