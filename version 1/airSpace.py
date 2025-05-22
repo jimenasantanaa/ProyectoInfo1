@@ -25,7 +25,7 @@ def load_airspace(prefix):
 
 
 def export_navpoints_to_kml(navpoints, filename="points.kml"):
-    with open(filename, "a") as f:
+    with open(filename, "w") as f:
         f.write("<?xml version='1.0' encoding='UTF-8'?>\n")
         f.write("<kml xmlns='http://www.opengis.net/kml/2.2'>\n")
         f.write("  <Document>\n")
@@ -44,7 +44,7 @@ def export_navpoints_to_kml(navpoints, filename="points.kml"):
 def export_navsegments_to_kml(navsegments, navpoints, filename="segments.kml"):
     id_to_point = {p.number: p for p in navpoints}
 
-    with open(filename, "a") as f:
+    with open(filename, "w") as f:
         f.write("<?xml version='1.0' encoding='UTF-8'?>\n")
         f.write("<kml xmlns='http://www.opengis.net/kml/2.2'>\n")
         f.write("  <Document>\n")

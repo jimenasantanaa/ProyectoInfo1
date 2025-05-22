@@ -208,8 +208,8 @@ def main_interface(prefix):
     airports = list(airports_dict.values())
 
 
-    export_navpoints_to_kml(grafo.navPoint, f"{prefix}_navpoints.kml")
-    export_navsegments_to_kml(grafo.navSegment, grafo.navPoint, f"{prefix}_segments.kml")
+    export_navpoints_to_kml(grafo.navPoint, f"points.kml")
+    export_navsegments_to_kml(grafo.navSegment, grafo.navPoint, f"segments.kml")
 
     root = tk.Tk()
     root.title("Visualizador")
