@@ -10,7 +10,7 @@ from navSegment import *
 from path import *
 from graph import *
 from NavAirport import *
-from airSpace import load_airspace
+from airSpace import *
 
 # Variables globales
 grafo = None
@@ -206,6 +206,10 @@ def main_interface(prefix):
 
     grafo, airports_dict = load_airspace(prefix)
     airports = list(airports_dict.values())
+
+
+    export_navpoints_to_kml(grafo.navPoint, f"{prefix}_navpoints.kml")
+    export_navsegments_to_kml(grafo.navSegment, grafo.navPoint, f"{prefix}_segments.kml")
 
     root = tk.Tk()
     root.title("Visualizador")
