@@ -312,7 +312,7 @@ def seleccionar_espacio_aereo_con_colores():
         circle = canvas.create_oval(5, 5, 25, 25, fill=color, outline="black")
         canvas.tag_bind(circle, "<Button-1>", lambda event: set_node_color(color))
 
-    for color in ["black", "red", "blue"]:
+    for color in ["red", "orange", "yellow","green", "blue", "purple"]:
         crear_selector_color_punto(color_punto_frame, color)
 
     # === 2. Color de segmentos ===
@@ -330,7 +330,7 @@ def seleccionar_espacio_aereo_con_colores():
         circle = canvas.create_oval(5, 5, 25, 25, fill=color, outline="black")
         canvas.tag_bind(circle, "<Button-1>", lambda event: set_segment_color(color))
 
-    for color in ["black", "red", "blue"]:
+    for color in ["red", "orange", "yellow", "green", "blue", "purple"]:
         crear_selector_color_segmento(color_segmento_frame, color)
 
     # === 3. Selección del espacio aéreo ===

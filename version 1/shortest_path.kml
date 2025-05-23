@@ -7,6 +7,7 @@
         <coordinates>
           -0.7927777778,40.8711111111,0
           -0.2852777778,41.0091666667,0
+          0.4763888889,41.1097222222,0
         </coordinates>
       </LineString>
     </Placemark>
@@ -20,6 +21,12 @@
       <name>RAMON</name>
       <Point>
         <coordinates>-0.2852777778,41.0091666667,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>SALAS</name>
+      <Point>
+        <coordinates>0.4763888889,41.1097222222,0</coordinates>
       </Point>
     </Placemark>
   </Document>
