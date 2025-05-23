@@ -5,42 +5,35 @@
       <LineString>
         <tessellate>1</tessellate>
         <coordinates>
-          2.0768662333,41.2972901333,0
-          2.0225334833,41.5145652667,0
-          2.1097222222,41.52,0
-          1.5477777778,41.3427777778,0
-          1.1869708,41.1431879333,0
+          3.6444444444,40.6527777778,0
+          3.7569444444,41.1530555556,0
+          3.8069444444,41.0152777778,0
+          3.9919444444,40.5,0
         </coordinates>
       </LineString>
     </Placemark>
     <Placemark>
-      <name>BCN.D</name>
+      <name>BLASO</name>
       <Point>
-        <coordinates>2.0768662333,41.2972901333,0</coordinates>
+        <coordinates>3.6444444444,40.6527777778,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
-      <name>SLL.A</name>
+      <name>VERSO</name>
       <Point>
-        <coordinates>2.0225334833,41.5145652667,0</coordinates>
+        <coordinates>3.7569444444,41.1530555556,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
-      <name>SLL</name>
+      <name>TOSNU</name>
       <Point>
-        <coordinates>2.1097222222,41.52,0</coordinates>
+        <coordinates>3.8069444444,41.0152777778,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
-      <name>VLA</name>
+      <name>SARGO</name>
       <Point>
-        <coordinates>1.5477777778,41.3427777778,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>RES.A</name>
-      <Point>
-        <coordinates>1.1869708,41.1431879333,0</coordinates>
+        <coordinates>3.9919444444,40.5,0</coordinates>
       </Point>
     </Placemark>
   </Document>
