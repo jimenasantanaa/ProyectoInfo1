@@ -414,8 +414,13 @@ def camino_mas_corto_por_aeropuerto():
     nodo_sid = aeropuerto_origen.sid[0]
     nodo_star = aeropuerto_destino.star[0]
 
+    # DEBUG: Mostrar nodos SID y STAR
+    print(f"SID origen: {nodo_sid.name}, coords: ({nodo_sid.longitude}, {nodo_sid.latitude})")
+    print(f"STAR destino: {nodo_star.name}, coords: ({nodo_star.longitude}, {nodo_star.latitude})")
+
     ruta = FindShortestPath(grafo, nodo_sid, nodo_star)
-    if not ruta:
+
+    if not ruta or not ruta.navPoints:
         messagebox.showerror("Error", "No se encontró camino entre los aeropuertos seleccionados.")
         return
 
@@ -440,6 +445,7 @@ def camino_mas_corto_por_aeropuerto():
 
     añadir_icono(ax, "avion.png", origen_x, origen_y, zoom=0.06, flip=flip)
 
+    from PIL import ImageOps
     pil_img = Image.open("avion.png").convert("RGBA")
     pil_img = pil_img.rotate(310, expand=True)
     if flip:
