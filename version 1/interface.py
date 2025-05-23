@@ -125,24 +125,28 @@ def mostrar_vecinos():
     ax.set_ylabel("Latitud")
     ax.grid(True)
 
+    # Dibujar todos los puntos
     for n in grafo.navPoint:
         ax.scatter(n.longitude, n.latitude, color=node_color, s=8)
         ax.text(n.longitude, n.latitude, n.name, fontsize=6, alpha=0.5)
 
+    # Dibujar segmentos conectados al nodo
     for seg in grafo.navSegment:
         origin = next((n for n in grafo.navPoint if n.number == seg.origin_number), None)
         destination = next((n for n in grafo.navPoint if n.number == seg.destination_number), None)
         if origin and destination:
             if origin == nodo or destination == nodo:
-                ax.plot([origin.longitude, destination.longitude], [origin.latitude, destination.latitude], 'c-', linewidth=0.5)
+                ax.plot([origin.longitude, destination.longitude], [origin.latitude, destination.latitude], color=segment_color, linewidth=0.5)
 
-    ax.plot(nodo.longitude, nodo.latitude, 'ro')
+    # Nodo central en color de nodo
+    ax.scatter(nodo.longitude, nodo.latitude, color=node_color, s=40)
     ax.text(nodo.longitude, nodo.latitude, nodo.name, fontsize=8, color=node_color)
 
+    # Vecinos en color de nodo y conexiones en color de segmento
     for vecino in vecinos:
-        ax.plot(vecino.longitude, vecino.latitude, 'bo')
+        ax.scatter(vecino.longitude, vecino.latitude, color=node_color, s=30)
         ax.text(vecino.longitude, vecino.latitude, vecino.name, fontsize=6, alpha=0.6)
-        ax.plot([nodo.longitude, vecino.longitude], [nodo.latitude, vecino.latitude], 'c-', linewidth=0.5)
+        ax.plot([nodo.longitude, vecino.longitude], [nodo.latitude, vecino.latitude], color=segment_color, linewidth=0.5)
 
     canvas.draw()
 
