@@ -30,6 +30,9 @@ node_color = 'black'
 modo_visualizacion = "completo"
 ruta_manual = []
 esperando_ruta_manual = False
+selected_node_color_canvas = None
+selected_segment_color_canvas = None
+
 
 # Añadir imagen del avión
 def añadir_icono(ax, image_path, x, y, zoom=0.1, rotation=0, flip=False):
@@ -77,7 +80,7 @@ def draw_graph(g):
 
 # Función para hacer click en el gráfico
 def on_click(event):
-    global waiting_for_neighbor_selection, waiting_for_path_selection, selected_node, origin_node
+    global waiting_for_neighbor_selection, waiting_for_path_selection, selected_node, origin_node, ruta_manual
 
     if grafo is None:
         return
@@ -91,27 +94,51 @@ def on_click(event):
     if waiting_for_neighbor_selection:
         waiting_for_neighbor_selection = False
         mostrar_vecinos()
+
     elif waiting_for_path_selection == 1:
         origin_node = closest
         waiting_for_path_selection = 2
         messagebox.showinfo("Destino", f"Nodo origen seleccionado: {closest.name}. Ahora selecciona el nodo destino.")
+
     elif waiting_for_path_selection == 2:
         destino_node = closest
         waiting_for_path_selection = 0
         mostrar_camino_mas_corto(origin_node, destino_node)
+
     elif esperando_ruta_manual:
-        ruta_manual.append(closest)
-        ax.scatter(closest.longitude, closest.latitude, color=segment_color, s=60, zorder=10)
-        ax.text(closest.longitude, closest.latitude, closest.name, fontsize=9, color=segment_color, zorder=11)
-        if len(ruta_manual) > 1:
-            n1 = ruta_manual[-2]
-            n2 = ruta_manual[-1]
-            ax.plot([n1.longitude, n2.longitude], [n1.latitude, n2.latitude], color=segment_color, linewidth=2, zorder=9)
+        if len(ruta_manual) == 0:
+            ruta_manual.append(closest)
+            ax.scatter(closest.longitude, closest.latitude, color=segment_color, s=60, zorder=10)
+            ax.text(closest.longitude, closest.latitude, closest.name, fontsize=9, color=segment_color, zorder=11)
+        else:
+            origen = ruta_manual[-1]
+            destino = closest
+            subruta = FindShortestPath(grafo, origen, destino)
+
+            if not subruta:
+                messagebox.showerror("Error", f"No se encontró camino entre {origen.name} y {destino.name}.")
+                return
+
+            for punto in subruta.navPoints[1:]:
+                ruta_manual.append(punto)
+
+            for i in range(len(subruta.navPoints) - 1):
+                p1 = subruta.navPoints[i]
+                p2 = subruta.navPoints[i + 1]
+                ax.plot([p1.longitude, p2.longitude], [p1.latitude, p2.latitude], color=segment_color, linewidth=2, zorder=9)
+                ax.annotate('', xy=(p2.longitude, p2.latitude), xytext=(p1.longitude, p1.latitude),
+                            arrowprops=dict(facecolor=segment_color, edgecolor=segment_color, arrowstyle='->', lw=2), zorder=10)
+
+            for punto in subruta.navPoints[1:]:
+                ax.scatter(punto.longitude, punto.latitude, color=segment_color, s=60, zorder=10)
+                ax.text(punto.longitude, punto.latitude, punto.name, fontsize=9, color=segment_color, zorder=11)
+
         canvas.draw()
         return
 
     else:
         messagebox.showinfo("Nodo seleccionado", f"Has seleccionado el nodo: {closest.name}")
+
 
 # Función para activar el modo mostrar vecinos
 def preparar_mostrar_vecinos():

@@ -1,35 +1,35 @@
 <kml xmlns='http://www.opengis.net/kml/2.2'>
   <Document>
     <Placemark>
-      <name>PONEN (Central)</name>
+      <name>MARTA (Central)</name>
       <Point>
-        <coordinates>-0.5475,41.3538888889,0</coordinates>
+        <coordinates>1.28,40.3547222222,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
-      <name>CASPE</name>
+      <name>GODOX</name>
       <Point>
-        <coordinates>0.1994444444,41.2683333333,0</coordinates>
+        <coordinates>1.4108333333,39.3725,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
-      <name>SEROX</name>
+      <name>EBROX</name>
       <Point>
-        <coordinates>0.2186111111,41.3466666667,0</coordinates>
+        <coordinates>1.2316666667,40.7086111111,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
-      <name>ZZA</name>
+      <name>NEPAL</name>
       <Point>
-        <coordinates>-0.8782301333,41.6028794,0</coordinates>
+        <coordinates>1.9247222222,40.6927777778,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <LineString>
         <tessellate>1</tessellate>
         <coordinates>
-          -0.5475,41.3538888889,0
-          0.1994444444,41.2683333333,0
+          1.4108333333,39.3725,0
+          1.28,40.3547222222,0
         </coordinates>
       </LineString>
     </Placemark>
@@ -37,8 +37,8 @@
       <LineString>
         <tessellate>1</tessellate>
         <coordinates>
-          -0.5475,41.3538888889,0
-          0.2186111111,41.3466666667,0
+          1.28,40.3547222222,0
+          1.2316666667,40.7086111111,0
         </coordinates>
       </LineString>
     </Placemark>
@@ -46,8 +46,8 @@
       <LineString>
         <tessellate>1</tessellate>
         <coordinates>
-          -0.8782301333,41.6028794,0
-          -0.5475,41.3538888889,0
+          1.28,40.3547222222,0
+          1.9247222222,40.6927777778,0
         </coordinates>
       </LineString>
     </Placemark>
