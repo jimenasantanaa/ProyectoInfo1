@@ -176,11 +176,11 @@ def mostrar_camino_mas_corto(origen, destino):
 
         # Añadir avión despegando en el inicio del camino
         origen_x, origen_y = ruta.navPoints[0].longitude, ruta.navPoints[0].latitude
-        añadir_icono(ax, "avion.png", origen_x, origen_y, zoom=0.1)
+        añadir_icono(ax, "avion.png", origen_x, origen_y, zoom=0.05)
 
         # Añadir avión aterrizando (rotado 180°) en el final del camino
         destino_x, destino_y = ruta.navPoints[-1].longitude, ruta.navPoints[-1].latitude
-        añadir_icono(ax, "avion.png", destino_x, destino_y, zoom=0.1, rotation=50)
+        añadir_icono(ax, "avion.png", destino_x, destino_y, zoom=0.05, rotation=310)
 
     canvas.draw()
 
