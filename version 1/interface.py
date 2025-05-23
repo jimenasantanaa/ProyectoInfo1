@@ -453,11 +453,11 @@ def main_interface(prefix):
     button_frame = tk.Frame(root)
     button_frame.pack(anchor='nw', pady=5, padx=5)
 
-    tk.Button(button_frame, text="Crear ruta manual", command=iniciar_creacion_ruta_manual).pack(side=tk.LEFT, padx=5)
     tk.Button(button_frame, text="Mostrar vecinos", command=preparar_mostrar_vecinos).pack(side=tk.LEFT, padx=5)
-    tk.Button(button_frame, text="Camino más corto", command=preparar_camino_mas_corto).pack(side=tk.LEFT, padx=5)
-    tk.Button(button_frame, text="Volver gráfico completo", command=lambda: draw_graph(grafo)).pack(side=tk.LEFT, padx=5)
+    tk.Button(button_frame, text="Camino más corto (con clicks)", command=preparar_camino_mas_corto).pack(side=tk.LEFT, padx=5)
     tk.Button(button_frame, text="Camino más corto (por aeropuerto)", command=camino_mas_corto_por_aeropuerto).pack(side=tk.LEFT, padx=5)
+    tk.Button(button_frame, text="Crear ruta manual", command=iniciar_creacion_ruta_manual).pack(side=tk.LEFT, padx=5)
+    tk.Button(button_frame, text="Volver gráfico completo", command=lambda: draw_graph(grafo)).pack(side=tk.LEFT, padx=5)
 
     plot_frame = tk.Frame(root)
     plot_frame.pack(fill=tk.BOTH, expand=True)
