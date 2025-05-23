@@ -27,6 +27,8 @@ origin_node = None
 waiting_for_neighbor_selection = False
 waiting_for_path_selection = 0
 segment_color = 'black'  # Color por defecto para los segmentos
+modo_visualizacion = "completo"
+
 
 def añadir_icono(ax, image_path, x, y, zoom=0.1, rotation=0):
     pil_img = Image.open(image_path).convert("RGBA")
@@ -39,7 +41,8 @@ def añadir_icono(ax, image_path, x, y, zoom=0.1, rotation=0):
 
 # Función para dibujar el gráfico completo
 def draw_graph(g):
-    global canvas, fig, ax
+    global canvas, fig, ax, modo_visualizacion
+    modo_visualizacion = "completo"
 
     if canvas:
         canvas.get_tk_widget().destroy()
@@ -53,7 +56,7 @@ def draw_graph(g):
             ax.plot([origin.longitude, destination.longitude], [origin.latitude, destination.latitude], color=segment_color, linewidth=0.5)
 
     for n in g.navPoint:
-        ax.scatter(n.longitude, n.latitude, color='blue', s=10)
+        ax.scatter(n.longitude, n.latitude, color=segment_color, s=10)
         ax.text(n.longitude, n.latitude, n.name, fontsize=6, alpha=0.6)
 
     ax.set_title("Gráfico")
@@ -102,6 +105,9 @@ def preparar_mostrar_vecinos():
 
 # Función para mostrar vecinos
 def mostrar_vecinos():
+    global modo_visualizacion
+    modo_visualizacion = "vecinos"
+
     if selected_node[0] is None:
         messagebox.showwarning("Advertencia", "Por favor selecciona un nodo haciendo clic en el gráfico.")
         return
@@ -116,7 +122,7 @@ def mostrar_vecinos():
     ax.grid(True)
 
     for n in grafo.navPoint:
-        ax.scatter(n.longitude, n.latitude, color='lightgray', s=8)
+        ax.scatter(n.longitude, n.latitude, color=segment_color, s=8)
         ax.text(n.longitude, n.latitude, n.name, fontsize=6, alpha=0.5)
 
     for seg in grafo.navSegment:
@@ -127,7 +133,7 @@ def mostrar_vecinos():
                 ax.plot([origin.longitude, destination.longitude], [origin.latitude, destination.latitude], 'c-', linewidth=0.5)
 
     ax.plot(nodo.longitude, nodo.latitude, 'ro')
-    ax.text(nodo.longitude, nodo.latitude, nodo.name, fontsize=8, color='red')
+    ax.text(nodo.longitude, nodo.latitude, nodo.name, fontsize=8, color=segment_color)
 
     for vecino in vecinos:
         ax.plot(vecino.longitude, vecino.latitude, 'bo')
@@ -147,6 +153,9 @@ def preparar_camino_mas_corto():
 
 # Función para mostrar el camino más corto (con clicks)
 def mostrar_camino_mas_corto(origen, destino):
+    global modo_visualizacion
+    modo_visualizacion = "camino"
+
     ruta = FindShortestPath(grafo, origen, destino)
 
     if not ruta:
@@ -159,11 +168,11 @@ def mostrar_camino_mas_corto(origen, destino):
         n1, n2 = ruta.navPoints[i], ruta.navPoints[i + 1]
         ax.plot([n1.longitude, n2.longitude], [n1.latitude, n2.latitude], 'r-', linewidth=3, zorder=5)
         ax.annotate('', xy=(n2.longitude, n2.latitude), xytext=(n1.longitude, n1.latitude),
-                    arrowprops=dict(facecolor='red', edgecolor='red', arrowstyle='->', lw=2), zorder=6)
+                    arrowprops=dict(facecolor=segment_color, edgecolor=segment_color, arrowstyle='->', lw=2), zorder=6)
 
     for n in ruta.navPoints:
-        ax.scatter(n.longitude, n.latitude, color='red', s=40, zorder=7)
-        ax.text(n.longitude, n.latitude, n.name, fontsize=9, ha='right', color='darkred', zorder=8)
+        ax.scatter(n.longitude, n.latitude, color=segment_color, s=40, zorder=7)
+        ax.text(n.longitude, n.latitude, n.name, fontsize=9, ha='right', color=segment_color, zorder=8)
 
         # Añadir avión despegando en el inicio del camino
         origen_x, origen_y = ruta.navPoints[0].longitude, ruta.navPoints[0].latitude
@@ -224,11 +233,11 @@ def camino_mas_corto_por_aeropuerto():
         n1, n2 = ruta.navPoints[i], ruta.navPoints[i + 1]
         ax.plot([n1.longitude, n2.longitude], [n1.latitude, n2.latitude], 'r-', linewidth=3, zorder=5)
         ax.annotate('', xy=(n2.longitude, n2.latitude), xytext=(n1.longitude, n1.latitude),
-                    arrowprops=dict(facecolor='red', edgecolor='red', arrowstyle='->', lw=2), zorder=6)
+                    arrowprops=dict(facecolor=segment_color, edgecolor=segment_color, arrowstyle='->', lw=2), zorder=6)
 
     for n in ruta.navPoints:
-        ax.scatter(n.longitude, n.latitude, color='red', s=40, zorder=7)
-        ax.text(n.longitude, n.latitude, n.name, fontsize=9, ha='right', color='darkred', zorder=8)
+        ax.scatter(n.longitude, n.latitude, color=segment_color, s=40, zorder=7)
+        ax.text(n.longitude, n.latitude, n.name, fontsize=9, ha='right', color=segment_color, zorder=8)
 
     canvas.draw()
 
@@ -238,8 +247,16 @@ def camino_mas_corto_por_aeropuerto():
 def cambiar_color_segmento(color):
     global segment_color
     segment_color = color
+
     if grafo:
-        draw_graph(grafo)
+        if modo_visualizacion == "completo":
+            draw_graph(grafo)
+        elif modo_visualizacion == "vecinos":
+            mostrar_vecinos()
+        elif modo_visualizacion == "camino":
+            if origin_node and selected_node[0]:
+                mostrar_camino_mas_corto(origin_node, selected_node[0])
+
 
 # Interfaz principal despúes de seleccionar el espacio aéreo
 def main_interface(prefix):

@@ -5,30 +5,16 @@
       <LineString>
         <tessellate>1</tessellate>
         <coordinates>
-          2.0768662333,41.2972901333,0
-          2.0225334833,41.5145652667,0
-          2.1097222222,41.52,0
+          2.0429941,41.5083937833,0
           1.5477777778,41.3427777778,0
           1.1869708,41.1431879333,0
         </coordinates>
       </LineString>
     </Placemark>
     <Placemark>
-      <name>BCN.D</name>
+      <name>SLL.D</name>
       <Point>
-        <coordinates>2.0768662333,41.2972901333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>SLL.A</name>
-      <Point>
-        <coordinates>2.0225334833,41.5145652667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>SLL</name>
-      <Point>
-        <coordinates>2.1097222222,41.52,0</coordinates>
+        <coordinates>2.0429941,41.5083937833,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
