@@ -161,14 +161,13 @@ def mostrar_vecinos():
     export_neighbors_to_kml(nodo, vecinos, grafo.navSegment)
     messagebox.showinfo("Exportación KML", "Se ha modificado 'neighbors.kml' con el nodo y los vecinos actuales.")
 
-#
+# Función para activar el camino más corto
 def preparar_camino_mas_corto():
     global waiting_for_path_selection
     waiting_for_path_selection = 1
     messagebox.showinfo("Selecciona origen", "Haz clic en el nodo de origen del camino más corto.")
 
-
-# Función para dibujar solo nodos sin segmentos (base para mostrar caminos)
+# Función para dibujar solo nodos (sin segmentos)
 def draw_nodes_only(g):
     global ax
     ax.clear()
@@ -190,10 +189,8 @@ def mostrar_camino_mas_corto(origen, destino):
         messagebox.showerror("Error", "No se encontró camino entre los puntos seleccionados.")
         return
 
-    # Dibuja solo nodos sin segmentos normales
     draw_nodes_only(grafo)
 
-    # Ahora dibuja el camino más corto resaltado
     for i in range(len(ruta.navPoints) - 1):
         n1, n2 = ruta.navPoints[i], ruta.navPoints[i + 1]
         ax.plot([n1.longitude, n2.longitude], [n1.latitude, n2.latitude], 'r-', linewidth=3, zorder=5)
@@ -204,7 +201,6 @@ def mostrar_camino_mas_corto(origen, destino):
         ax.scatter(n.longitude, n.latitude, color=segment_color, s=40, zorder=7)
         ax.text(n.longitude, n.latitude, n.name, fontsize=9, ha='right', color=segment_color, zorder=8)
 
-    # Coordenadas inicio y fin camino
     origen_x, origen_y = ruta.navPoints[0].longitude, ruta.navPoints[0].latitude
     destino_x, destino_y = ruta.navPoints[-1].longitude, ruta.navPoints[-1].latitude
 
@@ -226,7 +222,8 @@ def mostrar_camino_mas_corto(origen, destino):
     export_path_to_kml(ruta)
     messagebox.showinfo("KML generado", "Se ha modificado 'path.kml' con el camino más corto actual.")
 
-def iniciar_creacion_ruta_manual():
+# Función para activar ruta manual
+def preparar_creacion_ruta_manual():
     global esperando_ruta_manual, ruta_manual
     esperando_ruta_manual = True
     ruta_manual = []
@@ -462,7 +459,7 @@ def main_interface(prefix):
     tk.Button(button_frame, text="Mostrar vecinos", command=preparar_mostrar_vecinos).pack(side=tk.LEFT, padx=5)
     tk.Button(button_frame, text="Camino más corto (con clicks)", command=preparar_camino_mas_corto).pack(side=tk.LEFT, padx=5)
     tk.Button(button_frame, text="Camino más corto (por aeropuerto)", command=camino_mas_corto_por_aeropuerto).pack(side=tk.LEFT, padx=5)
-    tk.Button(button_frame, text="Crear ruta manual", command=iniciar_creacion_ruta_manual).pack(side=tk.LEFT, padx=5)
+    tk.Button(button_frame, text="Crear ruta manual", command=preparar_creacion_ruta_manual).pack(side=tk.LEFT, padx=5)
     tk.Button(button_frame, text="Volver gráfico completo", command=lambda: draw_graph(grafo)).pack(side=tk.LEFT, padx=5)
 
     plot_frame = tk.Frame(root)
