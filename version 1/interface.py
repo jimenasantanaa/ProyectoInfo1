@@ -380,6 +380,50 @@ def mostrar_camino_mas_corto(origen, destino):
     export_path_to_kml(ruta)
     messagebox.showinfo("KML generado", "Se ha modificado 'shortest_path.kml' con el camino más corto actual.")
 
+def pedir_origen_y_destino(opciones):
+    top = tk.Toplevel(root)
+    top.title("Seleccionar aeropuertos")
+    top.transient(root)
+    top.grab_set()
+
+    # Etiqueta y entrada para origen
+    tk.Label(top, text=" ELige el aeropuerto de origen: ").pack(pady=(10, 0))
+    entry_origen = tk.Entry(top)
+    entry_origen.pack(pady=(0, 10))
+    entry_origen.focus()
+
+    # Etiqueta y entrada para destino
+    tk.Label(top, text=" Elige el aeropuerto de destino: ").pack(pady=(10, 0))
+    entry_destino = tk.Entry(top)
+    entry_destino.pack(pady=(0, 10))
+
+    resultado = {}
+
+    def confirmar():
+        origen = entry_origen.get()
+        destino = entry_destino.get()
+
+        if origen not in opciones:
+            messagebox.showerror("Error", "Aeropuerto de origen no válido.")
+            return
+        if destino not in opciones:
+            messagebox.showerror("Error", "Aeropuerto de destino no válido.")
+            return
+
+        resultado["origen"] = origen
+        resultado["destino"] = destino
+        top.destroy()
+
+    tk.Button(top, text="Aceptar", command=confirmar).pack(pady=10)
+
+    # Centrar la ventana
+    top.update_idletasks()
+    x = root.winfo_x() + (root.winfo_width() - top.winfo_width()) // 2
+    y = root.winfo_y() + (root.winfo_height() - top.winfo_height()) // 2
+    top.geometry(f"+{x}+{y}")
+
+    top.wait_window()
+    return resultado.get("origen"), resultado.get("destino")
 
 def camino_mas_corto_por_aeropuerto():
     global airports, grafo
@@ -390,14 +434,10 @@ def camino_mas_corto_por_aeropuerto():
 
     nombres = [a.name for a in airports]
 
-    origen = simpledialog.askstring("Aeropuerto origen", f"Introduce el aeropuerto de origen: ")
-    if origen is None or origen not in nombres:
-        messagebox.showerror("Error", "Aeropuerto de origen no válido o cancelado.")
+    origen, destino = pedir_origen_y_destino(nombres)
+    if not origen or not destino:
         return
 
-    destino = simpledialog.askstring("Aeropuerto destino", f"Introduce el aeropuerto de destino: ")
-    if destino is None or destino not in nombres:
-        messagebox.showerror("Error", "Aeropuerto de destino no válido o cancelado.")
         return
 
     aeropuerto_origen = next(a for a in airports if a.name == origen)
@@ -413,10 +453,6 @@ def camino_mas_corto_por_aeropuerto():
 
     nodo_sid = aeropuerto_origen.sid[0]
     nodo_star = aeropuerto_destino.star[0]
-
-    # DEBUG: Mostrar nodos SID y STAR
-    print(f"SID origen: {nodo_sid.name}, coords: ({nodo_sid.longitude}, {nodo_sid.latitude})")
-    print(f"STAR destino: {nodo_star.name}, coords: ({nodo_star.longitude}, {nodo_star.latitude})")
 
     ruta = FindShortestPath(grafo, nodo_sid, nodo_star)
 
@@ -608,51 +644,6 @@ def seleccionar_espacio_aereo_con_colores():
     tk.Button(espacio_frame, text="Europa", command=lambda: elegir("ECAC")).pack(side=tk.LEFT, padx=5)
 
     seleccion.mainloop()
-def pedir_origen_y_destino(opciones):
-    top = tk.Toplevel(root)
-    top.title("Seleccionar aeropuertos")
-    top.transient(root)
-    top.grab_set()
-
-    # Etiqueta y entrada para origen
-    tk.Label(top, text=" ELige el aeropuerto de origen: ").pack(pady=(10, 0))
-    entry_origen = tk.Entry(top)
-    entry_origen.pack(pady=(0, 10))
-    entry_origen.focus()
-
-    # Etiqueta y entrada para destino
-    tk.Label(top, text=" Elige el aeropuerto de destino: ").pack(pady=(10, 0))
-    entry_destino = tk.Entry(top)
-    entry_destino.pack(pady=(0, 10))
-
-    resultado = {}
-
-    def confirmar():
-        origen = entry_origen.get()
-        destino = entry_destino.get()
-
-        if origen not in opciones:
-            messagebox.showerror("Error", "Aeropuerto de origen no válido.")
-            return
-        if destino not in opciones:
-            messagebox.showerror("Error", "Aeropuerto de destino no válido.")
-            return
-
-        resultado["origen"] = origen
-        resultado["destino"] = destino
-        top.destroy()
-
-    tk.Button(top, text="Aceptar", command=confirmar).pack(pady=10)
-
-    # Centrar la ventana
-    top.update_idletasks()
-    x = root.winfo_x() + (root.winfo_width() - top.winfo_width()) // 2
-    y = root.winfo_y() + (root.winfo_height() - top.winfo_height()) // 2
-    top.geometry(f"+{x}+{y}")
-
-    top.wait_window()
-    return resultado.get("origen"), resultado.get("destino")
-
 
 def main_interface(prefix):
     global root, plot_frame, grafo, airports
