@@ -107,7 +107,7 @@ def export_neighbors_to_kml(node, neighbors, segments, filename="neighbors.kml")
         f.write("  </Document>\n")
         f.write("</kml>\n")
 
-def export_path_to_kml(path, filename="shortest_path.kml"):
+def export_path_to_kml(path, filename="path.kml"):
     with open(filename, "w") as f:
         f.write("<kml xmlns='http://www.opengis.net/kml/2.2'>\n")
         f.write("  <Document>\n")

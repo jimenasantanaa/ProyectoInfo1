@@ -31,7 +31,7 @@ modo_visualizacion = "completo"
 ruta_manual = []
 esperando_ruta_manual = False
 
-
+# Añadir imagen del avión
 def añadir_icono(ax, image_path, x, y, zoom=0.1, rotation=0, flip=False):
     pil_img = Image.open(image_path).convert("RGBA")
 
@@ -44,7 +44,6 @@ def añadir_icono(ax, image_path, x, y, zoom=0.1, rotation=0, flip=False):
     imagebox = OffsetImage(img, zoom=zoom)
     ab = AnnotationBbox(imagebox, (x, y), frameon=False, zorder=999)
     ax.add_artist(ab)
-
 
 # Función para dibujar el gráfico completo
 def draw_graph(g):
@@ -76,7 +75,7 @@ def draw_graph(g):
     canvas.get_tk_widget().pack(fill=tk.BOTH, expand=True)
     canvas.mpl_connect("button_press_event", on_click)
 
-
+# Función para hacer click en el gráfico
 def on_click(event):
     global waiting_for_neighbor_selection, waiting_for_path_selection, selected_node, origin_node
 
@@ -114,13 +113,13 @@ def on_click(event):
     else:
         messagebox.showinfo("Nodo seleccionado", f"Has seleccionado el nodo: {closest.name}")
 
-
+# Función para activar el modo mostrar vecinos
 def preparar_mostrar_vecinos():
     global waiting_for_neighbor_selection
     waiting_for_neighbor_selection = True
     messagebox.showinfo("Selecciona nodo", "Haz clic en un nodo para mostrar sus vecinos.")
 
-
+# Función para activar el modo camino más corto
 def mostrar_vecinos():
     global modo_visualizacion
     modo_visualizacion = "vecinos"
@@ -138,12 +137,10 @@ def mostrar_vecinos():
     ax.set_ylabel("Latitud")
     ax.grid(True)
 
-    # Dibujar todos los puntos
     for n in grafo.navPoint:
         ax.scatter(n.longitude, n.latitude, color=node_color, s=8)
         ax.text(n.longitude, n.latitude, n.name, fontsize=6, alpha=0.5)
 
-    # Dibujar segmentos conectados al nodo
     for seg in grafo.navSegment:
         origin = next((n for n in grafo.navPoint if n.number == seg.origin_number), None)
         destination = next((n for n in grafo.navPoint if n.number == seg.destination_number), None)
@@ -151,11 +148,9 @@ def mostrar_vecinos():
             if origin == nodo or destination == nodo:
                 ax.plot([origin.longitude, destination.longitude], [origin.latitude, destination.latitude], color=segment_color, linewidth=0.5)
 
-    # Nodo central en color de nodo
     ax.scatter(nodo.longitude, nodo.latitude, color=node_color, s=40)
     ax.text(nodo.longitude, nodo.latitude, nodo.name, fontsize=8, color=node_color)
 
-    # Vecinos en color de nodo y conexiones en color de segmento
     for vecino in vecinos:
         ax.scatter(vecino.longitude, vecino.latitude, color=node_color, s=30)
         ax.text(vecino.longitude, vecino.latitude, vecino.name, fontsize=6, alpha=0.6)
@@ -166,7 +161,7 @@ def mostrar_vecinos():
     export_neighbors_to_kml(nodo, vecinos, grafo.navSegment)
     messagebox.showinfo("Exportación KML", "Se ha modificado 'neighbors.kml' con el nodo y los vecinos actuales.")
 
-
+#
 def preparar_camino_mas_corto():
     global waiting_for_path_selection
     waiting_for_path_selection = 1
@@ -229,7 +224,7 @@ def mostrar_camino_mas_corto(origen, destino):
     canvas.draw()
 
     export_path_to_kml(ruta)
-    messagebox.showinfo("KML generado", "Se ha modificado 'shortest_path.kml' con el camino más corto actual.")
+    messagebox.showinfo("KML generado", "Se ha modificado 'path.kml' con el camino más corto actual.")
 
 def iniciar_creacion_ruta_manual():
     global esperando_ruta_manual, ruta_manual
@@ -351,8 +346,8 @@ def camino_mas_corto_por_aeropuerto():
 
     canvas.draw()
 
-    export_path_to_kml(ruta, "shortest_path.kml")
-    messagebox.showinfo("KML generado", "Se ha modificado 'shortest_path.kml' con el camino actual.")
+    export_path_to_kml(ruta, "path.kml")
+    messagebox.showinfo("KML generado", "Se ha modificado 'path.kml' con el camino actual.")
 
 def seleccionar_espacio_aereo_con_colores():
     seleccion = tk.Tk()
