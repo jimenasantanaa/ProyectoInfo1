@@ -11,6 +11,10 @@ from path import *
 from graph import *
 from NavAirport import *
 from airSpace import *
+from PIL import Image
+from matplotlib.offsetbox import OffsetImage, AnnotationBbox
+import numpy as np
+
 
 # Variables globales
 grafo = None
@@ -23,6 +27,15 @@ origin_node = None
 waiting_for_neighbor_selection = False
 waiting_for_path_selection = 0
 segment_color = 'black'  # Color por defecto para los segmentos
+
+def añadir_icono(ax, image_path, x, y, zoom=0.1, rotation=0):
+    pil_img = Image.open(image_path).convert("RGBA")
+    pil_img = pil_img.rotate(rotation, expand=True)
+    img = np.array(pil_img)
+
+    imagebox = OffsetImage(img, zoom=zoom)
+    ab = AnnotationBbox(imagebox, (x, y), frameon=False)
+    ax.add_artist(ab)
 
 # Función para dibujar el gráfico completo
 def draw_graph(g):
@@ -151,6 +164,14 @@ def mostrar_camino_mas_corto(origen, destino):
     for n in ruta.navPoints:
         ax.scatter(n.longitude, n.latitude, color='red', s=40, zorder=7)
         ax.text(n.longitude, n.latitude, n.name, fontsize=9, ha='right', color='darkred', zorder=8)
+
+        # Añadir avión despegando en el inicio del camino
+        origen_x, origen_y = ruta.navPoints[0].longitude, ruta.navPoints[0].latitude
+        añadir_icono(ax, "avión.png", origen_x, origen_y, zoom=0.1)
+
+        # Añadir avión aterrizando (rotado 180°) en el final del camino
+        destino_x, destino_y = ruta.navPoints[-1].longitude, ruta.navPoints[-1].latitude
+        añadir_icono(ax, "avión.png", destino_x, destino_y, zoom=0.1, rotation=50)
 
     canvas.draw()
 

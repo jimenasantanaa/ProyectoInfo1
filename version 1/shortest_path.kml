@@ -5,28 +5,42 @@
       <LineString>
         <tessellate>1</tessellate>
         <coordinates>
-          -0.2852777778,41.0091666667,0
-          -0.7927777778,40.8711111111,0
-          0.0616666667,40.8722222222,0
+          2.0768662333,41.2972901333,0
+          2.0225334833,41.5145652667,0
+          2.1097222222,41.52,0
+          1.5477777778,41.3427777778,0
+          1.1869708,41.1431879333,0
         </coordinates>
       </LineString>
     </Placemark>
     <Placemark>
-      <name>RAMON</name>
+      <name>BCN.D</name>
       <Point>
-        <coordinates>-0.2852777778,41.0091666667,0</coordinates>
+        <coordinates>2.0768662333,41.2972901333,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
-      <name>NEXAS</name>
+      <name>SLL.A</name>
       <Point>
-        <coordinates>-0.7927777778,40.8711111111,0</coordinates>
+        <coordinates>2.0225334833,41.5145652667,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
-      <name>CRETA</name>
+      <name>SLL</name>
       <Point>
-        <coordinates>0.0616666667,40.8722222222,0</coordinates>
+        <coordinates>2.1097222222,41.52,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>VLA</name>
+      <Point>
+        <coordinates>1.5477777778,41.3427777778,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>RES.A</name>
+      <Point>
+        <coordinates>1.1869708,41.1431879333,0</coordinates>
       </Point>
     </Placemark>
   </Document>
