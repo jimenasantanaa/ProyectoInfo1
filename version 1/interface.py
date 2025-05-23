@@ -214,6 +214,12 @@ def camino_mas_corto_por_aeropuerto():
     export_path_to_kml(ruta, "shortest_path.kml")
     messagebox.showinfo("KML generado", "Se ha modificado 'shortest_path.kml' con el camino actual.")
 
+def cambiar_color_segmento(color):
+    global segment_color
+    segment_color = color
+    if grafo:
+        draw_graph(grafo)
+
 # Interfaz principal despúes de seleccionar el espacio aéreo
 def main_interface(prefix):
     global root, plot_frame
@@ -277,9 +283,3 @@ def seleccionar_espacio_aereo():
     seleccion.mainloop()
 
 seleccionar_espacio_aereo()
-
-def cambiar_color_segmento(color):
-    global segment_color
-    segment_color = color
-    if grafo:
-        draw_graph(grafo)
