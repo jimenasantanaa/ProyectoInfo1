@@ -11,10 +11,9 @@ from path import *
 from graph import *
 from NavAirport import *
 from airSpace import *
-from PIL import Image, ImageOps
+from PIL import Image
 from matplotlib.offsetbox import OffsetImage, AnnotationBbox
 import numpy as np
-
 
 # Variables globales
 grafo = None
@@ -26,7 +25,8 @@ selected_node = [None]
 origin_node = None
 waiting_for_neighbor_selection = False
 waiting_for_path_selection = 0
-segment_color = 'black'  # Color por defecto para los segmentos
+segment_color = 'black'
+node_color = 'black'
 modo_visualizacion = "completo"
 
 
@@ -61,7 +61,7 @@ def draw_graph(g):
             ax.plot([origin.longitude, destination.longitude], [origin.latitude, destination.latitude], color=segment_color, linewidth=0.5)
 
     for n in g.navPoint:
-        ax.scatter(n.longitude, n.latitude, color=segment_color, s=10)
+        ax.scatter(n.longitude, n.latitude, color=node_color, s=10)
         ax.text(n.longitude, n.latitude, n.name, fontsize=6, alpha=0.6)
 
     ax.set_title("Gráfico")
@@ -72,10 +72,9 @@ def draw_graph(g):
     canvas = FigureCanvasTkAgg(fig, master=plot_frame)
     canvas.draw()
     canvas.get_tk_widget().pack(fill=tk.BOTH, expand=True)
-
     canvas.mpl_connect("button_press_event", on_click)
 
-# Función para hacer click en el gráfico
+
 def on_click(event):
     global waiting_for_neighbor_selection, waiting_for_path_selection, selected_node, origin_node
 
@@ -102,13 +101,13 @@ def on_click(event):
     else:
         messagebox.showinfo("Nodo seleccionado", f"Has seleccionado el nodo: {closest.name}")
 
-# Función para activar el modo "mostrar vecinos"
+
 def preparar_mostrar_vecinos():
     global waiting_for_neighbor_selection
     waiting_for_neighbor_selection = True
     messagebox.showinfo("Selecciona nodo", "Haz clic en un nodo para mostrar sus vecinos.")
 
-# Función para mostrar vecinos
+
 def mostrar_vecinos():
     global modo_visualizacion
     modo_visualizacion = "vecinos"
@@ -127,7 +126,7 @@ def mostrar_vecinos():
     ax.grid(True)
 
     for n in grafo.navPoint:
-        ax.scatter(n.longitude, n.latitude, color=segment_color, s=8)
+        ax.scatter(n.longitude, n.latitude, color=node_color, s=8)
         ax.text(n.longitude, n.latitude, n.name, fontsize=6, alpha=0.5)
 
     for seg in grafo.navSegment:
@@ -138,7 +137,7 @@ def mostrar_vecinos():
                 ax.plot([origin.longitude, destination.longitude], [origin.latitude, destination.latitude], 'c-', linewidth=0.5)
 
     ax.plot(nodo.longitude, nodo.latitude, 'ro')
-    ax.text(nodo.longitude, nodo.latitude, nodo.name, fontsize=8, color=segment_color)
+    ax.text(nodo.longitude, nodo.latitude, nodo.name, fontsize=8, color=node_color)
 
     for vecino in vecinos:
         ax.plot(vecino.longitude, vecino.latitude, 'bo')
@@ -150,11 +149,12 @@ def mostrar_vecinos():
     export_neighbors_to_kml(nodo, vecinos, grafo.navSegment)
     messagebox.showinfo("Exportación KML", "Se ha modificado 'neighbors.kml' con el nodo y los vecinos actuales.")
 
-# Función para activar el modo "camino más corto"
+
 def preparar_camino_mas_corto():
     global waiting_for_path_selection
     waiting_for_path_selection = 1
     messagebox.showinfo("Selecciona origen", "Haz clic en el nodo de origen del camino más corto.")
+
 
 # Función para mostrar el camino más corto (con clicks)
 def mostrar_camino_mas_corto(origen, destino):
@@ -204,6 +204,7 @@ def mostrar_camino_mas_corto(origen, destino):
 
     export_path_to_kml(ruta)
     messagebox.showinfo("KML generado", "Se ha modificado 'shortest_path.kml' con el camino más corto actual.")
+
 
 # Función para mostrar el camino más corto (por aeropuerto)
 def camino_mas_corto_por_aeropuerto():
@@ -283,25 +284,68 @@ def camino_mas_corto_por_aeropuerto():
     export_path_to_kml(ruta, "shortest_path.kml")
     messagebox.showinfo("KML generado", "Se ha modificado 'shortest_path.kml' con el camino actual.")
 
-def cambiar_color_segmento(color):
-    global segment_color
-    segment_color = color
+def seleccionar_espacio_aereo_con_colores():
+    seleccion = tk.Tk()
+    seleccion.title("Opciones iniciales")
+    seleccion.geometry("400x250")
 
-    if grafo:
-        if modo_visualizacion == "completo":
-            draw_graph(grafo)
-        elif modo_visualizacion == "vecinos":
-            mostrar_vecinos()
-        elif modo_visualizacion == "camino":
-            if origin_node and selected_node[0]:
-                mostrar_camino_mas_corto(origin_node, selected_node[0])
+    global segment_color, node_color
+    node_color = "black"
+    segment_color = "black"
 
+    # === 1. Color de puntos ===
+    tk.Label(seleccion, text="1. Elige el color de los puntos:").pack()
+    color_punto_frame = tk.Frame(seleccion)
+    color_punto_frame.pack()
 
-# Interfaz principal despúes de seleccionar el espacio aéreo
+    def set_node_color(color):
+        global node_color
+        node_color = color
+
+    def crear_selector_color_punto(frame, color):
+        canvas = tk.Canvas(frame, width=30, height=30, highlightthickness=0, bg=seleccion["bg"])
+        canvas.pack(side=tk.LEFT, padx=5)
+        circle = canvas.create_oval(5, 5, 25, 25, fill=color, outline="black")
+        canvas.tag_bind(circle, "<Button-1>", lambda event: set_node_color(color))
+
+    for color in ["black", "red", "blue"]:
+        crear_selector_color_punto(color_punto_frame, color)
+
+    # === 2. Color de segmentos ===
+    tk.Label(seleccion, text="2. Elige el color de los segmentos:").pack(pady=(10, 0))
+    color_segmento_frame = tk.Frame(seleccion)
+    color_segmento_frame.pack()
+
+    def set_segment_color(color):
+        global segment_color
+        segment_color = color
+
+    def crear_selector_color_segmento(frame, color):
+        canvas = tk.Canvas(frame, width=30, height=30, highlightthickness=0, bg=seleccion["bg"])
+        canvas.pack(side=tk.LEFT, padx=5)
+        circle = canvas.create_oval(5, 5, 25, 25, fill=color, outline="black")
+        canvas.tag_bind(circle, "<Button-1>", lambda event: set_segment_color(color))
+
+    for color in ["black", "red", "blue"]:
+        crear_selector_color_segmento(color_segmento_frame, color)
+
+    # === 3. Selección del espacio aéreo ===
+    tk.Label(seleccion, text="3. Elige el espacio aéreo:").pack(pady=(10, 0))
+    espacio_frame = tk.Frame(seleccion)
+    espacio_frame.pack(pady=5)
+
+    def elegir(prefix):
+        seleccion.destroy()
+        main_interface(prefix)
+
+    tk.Button(espacio_frame, text="Cataluña", command=lambda: elegir("Cat")).pack(side=tk.LEFT, padx=5)
+    tk.Button(espacio_frame, text="España", command=lambda: elegir("Spain")).pack(side=tk.LEFT, padx=5)
+    tk.Button(espacio_frame, text="Europa", command=lambda: elegir("ECAC")).pack(side=tk.LEFT, padx=5)
+
+    seleccion.mainloop()
+
 def main_interface(prefix):
-    global root, plot_frame
-    global grafo, airports
-
+    global root, plot_frame, grafo, airports
     grafo, airports_dict = load_airspace(prefix)
     airports = list(airports_dict.values())
 
@@ -317,19 +361,8 @@ def main_interface(prefix):
 
     tk.Button(button_frame, text="Mostrar vecinos", command=preparar_mostrar_vecinos).pack(side=tk.LEFT, padx=5)
     tk.Button(button_frame, text="Camino más corto", command=preparar_camino_mas_corto).pack(side=tk.LEFT, padx=5)
-    tk.Button(button_frame, text="Volver gráfico completo", command=lambda: draw_graph(grafo) if grafo else None).pack(side=tk.LEFT, padx=5)
+    tk.Button(button_frame, text="Volver gráfico completo", command=lambda: draw_graph(grafo)).pack(side=tk.LEFT, padx=5)
     tk.Button(button_frame, text="Camino más corto (por aeropuerto)", command=camino_mas_corto_por_aeropuerto).pack(side=tk.LEFT, padx=5)
-
-    color_frame = tk.Frame(button_frame)
-    color_frame.pack(side=tk.LEFT, padx=10)
-
-    def crear_circulo_color(frame, color):
-        canvas_color = tk.Canvas(frame, width=20, height=20, highlightthickness=0, bg=root.cget("bg"))
-        canvas_color.pack(side=tk.LEFT)
-        circle = canvas_color.create_oval(2, 2, 18, 18, fill=color, outline=color)
-        canvas_color.bind("<Button-1>", lambda e: cambiar_color_segmento(color))
-
-    crear_circulo_color(color_frame, "red")
 
     plot_frame = tk.Frame(root)
     plot_frame.pack(fill=tk.BOTH, expand=True)
@@ -337,26 +370,6 @@ def main_interface(prefix):
     draw_graph(grafo)
     root.mainloop()
 
-# Ventana inicial para elegir el espacio aéreo
-def seleccionar_espacio_aereo():
-    seleccion = tk.Tk()
-    seleccion.title("Selecciona el espacio aéreo")
-    seleccion.geometry("400x100")
 
-    label = tk.Label(seleccion, text="¿Qué espacio aéreo quieres visualizar?", font=("Arial", 10))
-    label.pack(pady=5)
-
-    def elegir(prefix):
-        seleccion.destroy()
-        main_interface(prefix)
-
-    frame_botones = tk.Frame(seleccion)
-    frame_botones.pack(pady=5)
-
-    tk.Button(frame_botones, text="Cataluña", width=12, command=lambda: elegir("Cat")).pack(side=tk.LEFT, padx=10)
-    tk.Button(frame_botones, text="España", width=12, command=lambda: elegir("Spain")).pack(side=tk.LEFT, padx=10)
-    tk.Button(frame_botones, text="Europa", width=12, command=lambda: elegir("ECAC")).pack(side=tk.LEFT, padx=10)
-
-    seleccion.mainloop()
-
-seleccionar_espacio_aereo()
+# Lanzar la interfaz inicial
+seleccionar_espacio_aereo_con_colores()
