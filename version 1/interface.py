@@ -11,7 +11,7 @@ from path import *
 from graph import *
 from NavAirport import *
 from airSpace import *
-from PIL import Image
+from PIL import Image, ImageOps
 from matplotlib.offsetbox import OffsetImage, AnnotationBbox
 import numpy as np
 
@@ -225,9 +225,21 @@ def mostrar_camino_mas_corto(origen, destino):
 # Función para activar ruta manual
 def preparar_creacion_ruta_manual():
     global esperando_ruta_manual, ruta_manual
-    esperando_ruta_manual = True
-    ruta_manual = []
-    messagebox.showinfo("Ruta manual", "Haz clic en los navpoints que quieras incluir en la ruta.\nPulsa ESC cuando termines.")
+
+    draw_graph(grafo)
+
+    respuesta = messagebox.askquestion(
+        "Modo de ruta manual",
+        "¿Cómo quieres introducir los navpoints de la ruta?\n\nSí = Clics en el gráfico\nNo = Escribir nombres")
+
+    if respuesta == "yes":
+        # Modo con clics
+        esperando_ruta_manual = True
+        ruta_manual = []
+        messagebox.showinfo("Ruta manual", "Haz clic en los navpoints para construir la ruta.\nPulsa ESC para terminar.")
+    else:
+        # Modo escribiendo nombres
+        introducir_ruta_manual_por_nombres()
 
 
 def pedir_origen_y_destino(opciones):
@@ -405,6 +417,81 @@ def seleccionar_espacio_aereo_con_colores():
     tk.Button(espacio_frame, text="Europa", command=lambda: elegir("ECAC")).pack(side=tk.LEFT, padx=5)
 
     seleccion.mainloop()
+
+def introducir_ruta_manual_por_nombres():
+    global ruta_manual, grafo
+
+    ventana = tk.Toplevel(root)
+    ventana.title("Introducir nombres de navpoints")
+    ventana.geometry("300x300")
+
+    tk.Label(ventana, text="Introduce los nombres separados por comas:").pack(pady=10)
+    entrada = tk.Entry(ventana, width=40)
+    entrada.pack(pady=5)
+    entrada.focus()
+
+    def confirmar():
+        nombres = entrada.get().split(',')
+        nombres = [n.strip().upper() for n in nombres]
+
+        navpoints_dict = {n.name.upper(): n for n in grafo.navPoint}
+        ruta_manual.clear()
+
+        for nombre in nombres:
+            if nombre not in navpoints_dict:
+                messagebox.showerror("Error", f"Navpoint '{nombre}' no encontrado.")
+                return
+            ruta_manual.append(navpoints_dict[nombre])
+
+        ventana.destroy()
+        mostrar_ruta_manual()
+
+    tk.Button(ventana, text="Aceptar", command=confirmar).pack(pady=15)
+
+def mostrar_ruta_manual():
+    global ruta_manual
+
+    if len(ruta_manual) < 2:
+        messagebox.showerror("Error", "Debes introducir al menos dos navpoints.")
+        return
+
+    draw_nodes_only(grafo)
+
+    for i in range(len(ruta_manual) - 1):
+        n1 = ruta_manual[i]
+        n2 = ruta_manual[i + 1]
+        ax.plot([n1.longitude, n2.longitude], [n1.latitude, n2.latitude], color=segment_color, linewidth=2, zorder=9)
+        ax.annotate('', xy=(n2.longitude, n2.latitude), xytext=(n1.longitude, n1.latitude),
+                    arrowprops=dict(facecolor=segment_color, edgecolor=segment_color, arrowstyle='->', lw=2), zorder=10)
+
+    for n in ruta_manual:
+        ax.scatter(n.longitude, n.latitude, color=segment_color, s=40, zorder=11)
+        ax.text(n.longitude, n.latitude, n.name, fontsize=9, color=segment_color, zorder=12)
+
+    # Avión en origen y destino
+    origen = ruta_manual[0]
+    destino = ruta_manual[-1]
+    flip = destino.longitude < origen.longitude
+
+    añadir_icono(ax, "avion.png", origen.longitude, origen.latitude, zoom=0.06, flip=flip)
+
+    pil_img = Image.open("avion.png").convert("RGBA").rotate(310, expand=True)
+    if flip:
+        pil_img = ImageOps.mirror(pil_img)
+    img = np.array(pil_img)
+    imagebox = OffsetImage(img, zoom=0.06)
+    ab = AnnotationBbox(imagebox, (destino.longitude, destino.latitude), frameon=False, zorder=999)
+    ax.add_artist(ab)
+
+    canvas.draw()
+
+    ruta = Path(ruta_manual[0])
+    for punto in ruta_manual[1:]:
+        ruta.AddNodeToPath(punto)
+
+    export_path_to_kml(ruta, "ruta_manual.kml")
+    messagebox.showinfo("KML generado", "Se ha actualizado 'ruta_manual.kml' con la ruta manual escrita.")
+
 
 def main_interface(prefix):
     global root, plot_frame, grafo, airports
