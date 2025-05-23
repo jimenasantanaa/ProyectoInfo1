@@ -11,7 +11,7 @@ from path import *
 from graph import *
 from NavAirport import *
 from airSpace import *
-from PIL import Image
+from PIL import Image, ImageOps
 from matplotlib.offsetbox import OffsetImage, AnnotationBbox
 import numpy as np
 
@@ -220,14 +220,8 @@ def camino_mas_corto_por_aeropuerto():
 
     nombres = [a.name for a in airports]
 
-    origen = simpledialog.askstring("Aeropuerto origen", f"Introduce el aeropuerto de origen: ")
-    if origen is None or origen not in nombres:
-        messagebox.showerror("Error", "Aeropuerto de origen no válido o cancelado.")
-        return
-
-    destino = simpledialog.askstring("Aeropuerto destino", f"Introduce el aeropuerto de destino: ")
-    if destino is None or destino not in nombres:
-        messagebox.showerror("Error", "Aeropuerto de destino no válido o cancelado.")
+    origen, destino = pedir_origen_y_destino(nombres)
+    if not origen or not destino:
         return
 
     aeropuerto_origen = next(a for a in airports if a.name == origen)
@@ -334,7 +328,7 @@ def seleccionar_espacio_aereo_con_colores():
         crear_selector_color_segmento(color_segmento_frame, color)
 
     # === 3. Selección del espacio aéreo ===
-    tk.Label(seleccion, text="3. Elige el espacio aéreo:").pack(pady=(10, 0))
+    tk.Label(seleccion, text="3. Elige el espacio aéreo que quieres ver:").pack(pady=(10, 0))
     espacio_frame = tk.Frame(seleccion)
     espacio_frame.pack(pady=5)
 
@@ -347,6 +341,51 @@ def seleccionar_espacio_aereo_con_colores():
     tk.Button(espacio_frame, text="Europa", command=lambda: elegir("ECAC")).pack(side=tk.LEFT, padx=5)
 
     seleccion.mainloop()
+def pedir_origen_y_destino(opciones):
+    top = tk.Toplevel(root)
+    top.title("Seleccionar aeropuertos")
+    top.transient(root)
+    top.grab_set()
+
+    # Etiqueta y entrada para origen
+    tk.Label(top, text=" ELige el aeropuerto de origen: ").pack(pady=(10, 0))
+    entry_origen = tk.Entry(top)
+    entry_origen.pack(pady=(0, 10))
+    entry_origen.focus()
+
+    # Etiqueta y entrada para destino
+    tk.Label(top, text=" Elige el aeropuerto de destino: ").pack(pady=(10, 0))
+    entry_destino = tk.Entry(top)
+    entry_destino.pack(pady=(0, 10))
+
+    resultado = {}
+
+    def confirmar():
+        origen = entry_origen.get()
+        destino = entry_destino.get()
+
+        if origen not in opciones:
+            messagebox.showerror("Error", "Aeropuerto de origen no válido.")
+            return
+        if destino not in opciones:
+            messagebox.showerror("Error", "Aeropuerto de destino no válido.")
+            return
+
+        resultado["origen"] = origen
+        resultado["destino"] = destino
+        top.destroy()
+
+    tk.Button(top, text="Aceptar", command=confirmar).pack(pady=10)
+
+    # Centrar la ventana
+    top.update_idletasks()
+    x = root.winfo_x() + (root.winfo_width() - top.winfo_width()) // 2
+    y = root.winfo_y() + (root.winfo_height() - top.winfo_height()) // 2
+    top.geometry(f"+{x}+{y}")
+
+    top.wait_window()
+    return resultado.get("origen"), resultado.get("destino")
+
 
 def main_interface(prefix):
     global root, plot_frame, grafo, airports
@@ -359,6 +398,10 @@ def main_interface(prefix):
     root = tk.Tk()
     root.title("Visualizador")
     root.geometry("900x700")
+
+    root.lift()
+    root.attributes('-topmost', True)
+    root.after_idle(root.attributes, '-topmost', False)
 
     button_frame = tk.Frame(root)
     button_frame.pack(anchor='nw', pady=5, padx=5)
