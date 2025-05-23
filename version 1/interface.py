@@ -428,10 +428,8 @@ def main_interface(prefix):
                 destino = ruta_manual[-1]
                 flip = destino.longitude < origen.longitude
 
-                # Avión despegando
+                # Añadir iconos de avión
                 añadir_icono(ax, "avion.png", origen.longitude, origen.latitude, zoom=0.06, flip=flip)
-
-                # Avión aterrizando (rotado, luego reflejado si hace falta)
                 pil_img = Image.open("avion.png").convert("RGBA")
                 pil_img = pil_img.rotate(310, expand=True)
                 if flip:
@@ -440,6 +438,14 @@ def main_interface(prefix):
                 imagebox = OffsetImage(img, zoom=0.06)
                 ab = AnnotationBbox(imagebox, (destino.longitude, destino.latitude), frameon=False, zorder=999)
                 ax.add_artist(ab)
+
+                # Convertir lista de puntos a objeto Path y exportar
+                ruta = Path(ruta_manual[0])
+                for punto in ruta_manual[1:]:
+                    ruta.AddNodeToPath(punto)
+
+                export_path_to_kml(ruta, "ruta_manual.kml")
+                messagebox.showinfo("KML generado", "Se ha actualizado 'ruta_manual.kml' con la ruta manual seleccionada.")
 
             canvas.draw()
             messagebox.showinfo("Ruta finalizada", "Se ha terminado de definir la ruta manual.")

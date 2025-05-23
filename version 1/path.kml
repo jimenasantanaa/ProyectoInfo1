@@ -5,21 +5,28 @@
       <LineString>
         <tessellate>1</tessellate>
         <coordinates>
-          3.8069444444,41.0152777778,0
-          3.9919444444,40.5,0
+          0.4833333333,39.2088888889,0
+          2.1613888889,38.6636111111,0
+          3.4219444444,38.2133333333,0
         </coordinates>
       </LineString>
     </Placemark>
     <Placemark>
-      <name>TOSNU</name>
+      <name>NINOT</name>
       <Point>
-        <coordinates>3.8069444444,41.0152777778,0</coordinates>
+        <coordinates>0.4833333333,39.2088888889,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
-      <name>SARGO</name>
+      <name>NINES</name>
       <Point>
-        <coordinates>3.9919444444,40.5,0</coordinates>
+        <coordinates>2.1613888889,38.6636111111,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>LUXUR</name>
+      <Point>
+        <coordinates>3.4219444444,38.2133333333,0</coordinates>
       </Point>
     </Placemark>
   </Document>
