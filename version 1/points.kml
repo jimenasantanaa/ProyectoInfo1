@@ -1,81 +1,9 @@
 <kml xmlns='http://www.opengis.net/kml/2.2'>
   <Document>
     <Placemark>
-      <name>ABDOS</name>
-      <Point>
-        <coordinates>2.5297222222,47.6658333333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>ABOSI</name>
-      <Point>
-        <coordinates>-1.2844444444,39.7791666667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>ABRIX</name>
-      <Point>
-        <coordinates>-1.9625,43.6463888889,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>ABSIE</name>
-      <Point>
-        <coordinates>-0.4583333333,46.5833333333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>ABUSO</name>
-      <Point>
-        <coordinates>1.7486111111,45.8505555556,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>ADABI</name>
-      <Point>
-        <coordinates>0.5308333333,46.5611111111,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>ADATU</name>
-      <Point>
-        <coordinates>2.8255555556,45.5372222222,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>ADEKA</name>
-      <Point>
-        <coordinates>3.18,45.9416666667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>ADILU</name>
-      <Point>
-        <coordinates>-0.8394444444,46.1241666667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>ADIMO</name>
-      <Point>
-        <coordinates>1.9088888889,43.4919444444,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>ADUXO</name>
-      <Point>
-        <coordinates>-2.0641666667,40.5122222222,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
       <name>ADX</name>
       <Point>
         <coordinates>2.3958333333,39.5494444444,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>AFRIC</name>
-      <Point>
-        <coordinates>2.8691666667,43.7741666667,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -85,63 +13,21 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>AGN</name>
+      <name>AKAMU</name>
       <Point>
-        <coordinates>0.8727777778,43.8880555556,0</coordinates>
+        <coordinates>2.4713888889,39.6577777778,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
-      <name>AGO</name>
+      <name>AKOPA</name>
       <Point>
-        <coordinates>0.4269444444,45.7108333333,0</coordinates>
+        <coordinates>1.7916666667,41.6811111111,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
-      <name>AGO.D</name>
+      <name>ALOSU</name>
       <Point>
-        <coordinates>0.2383755,45.7186802167,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>AGREV</name>
-      <Point>
-        <coordinates>4.3175,45.0641666667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>AKEMO</name>
-      <Point>
-        <coordinates>-3.0,47.1391666667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>AKOKI</name>
-      <Point>
-        <coordinates>-3.2186111111,40.2244444444,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>ALARO</name>
-      <Point>
-        <coordinates>4.7491666667,47.4963888889,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>ALBER</name>
-      <Point>
-        <coordinates>2.8322222222,42.4513888889,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>ALEPO</name>
-      <Point>
-        <coordinates>-1.9633333333,42.3436111111,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>ALIVA</name>
-      <Point>
-        <coordinates>1.1469444444,43.9330555556,0</coordinates>
+        <coordinates>0.4986111111,41.9330555556,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -181,63 +67,9 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>ALURA</name>
+      <name>AMPOL</name>
       <Point>
-        <coordinates>4.9527777778,46.5,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>AMB</name>
-      <Point>
-        <coordinates>1.0644444444,47.4288888889,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>AMDAS</name>
-      <Point>
-        <coordinates>3.7430555556,45.6816666667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>AMGAR</name>
-      <Point>
-        <coordinates>-3.2533333333,42.555,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>AMIKO</name>
-      <Point>
-        <coordinates>4.4830555556,45.1280555556,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>AMLIR</name>
-      <Point>
-        <coordinates>3.165,44.4430555556,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>AMOLO</name>
-      <Point>
-        <coordinates>2.5788888889,43.8280555556,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>AMPUR</name>
-      <Point>
-        <coordinates>-3.4302777778,43.3233333333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>ANETO</name>
-      <Point>
-        <coordinates>0.5583333333,42.6930555556,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>ANG</name>
-      <Point>
-        <coordinates>-0.8519444444,47.5369444444,0</coordinates>
+        <coordinates>0.6391666667,40.8036111111,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -247,39 +79,9 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>ANZAN</name>
-      <Point>
-        <coordinates>-3.2213888889,39.0,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
       <name>ARBEK</name>
       <Point>
         <coordinates>1.1297222222,41.5438888889,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>ARBIN</name>
-      <Point>
-        <coordinates>-2.6138888889,42.6797222222,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>ARBON</name>
-      <Point>
-        <coordinates>4.8902777778,45.2833333333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>ARDEG</name>
-      <Point>
-        <coordinates>4.5375,44.6691666667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>ARDOD</name>
-      <Point>
-        <coordinates>-0.9058333333,47.7313888889,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -295,111 +97,21 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>ARSOM</name>
-      <Point>
-        <coordinates>3.4197222222,46.1372222222,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>ARTAX</name>
-      <Point>
-        <coordinates>1.7833333333,46.2575,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>ARVEL</name>
-      <Point>
-        <coordinates>2.0416666667,43.4522222222,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>ASBIN</name>
-      <Point>
-        <coordinates>-3.1763888889,40.255,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
       <name>ASMOT</name>
       <Point>
         <coordinates>2.7155555556,39.2758333333,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
-      <name>ASPET</name>
+      <name>ASTEK</name>
       <Point>
-        <coordinates>0.9797222222,43.0,0</coordinates>
+        <coordinates>1.8219444444,41.2088888889,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
-      <name>ASTRO</name>
+      <name>BAGAX</name>
       <Point>
-        <coordinates>-1.2630555556,39.0244444444,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>ATRID</name>
-      <Point>
-        <coordinates>3.4086111111,46.8486111111,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>AUCHE</name>
-      <Point>
-        <coordinates>0.5583333333,43.6513888889,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>AULON</name>
-      <Point>
-        <coordinates>1.6475,44.3786111111,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>AVILA</name>
-      <Point>
-        <coordinates>-4.55,40.6247222222,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>AVLON</name>
-      <Point>
-        <coordinates>3.8133333333,47.56,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>AVN</name>
-      <Point>
-        <coordinates>4.7463888889,43.9952777778,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>BADAM</name>
-      <Point>
-        <coordinates>3.1705555556,44.0863888889,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>BADRU</name>
-      <Point>
-        <coordinates>-2.7966666667,43.7363888889,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>BAGAD</name>
-      <Point>
-        <coordinates>-2.8811111111,47.5833333333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>BAGAS</name>
-      <Point>
-        <coordinates>-2.0947222222,43.0983333333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>BAGRO</name>
-      <Point>
-        <coordinates>-0.0972222222,43.2097222222,0</coordinates>
+        <coordinates>2.1544444444,39.0511111111,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -409,69 +121,21 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>BAKNO</name>
-      <Point>
-        <coordinates>3.5313888889,46.5,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>BAKUL</name>
-      <Point>
-        <coordinates>-1.6380555556,47.3469444444,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>BALAN</name>
-      <Point>
-        <coordinates>1.0333333333,46.5161111111,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
       <name>BALDE</name>
       <Point>
         <coordinates>0.5227777778,41.23,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
-      <name>BALMU</name>
+      <name>BALIO</name>
       <Point>
-        <coordinates>4.6397222222,47.8466666667,0</coordinates>
+        <coordinates>4.1822222222,39.6483333333,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
-      <name>BALNI</name>
+      <name>BANBU</name>
       <Point>
-        <coordinates>-1.6738888889,47.6180555556,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>BAN07</name>
-      <Point>
-        <coordinates>-2.5617187167,40.8278145667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>BANOL</name>
-      <Point>
-        <coordinates>2.8466666667,42.1266666667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>BANVO</name>
-      <Point>
-        <coordinates>-2.6302777833,41.3236111167,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>BARBO</name>
-      <Point>
-        <coordinates>0.9027777778,42.4488888889,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>BASLI</name>
-      <Point>
-        <coordinates>2.9875,44.1147222222,0</coordinates>
+        <coordinates>1.5216666667,41.0166666667,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -517,15 +181,9 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>BE</name>
+      <name>BEBES</name>
       <Point>
-        <coordinates>-0.3977777778,44.8705555556,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>BEBIX</name>
-      <Point>
-        <coordinates>1.3997222222,45.9491666667,0</coordinates>
+        <coordinates>1.7033333333,39.0733333333,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -535,51 +193,15 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>BEGUY</name>
+      <name>BENID</name>
       <Point>
-        <coordinates>-1.4508333333,43.0583333333,0</coordinates>
+        <coordinates>1.4808333333,41.2380555556,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
-      <name>BELEN</name>
+      <name>BESOR</name>
       <Point>
-        <coordinates>-2.7386111111,43.9141666667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>BELEP</name>
-      <Point>
-        <coordinates>4.1316666667,45.7916666667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>BELVU</name>
-      <Point>
-        <coordinates>4.045,45.9525,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>BEMAX</name>
-      <Point>
-        <coordinates>-0.7597222222,46.1655555556,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>BERGA</name>
-      <Point>
-        <coordinates>2.0319444444,42.1713888889,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>BEVOL</name>
-      <Point>
-        <coordinates>0.9308333333,47.0119444444,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>BEXID</name>
-      <Point>
-        <coordinates>-3.4847222222,39.5744444444,0</coordinates>
+        <coordinates>-0.2291666667,38.4663888889,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -589,39 +211,9 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>BGC</name>
+      <name>BGR</name>
       <Point>
-        <coordinates>0.6191666667,44.8194444444,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>BGC.A</name>
-      <Point>
-        <coordinates>0.5302620833,44.8151968667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>BGC.D</name>
-      <Point>
-        <coordinates>0.5110792167,44.8180360667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>BIDAC</name>
-      <Point>
-        <coordinates>-1.1355555556,43.4172222222,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>BISBA</name>
-      <Point>
-        <coordinates>3.6258333333,42.0863888889,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>BISBI</name>
-      <Point>
-        <coordinates>2.4561111111,44.0652777778,0</coordinates>
+        <coordinates>3.2091666667,41.9477777778,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -655,207 +247,15 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>BLN</name>
-      <Point>
-        <coordinates>-3.625,38.1525,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>BLV</name>
-      <Point>
-        <coordinates>-2.9358333333,43.3044444444,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>BMC</name>
-      <Point>
-        <coordinates>-0.7211111111,44.8269444444,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>BMC.A</name>
-      <Point>
-        <coordinates>-0.70784045,44.83395675,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>BMC.D</name>
-      <Point>
-        <coordinates>-0.7092621833,44.82660535,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>BMC01</name>
-      <Point>
-        <coordinates>-0.773406,44.7937763833,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>BMC03</name>
-      <Point>
-        <coordinates>-0.7756432667,44.9930355667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>BOBRI</name>
-      <Point>
-        <coordinates>-1.1902777778,46.8383333333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>BOBSI</name>
-      <Point>
-        <coordinates>4.9852777778,46.3241666667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>BOGAS</name>
-      <Point>
-        <coordinates>-3.8247222222,39.5061111111,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>BOGRO</name>
-      <Point>
-        <coordinates>0.75,43.3113888889,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>BOKNO</name>
-      <Point>
-        <coordinates>0.6916666667,47.0469444444,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>BOLSA</name>
-      <Point>
-        <coordinates>3.315,43.3341666667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>BORGU</name>
-      <Point>
-        <coordinates>0.02611465,45.9422267333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>BOSIO</name>
-      <Point>
-        <coordinates>-3.5205555556,40.3408333333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>BRA02</name>
-      <Point>
-        <coordinates>-3.5450642833,40.5573756333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>BRA06</name>
-      <Point>
-        <coordinates>-3.5636953333,40.7230416333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>BRITO</name>
-      <Point>
-        <coordinates>-2.0780555556,41.0791666667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>BROTO</name>
-      <Point>
-        <coordinates>0.1538888889,42.4244444444,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
       <name>BRUNO</name>
       <Point>
         <coordinates>0.4833333333,38.6083333333,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
-      <name>BSC.A</name>
+      <name>BUROV</name>
       <Point>
-        <coordinates>1.5602792333,45.01072215,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>BSC.D</name>
-      <Point>
-        <coordinates>1.5413500667,45.0140615833,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>BTZ</name>
-      <Point>
-        <coordinates>-1.5102777778,43.4666666667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>BTZ.A</name>
-      <Point>
-        <coordinates>-1.5304974,43.4732797333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>BTZ.D</name>
-      <Point>
-        <coordinates>-1.5380027333,43.4736401167,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>BUDOM</name>
-      <Point>
-        <coordinates>-2.8166666667,40.6563888833,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>BUGIX</name>
-      <Point>
-        <coordinates>-3.6352777778,42.3580555556,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>BUGUS</name>
-      <Point>
-        <coordinates>0.9605555556,45.0,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>BUREX</name>
-      <Point>
-        <coordinates>-3.9394444444,39.8111111111,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>BUROX</name>
-      <Point>
-        <coordinates>1.255,43.6305555556,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>BZR.A</name>
-      <Point>
-        <coordinates>3.3372344833,43.33593,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>BZR.D</name>
-      <Point>
-        <coordinates>3.3646350333,43.3332444667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>CACHI</name>
-      <Point>
-        <coordinates>4.1066666667,47.0666666667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>CALCE</name>
-      <Point>
-        <coordinates>-3.3166666667,43.3627777778,0</coordinates>
+        <coordinates>-0.8747222222,41.5972222222,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -865,21 +265,27 @@
       </Point>
     </Placemark>
     <Placemark>
+      <name>CARME</name>
+      <Point>
+        <coordinates>4.1977777778,39.7477777778,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
       <name>CASIM</name>
       <Point>
         <coordinates>0.1430555556,40.2308333333,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
-      <name>CASPE</name>
+      <name>CASOL</name>
       <Point>
-        <coordinates>0.1994444444,41.2683333333,0</coordinates>
+        <coordinates>2.8419444444,39.1936111111,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
-      <name>CATON</name>
+      <name>CASPE</name>
       <Point>
-        <coordinates>-1.2116666667,39.8052777778,0</coordinates>
+        <coordinates>0.1994444444,41.2683333333,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -892,60 +298,6 @@
       <name>CDP</name>
       <Point>
         <coordinates>3.4341666667,39.6975,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>CEGAM</name>
-      <Point>
-        <coordinates>-2.2363888889,42.9836111111,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>CENTA</name>
-      <Point>
-        <coordinates>-1.4319444444,39.9005555556,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>CFA</name>
-      <Point>
-        <coordinates>3.1922222222,45.7875,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>CFA.A</name>
-      <Point>
-        <coordinates>3.2068415167,45.79499635,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>CFA.D</name>
-      <Point>
-        <coordinates>3.1612534833,45.7906701,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>CHALA</name>
-      <Point>
-        <coordinates>0.1308333333,45.3552777778,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>CHELY</name>
-      <Point>
-        <coordinates>4.505,41.075,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>CJN</name>
-      <Point>
-        <coordinates>-2.5447222222,40.3719444444,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>CJN03</name>
-      <Point>
-        <coordinates>-2.2620316167,40.2680362,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -967,51 +319,21 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>CM</name>
-      <Point>
-        <coordinates>4.9052777778,43.9083333333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>CMA</name>
-      <Point>
-        <coordinates>-1.2980555556,40.8672222222,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>CNA</name>
-      <Point>
-        <coordinates>-0.3116666667,45.6594444444,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>CNA.A</name>
-      <Point>
-        <coordinates>-0.3543438167,45.6357014833,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>CNA.D</name>
-      <Point>
-        <coordinates>-0.36652675,45.6315583,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
       <name>COMPI</name>
       <Point>
         <coordinates>-0.0077777778,39.3508333333,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
-      <name>COQUE</name>
+      <name>CORDA</name>
       <Point>
-        <coordinates>-4.9905555556,47.0791666667,0</coordinates>
+        <coordinates>2.2558333333,40.4155555556,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
-      <name>CORMA</name>
+      <name>CORVA</name>
       <Point>
-        <coordinates>-0.2041666667,43.9216666667,0</coordinates>
+        <coordinates>2.2747222222,41.2097222222,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -1021,15 +343,9 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>CRISA</name>
+      <name>CST</name>
       <Point>
-        <coordinates>-4.5563888889,38.9386111111,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>CS</name>
-      <Point>
-        <coordinates>2.2075,43.2225,0</coordinates>
+        <coordinates>2.9155555556,39.6413888889,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -1039,111 +355,15 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>CTX</name>
-      <Point>
-        <coordinates>1.8011111111,46.9366666667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>CVU.A</name>
-      <Point>
-        <coordinates>2.2097944167,43.6358050333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>CVU.D</name>
-      <Point>
-        <coordinates>2.2162080833,43.6300510667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>DADIV</name>
-      <Point>
-        <coordinates>-3.3408333333,40.3930555556,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
       <name>DALIN</name>
       <Point>
         <coordinates>3.3577777778,41.7338888889,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
-      <name>DEGEX</name>
+      <name>DILUM</name>
       <Point>
-        <coordinates>-3.1566666667,47.7438888889,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>DEGOL</name>
-      <Point>
-        <coordinates>2.8522222222,43.7805555556,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>DEGUK</name>
-      <Point>
-        <coordinates>0.7308333333,44.1083333333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>DELOG</name>
-      <Point>
-        <coordinates>-3.9875,44.3288888889,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>DEPES</name>
-      <Point>
-        <coordinates>2.1644444444,44.1233333333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>DEPOM</name>
-      <Point>
-        <coordinates>2.1791666667,47.3177777778,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>DESAB</name>
-      <Point>
-        <coordinates>-2.9591666667,45.8302777778,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>DEVRO</name>
-      <Point>
-        <coordinates>0.7386111111,47.4955555556,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>DGO</name>
-      <Point>
-        <coordinates>-2.8805555556,42.4533333333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>DIBAG</name>
-      <Point>
-        <coordinates>0.7875,45.7894444444,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>DIBER</name>
-      <Point>
-        <coordinates>4.415,42.0797222222,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>DIDRU</name>
-      <Point>
-        <coordinates>0.0311111111,46.1816666667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>DILRA</name>
-      <Point>
-        <coordinates>-1.2255555556,45.85,0</coordinates>
+        <coordinates>2.1680555556,41.3277777778,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -1153,75 +373,21 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>DIPOL</name>
-      <Point>
-        <coordinates>-4.6763888889,40.4163888889,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>DIRAX</name>
-      <Point>
-        <coordinates>-0.4544444444,44.5522222222,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>DIRBA</name>
-      <Point>
-        <coordinates>4.5025,46.0,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>DIRMO</name>
-      <Point>
-        <coordinates>2.1922222222,47.0891666667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
       <name>DIRMU</name>
       <Point>
         <coordinates>0.1594444444,41.7855555556,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
-      <name>DISKO</name>
+      <name>DISET</name>
       <Point>
-        <coordinates>-4.2233333333,41.0152777778,0</coordinates>
+        <coordinates>0.7658333333,41.2311111111,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
-      <name>DISVU</name>
+      <name>DONAV</name>
       <Point>
-        <coordinates>-1.2633333333,40.7402777778,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>DITOP</name>
-      <Point>
-        <coordinates>-1.7644444444,43.0155555556,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>DIVKO</name>
-      <Point>
-        <coordinates>4.7769444444,43.0561111111,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>DOLES</name>
-      <Point>
-        <coordinates>-4.0691666667,40.4077777778,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>DOMOD</name>
-      <Point>
-        <coordinates>1.2858333333,47.8627777778,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>DONOS</name>
-      <Point>
-        <coordinates>-1.4913888889,43.2838888889,0</coordinates>
+        <coordinates>4.2702777778,40.0763888889,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -1237,9 +403,9 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>DOSUL</name>
+      <name>DOTIS</name>
       <Point>
-        <coordinates>-3.3166666667,43.6805555556,0</coordinates>
+        <coordinates>2.0247222222,41.2019444444,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -1261,15 +427,9 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>EBU.A</name>
+      <name>EBT</name>
       <Point>
-        <coordinates>4.27846505,45.5590279667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>EDIMU</name>
-      <Point>
-        <coordinates>-1.8283333333,40.7783333333,0</coordinates>
+        <coordinates>-0.4719444444,39.6255555556,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -1279,45 +439,9 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>ELKEM</name>
-      <Point>
-        <coordinates>1.7713888889,38.1488888889,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
       <name>ELSOS</name>
       <Point>
         <coordinates>2.8711111167,41.8186111167,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>ELVIR</name>
-      <Point>
-        <coordinates>-3.2319444444,40.3730555556,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>EMANU</name>
-      <Point>
-        <coordinates>-3.7808333333,42.9577777778,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>EMBEX</name>
-      <Point>
-        <coordinates>-1.2194444444,41.9533333333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>ENESO</name>
-      <Point>
-        <coordinates>2.9308333333,46.2005555556,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>ENSAC</name>
-      <Point>
-        <coordinates>-0.6902777778,44.2,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -1327,123 +451,9 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>EREMA</name>
-      <Point>
-        <coordinates>-4.1397222222,41.0816666667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>ERGUL</name>
-      <Point>
-        <coordinates>3.4488888889,44.2497222222,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>ERIGA</name>
-      <Point>
-        <coordinates>-2.3630555556,46.86,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>ESERA</name>
-      <Point>
-        <coordinates>3.5297222222,44.1477777778,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>ESISI</name>
-      <Point>
-        <coordinates>1.4283333333,44.8927777778,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>ESPAL</name>
-      <Point>
-        <coordinates>2.8333333333,44.4488888889,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>ESPIG</name>
-      <Point>
-        <coordinates>4.1052777778,43.5108333333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
       <name>ESPOR</name>
       <Point>
         <coordinates>2.0955555556,40.2830555556,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>ETAMO</name>
-      <Point>
-        <coordinates>2.3375,46.8402777778,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>ETPAR</name>
-      <Point>
-        <coordinates>-0.8616666667,45.1958333333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>ETREK</name>
-      <Point>
-        <coordinates>4.6386111111,45.1877777778,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>FBA.A</name>
-      <Point>
-        <coordinates>0.581337,44.1886491,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>FBA.D</name>
-      <Point>
-        <coordinates>0.58730545,44.2005485833,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>FBM.D</name>
-      <Point>
-        <coordinates>-0.5258389,43.9192221833,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>FBP.A</name>
-      <Point>
-        <coordinates>-0.4200931333,43.3790863167,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>FBP.D</name>
-      <Point>
-        <coordinates>-0.4235881,43.3883431,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>FC</name>
-      <Point>
-        <coordinates>1.7869444444,44.6708333333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>FCR.A</name>
-      <Point>
-        <coordinates>2.4885411667,44.40225365,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>FCR.D</name>
-      <Point>
-        <coordinates>2.4768464,44.4130763667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>FERD0</name>
-      <Point>
-        <coordinates>-2.9450688,40.831425,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -1459,147 +469,15 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>FFF.D</name>
-      <Point>
-        <coordinates>-0.29913475,47.5803735833,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>FINOT</name>
-      <Point>
-        <coordinates>2.03,43.715,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>FISTO</name>
-      <Point>
-        <coordinates>1.2272222222,44.4613888889,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>FJR</name>
-      <Point>
-        <coordinates>3.9747222222,43.5783333333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>FJR.A</name>
-      <Point>
-        <coordinates>3.9605435167,43.5857774333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>FJR.D</name>
-      <Point>
-        <coordinates>3.9788836333,43.5905894,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>FLA.D</name>
-      <Point>
-        <coordinates>3.4912817167,47.84063645,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>FLD.A</name>
-      <Point>
-        <coordinates>2.3793377,47.0869536667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>FLD.D</name>
-      <Point>
-        <coordinates>2.3881208333,47.0698459833,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>FLN.A</name>
-      <Point>
-        <coordinates>4.01540355,46.3973345167,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>FLN.D</name>
-      <Point>
-        <coordinates>3.9785632333,46.3897664833,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>FLW.A</name>
-      <Point>
-        <coordinates>2.4075649,44.9374959333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>FLW.D</name>
-      <Point>
-        <coordinates>2.440491,44.91924365,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>FMS.A</name>
-      <Point>
-        <coordinates>4.1887731,44.0958738167,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>FMV.A</name>
-      <Point>
-        <coordinates>4.9022473667,43.90801585,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>FMV.D</name>
-      <Point>
-        <coordinates>4.89422575,43.9150427833,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>FOQ.A</name>
-      <Point>
-        <coordinates>1.2130816,47.6949004667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>FOQ.D</name>
-      <Point>
-        <coordinates>1.1889325333,47.69673435,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>FOUCO</name>
-      <Point>
-        <coordinates>0.4805555556,45.7547222222,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>FTW.A</name>
-      <Point>
-        <coordinates>4.4264153167,43.7572884,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>FTW.D</name>
-      <Point>
-        <coordinates>4.4139918667,43.7575831333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>GAI</name>
-      <Point>
-        <coordinates>1.8241666667,43.9541666667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
       <name>GALAT</name>
       <Point>
         <coordinates>1.9408333333,40.1544444444,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
-      <name>GALDO</name>
+      <name>GAPLU</name>
       <Point>
-        <coordinates>1.7458333333,43.2594444444,0</coordinates>
+        <coordinates>2.5486111111,41.8833333333,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -1609,39 +487,9 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>GASMO</name>
-      <Point>
-        <coordinates>-3.0488888889,41.7294444444,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>GAUDE</name>
-      <Point>
-        <coordinates>0.6366666667,43.0,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
       <name>GAVMA</name>
       <Point>
         <coordinates>1.9872222222,41.2658333333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>GAVRU</name>
-      <Point>
-        <coordinates>-2.0611479333,42.1713654167,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>GE</name>
-      <Point>
-        <coordinates>-3.8441666667,40.1997222222,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>GEANT</name>
-      <Point>
-        <coordinates>2.2163888889,42.4333333333,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -1657,45 +505,9 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>GERVA</name>
-      <Point>
-        <coordinates>2.8744444444,46.0577777778,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
       <name>GERVU</name>
       <Point>
         <coordinates>0.4833333333,38.82,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>GIGNA</name>
-      <Point>
-        <coordinates>3.5294444444,43.6580555556,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>GILUR</name>
-      <Point>
-        <coordinates>2.3205555556,44.635,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>GILUX</name>
-      <Point>
-        <coordinates>1.7430555556,47.7241666667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>GIMAT</name>
-      <Point>
-        <coordinates>3.5844444444,45.4855555556,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>GINON</name>
-      <Point>
-        <coordinates>0.18,47.1666666667,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -1717,63 +529,15 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>GIRAK</name>
-      <Point>
-        <coordinates>1.8105555556,44.6477777778,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>GIROM</name>
-      <Point>
-        <coordinates>0.9972222222,42.7747222222,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>GL.LF</name>
-      <Point>
-        <coordinates>-1.68668395,47.05232175,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>GODAN</name>
-      <Point>
-        <coordinates>-1.96,47.6419444444,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>GODEM</name>
-      <Point>
-        <coordinates>-2.25,46.0519444444,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
       <name>GODOX</name>
       <Point>
         <coordinates>1.4108333333,39.3725,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
-      <name>GOMSO</name>
+      <name>GODPI</name>
       <Point>
-        <coordinates>-1.5,42.995,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>GONIM</name>
-      <Point>
-        <coordinates>2.8422222222,44.4544444444,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>GONUP</name>
-      <Point>
-        <coordinates>0.7588888889,43.4608333333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>GOTOR</name>
-      <Point>
-        <coordinates>-3.7244444444,40.1108333333,0</coordinates>
+        <coordinates>-0.5955555556,41.7252777778,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -1783,57 +547,27 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>GRN01</name>
+      <name>IBA</name>
       <Point>
-        <coordinates>2.8063692167,42.02418775,0</coordinates>
+        <coordinates>1.3658333333,38.8683333333,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
-      <name>GUERE</name>
+      <name>IBI</name>
       <Point>
-        <coordinates>2.0894444444,46.19,0</coordinates>
+        <coordinates>1.3625,38.8672222222,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
-      <name>GUSON</name>
+      <name>IBZ</name>
       <Point>
-        <coordinates>1.4777777778,46.4741666667,0</coordinates>
+        <coordinates>1.385,38.8763888889,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
-      <name>HERMI</name>
+      <name>INDIA</name>
       <Point>
-        <coordinates>-2.5333333333,41.4736111111,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>IBRAP</name>
-      <Point>
-        <coordinates>2.0586111111,42.3616666667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>IDKER</name>
-      <Point>
-        <coordinates>-3.6630555556,43.6430555556,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>INBAB</name>
-      <Point>
-        <coordinates>-3.81,45.5736111111,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>INDEG</name>
-      <Point>
-        <coordinates>-3.7922222222,40.8536111111,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>ISTER</name>
-      <Point>
-        <coordinates>4.6666666667,40.0647222222,0</coordinates>
+        <coordinates>-0.9147222222,41.3447222222,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -1855,21 +589,21 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>KALMA</name>
+      <name>JOA</name>
       <Point>
-        <coordinates>-4.2994444444,40.4113888889,0</coordinates>
+        <coordinates>2.7466666667,39.5647222222,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
-      <name>KAMPO</name>
+      <name>KABRE</name>
       <Point>
-        <coordinates>-4.0552777778,39.7333333333,0</coordinates>
+        <coordinates>2.9566666667,39.1436111111,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
-      <name>KANIG</name>
+      <name>KARDO</name>
       <Point>
-        <coordinates>2.9830555556,42.4802777778,0</coordinates>
+        <coordinates>1.6108333333,41.8183333333,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -1879,15 +613,9 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>KASON</name>
+      <name>KATAL</name>
       <Point>
-        <coordinates>4.77,47.5583333333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>KELAM</name>
-      <Point>
-        <coordinates>2.8686111111,43.1719444444,0</coordinates>
+        <coordinates>-0.6627777778,38.5938888889,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -1897,27 +625,9 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>KEPER</name>
+      <name>KERIP</name>
       <Point>
-        <coordinates>0.2738888889,47.8061111111,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>KEREB</name>
-      <Point>
-        <coordinates>-4.5247222222,47.5913888889,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>KONKE</name>
-      <Point>
-        <coordinates>-1.7769444444,41.0333333333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>KORER</name>
-      <Point>
-        <coordinates>-2.5008333333,47.685,0</coordinates>
+        <coordinates>0.8558333333,40.9413888889,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -1927,15 +637,15 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>KOVAK</name>
+      <name>KOVAM</name>
       <Point>
-        <coordinates>0.8466666667,47.9930555556,0</coordinates>
+        <coordinates>-0.7911111111,39.3919444444,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
-      <name>KUKOR</name>
+      <name>KUGAX</name>
       <Point>
-        <coordinates>3.1291666667,46.5419444444,0</coordinates>
+        <coordinates>1.4766666667,41.0958333333,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -1945,111 +655,9 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>KURIR</name>
+      <name>LAMPA</name>
       <Point>
-        <coordinates>4.9002777778,44.7255555556,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>KURIS</name>
-      <Point>
-        <coordinates>-1.5175,47.5997222222,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>KURUK</name>
-      <Point>
-        <coordinates>-3.9333333333,43.2341666667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>KUTAN</name>
-      <Point>
-        <coordinates>4.2563888889,47.8075,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>KUTEL</name>
-      <Point>
-        <coordinates>-3.3575,43.4808333333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>LA6</name>
-      <Point>
-        <coordinates>-0.6772539667,47.9783541667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>LABAL</name>
-      <Point>
-        <coordinates>3.355,46.0275,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>LABOG</name>
-      <Point>
-        <coordinates>-0.0147222222,43.0769444444,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>LACOU</name>
-      <Point>
-        <coordinates>0.9044444444,44.2966666667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>LAGOR</name>
-      <Point>
-        <coordinates>-1.8441666667,46.5,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>LAKOB</name>
-      <Point>
-        <coordinates>3.0961111111,46.8833333333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>LALPI</name>
-      <Point>
-        <coordinates>-3.7036111111,40.9588888889,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>LAMUT</name>
-      <Point>
-        <coordinates>2.9847222222,47.1183333333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>LAPIT</name>
-      <Point>
-        <coordinates>4.4613888889,40.8952777778,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>LAPRO</name>
-      <Point>
-        <coordinates>2.8575,43.4166666667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>LARDA</name>
-      <Point>
-        <coordinates>-1.3619444444,42.1316666667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>LAROK</name>
-      <Point>
-        <coordinates>-1.4336111111,46.7108333333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>LARON</name>
-      <Point>
-        <coordinates>2.1983333333,46.2275,0</coordinates>
+        <coordinates>1.9241666667,38.8016666667,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -2059,39 +667,15 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>LARU1</name>
+      <name>LASDI</name>
       <Point>
-        <coordinates>0.90979955,44.4169427833,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>LASEV</name>
-      <Point>
-        <coordinates>2.2613888889,45.9811111111,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>LASKU</name>
-      <Point>
-        <coordinates>-4.8733333333,43.5041666667,0</coordinates>
+        <coordinates>1.0580555556,38.9375,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>LASPO</name>
       <Point>
         <coordinates>-0.5444444444,39.2825,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>LATAM</name>
-      <Point>
-        <coordinates>4.2391666667,45.0338888889,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>LATEK</name>
-      <Point>
-        <coordinates>-0.6569444444,42.875,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -2107,183 +691,9 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>LAVRA</name>
-      <Point>
-        <coordinates>1.5302777778,44.6541666667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>LBH.A</name>
-      <Point>
-        <coordinates>-1.1755036,46.18063915,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>LBH.D</name>
-      <Point>
-        <coordinates>-1.19676455,46.19692955,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>LEBRI</name>
-      <Point>
-        <coordinates>-2.5336111111,45.8111111111,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>LECAR</name>
-      <Point>
-        <coordinates>1.0161111111,45.6994444444,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>LEMIN</name>
-      <Point>
-        <coordinates>3.0536111111,46.5166666667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>LENSU</name>
-      <Point>
-        <coordinates>-2.9622222222,47.965,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>LERGA</name>
-      <Point>
-        <coordinates>3.7502777778,45.2572222222,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>LERGI</name>
-      <Point>
-        <coordinates>0.5,45.0,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>LES.A</name>
-      <Point>
-        <coordinates>-1.80621235,43.3549933,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>LES.D</name>
-      <Point>
-        <coordinates>-1.9193706167,43.2893254,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
       <name>LESBA</name>
       <Point>
         <coordinates>2.6627777778,41.255,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>LESPI</name>
-      <Point>
-        <coordinates>3.9577777778,46.1136111111,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>LEV.A</name>
-      <Point>
-        <coordinates>-2.73109995,42.87308765,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>LEV.D</name>
-      <Point>
-        <coordinates>-2.7471159,42.877283,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>LEX.A</name>
-      <Point>
-        <coordinates>-3.75079455,43.4121522,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>LEX.D</name>
-      <Point>
-        <coordinates>-3.7462430167,43.4340862833,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>LFB.A</name>
-      <Point>
-        <coordinates>1.1823022667,45.8830029,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>LFB.D</name>
-      <Point>
-        <coordinates>1.1744342833,45.8556748833,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>LFC.A</name>
-      <Point>
-        <coordinates>3.18374735,43.997353,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>LFH.A</name>
-      <Point>
-        <coordinates>3.7636727833,45.1020233333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>LFT.A</name>
-      <Point>
-        <coordinates>4.6120072167,45.9382880833,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>LFT.D</name>
-      <Point>
-        <coordinates>4.6392289667,45.91372895,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>LFX.A</name>
-      <Point>
-        <coordinates>1.6941269667,46.8509647833,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>LFX.D</name>
-      <Point>
-        <coordinates>1.7205378333,46.8568655833,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>LFY.A</name>
-      <Point>
-        <coordinates>4.9290894667,45.7204637833,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>LFY.D</name>
-      <Point>
-        <coordinates>4.9433021167,45.7161288333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>LIBRU</name>
-      <Point>
-        <coordinates>-0.19,44.8897222222,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>LINAK</name>
-      <Point>
-        <coordinates>1.1530555556,45.5294444444,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>LIPOR</name>
-      <Point>
-        <coordinates>-2.8480555556,40.4911111111,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -2293,45 +703,9 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>LMB</name>
-      <Point>
-        <coordinates>-0.0183333333,43.4666666667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>LMG</name>
-      <Point>
-        <coordinates>1.0255555556,45.8158333333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
       <name>LOBAR</name>
       <Point>
         <coordinates>0.3183333333,41.7480555556,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>LOE</name>
-      <Point>
-        <coordinates>1.3394444444,46.0302777778,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>LOMRA</name>
-      <Point>
-        <coordinates>1.8830555556,43.3441666667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>LOPNA</name>
-      <Point>
-        <coordinates>-2.9608333333,42.6386111111,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>LOR</name>
-      <Point>
-        <coordinates>-3.4411111111,47.7613888889,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -2347,27 +721,9 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>LPA</name>
-      <Point>
-        <coordinates>-2.3269444444,42.4605555556,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
       <name>LRD</name>
       <Point>
         <coordinates>0.6480555556,41.5527777778,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>LSU</name>
-      <Point>
-        <coordinates>1.1052777778,45.7827777778,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>LUGEN</name>
-      <Point>
-        <coordinates>-0.8611111111,46.5833333333,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -2383,57 +739,9 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>LULUT</name>
-      <Point>
-        <coordinates>-0.8397222222,44.3986111111,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>LUMAN</name>
-      <Point>
-        <coordinates>0.4133333333,47.9394444444,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>LUMAS</name>
-      <Point>
-        <coordinates>4.6666666667,41.7333333333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>LUNEL</name>
-      <Point>
-        <coordinates>4.1458333333,43.6894444444,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
       <name>LUNIK</name>
       <Point>
         <coordinates>3.3925,40.4397222222,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>LURAN</name>
-      <Point>
-        <coordinates>-0.9791666667,42.9727777778,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>LUSEM</name>
-      <Point>
-        <coordinates>-1.7805555556,43.3747222222,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>LUSON</name>
-      <Point>
-        <coordinates>-1.3508333333,46.5,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>LUTIL</name>
-      <Point>
-        <coordinates>0.0861111111,47.5963888889,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -2443,87 +751,9 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>MABUX</name>
+      <name>MAMEB</name>
       <Point>
-        <coordinates>-1.1497222222,39.5491666667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>MAD.A</name>
-      <Point>
-        <coordinates>-3.5532797167,40.4675938,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>MAD.D</name>
-      <Point>
-        <coordinates>-3.5614889667,40.4791539333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>MADOT</name>
-      <Point>
-        <coordinates>4.5138888889,45.73,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>MAGAL</name>
-      <Point>
-        <coordinates>-0.2308333333,38.0733333333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>MAGEC</name>
-      <Point>
-        <coordinates>-1.1958333333,43.7483333333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>MAGIN</name>
-      <Point>
-        <coordinates>-3.5647222222,40.7669444444,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>MAKIL</name>
-      <Point>
-        <coordinates>2.3397222222,44.2097222222,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>MAKOX</name>
-      <Point>
-        <coordinates>1.2380555556,45.3327777778,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>MALAT</name>
-      <Point>
-        <coordinates>4.3347222222,45.2372222222,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>MALEB</name>
-      <Point>
-        <coordinates>3.1813888889,45.4308333333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>MALOB</name>
-      <Point>
-        <coordinates>-1.9386111111,42.845,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>MALOU</name>
-      <Point>
-        <coordinates>3.0047222222,43.6288888889,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>MAMES</name>
-      <Point>
-        <coordinates>4.0002777778,42.2091666667,0</coordinates>
+        <coordinates>3.9919444444,39.7627777778,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -2539,33 +769,9 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>MANAK</name>
-      <Point>
-        <coordinates>-0.9419444444,46.2133333333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>MANCO</name>
-      <Point>
-        <coordinates>-3.5769444444,40.8863888889,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
       <name>MANDY</name>
       <Point>
         <coordinates>-1.0405555556,39.9116666667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>MAREN</name>
-      <Point>
-        <coordinates>-1.0616666667,45.7333333333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>MARIO</name>
-      <Point>
-        <coordinates>-0.2441666667,42.2102777778,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -2575,51 +781,15 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>MARRE</name>
-      <Point>
-        <coordinates>0.2836111111,45.435,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>MARRI</name>
-      <Point>
-        <coordinates>4.4741666667,43.3847222222,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
       <name>MARTA</name>
       <Point>
         <coordinates>1.28,40.3547222222,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
-      <name>MASAN</name>
+      <name>MATEX</name>
       <Point>
-        <coordinates>2.2513185667,43.46753355,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>MAVAC</name>
-      <Point>
-        <coordinates>1.0019444444,45.5163888889,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>MAZET</name>
-      <Point>
-        <coordinates>4.8975,43.7261111111,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>MC</name>
-      <Point>
-        <coordinates>2.4927777778,46.3725,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>MEBAK</name>
-      <Point>
-        <coordinates>4.6488888889,45.7080555556,0</coordinates>
+        <coordinates>0.2655555556,40.5566666667,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -2635,36 +805,6 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>MEDAP</name>
-      <Point>
-        <coordinates>2.0216666667,43.9216666667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>MEN</name>
-      <Point>
-        <coordinates>3.1625,44.6083333333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>MENOX</name>
-      <Point>
-        <coordinates>3.22,46.5719444444,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>MEROS</name>
-      <Point>
-        <coordinates>4.3666666667,40.5,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>MEZIN</name>
-      <Point>
-        <coordinates>4.1958333333,45.0172222222,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
       <name>MHN</name>
       <Point>
         <coordinates>4.2163888889,39.8636111111,0</coordinates>
@@ -2677,45 +817,15 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>MINDI</name>
+      <name>MHN.D</name>
       <Point>
-        <coordinates>4.0422222222,45.1369444444,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>MINGU</name>
-      <Point>
-        <coordinates>-1.4808333333,39.8261111111,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>MINPA</name>
-      <Point>
-        <coordinates>3.1747222222,45.1044444444,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>MIRBA</name>
-      <Point>
-        <coordinates>0.3269444444,44.7238888889,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>MIRPO</name>
-      <Point>
-        <coordinates>-2.1552777778,42.6311111111,0</coordinates>
+        <coordinates>4.2272652167,39.8618890833,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>MITOS</name>
       <Point>
         <coordinates>-0.0136111111,38.4494444444,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>MITUM</name>
-      <Point>
-        <coordinates>-3.2477777778,40.6455555556,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -2731,105 +841,21 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>MOGIL</name>
-      <Point>
-        <coordinates>3.2019444444,38.1319444444,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>MOKDI</name>
-      <Point>
-        <coordinates>3.1669444444,44.9569444444,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>MOKOR</name>
-      <Point>
-        <coordinates>-2.0138888889,47.0069444444,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
       <name>MOLAR</name>
       <Point>
         <coordinates>1.5988888889,38.5502777778,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
-      <name>MOLEN</name>
+      <name>MOMAT</name>
       <Point>
-        <coordinates>4.5127777778,44.0552777778,0</coordinates>
+        <coordinates>0.9697222222,41.0816666667,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
-      <name>MONIX</name>
+      <name>MOPIR</name>
       <Point>
-        <coordinates>1.8969444444,43.3363888889,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>MONOX</name>
-      <Point>
-        <coordinates>-1.3372222222,43.6222222222,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>MONTO</name>
-      <Point>
-        <coordinates>-4.4969444444,39.2216666667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>MONTU</name>
-      <Point>
-        <coordinates>-1.1466666667,46.93,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>MOPAS</name>
-      <Point>
-        <coordinates>1.0344444444,42.4352777778,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>MOPEM</name>
-      <Point>
-        <coordinates>4.3841666667,46.2836111111,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>MORAL</name>
-      <Point>
-        <coordinates>-3.5422222222,39.0,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>MORSS</name>
-      <Point>
-        <coordinates>4.6666666667,39.9566666667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>MOTAL</name>
-      <Point>
-        <coordinates>2.22,47.5766666667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>MOTIL</name>
-      <Point>
-        <coordinates>-1.7452777778,39.5388888889,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>MOU</name>
-      <Point>
-        <coordinates>3.6316666667,46.7066666667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>MTL</name>
-      <Point>
-        <coordinates>4.7797222222,44.555,0</coordinates>
+        <coordinates>-0.8377777778,39.4125,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -2839,57 +865,15 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>MUREN</name>
-      <Point>
-        <coordinates>4.6666666667,41.0575,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
       <name>MUROS</name>
       <Point>
         <coordinates>3.08,39.7188888889,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
-      <name>MURRO</name>
+      <name>NAKOP</name>
       <Point>
-        <coordinates>4.3755555556,45.3327777778,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>MUT.A</name>
-      <Point>
-        <coordinates>1.2789269833,43.45687985,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>MUT.D</name>
-      <Point>
-        <coordinates>1.2712071,43.44416345,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>NAKIS</name>
-      <Point>
-        <coordinates>4.0980555556,44.3225,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>NAMAR</name>
-      <Point>
-        <coordinates>-0.4586111111,47.8847222222,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>NANDO</name>
-      <Point>
-        <coordinates>-2.1744444444,39.9888888889,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>NARAK</name>
-      <Point>
-        <coordinates>1.7488888889,44.2952777778,0</coordinates>
+        <coordinates>3.2391666667,39.6225,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -2899,63 +883,9 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>NASEP</name>
-      <Point>
-        <coordinates>2.2322222222,44.515,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>NASOS</name>
-      <Point>
-        <coordinates>-3.0277777778,39.3991666667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>NATPA</name>
-      <Point>
-        <coordinates>-4.5863888889,39.9188888889,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>NATUL</name>
-      <Point>
-        <coordinates>-3.1819444444,41.1433333333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
       <name>NAVAR</name>
       <Point>
         <coordinates>0.5216666667,40.3766666667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>NEA</name>
-      <Point>
-        <coordinates>-4.1091666667,42.0275,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>NEDAN</name>
-      <Point>
-        <coordinates>-1.2647222222,47.4405555556,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>NEDUS</name>
-      <Point>
-        <coordinates>-4.8497222222,42.6533333333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>NEKEM</name>
-      <Point>
-        <coordinates>3.4141666667,46.5,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>NEKTA</name>
-      <Point>
-        <coordinates>3.025,43.7508333333,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -2971,33 +901,15 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>NENEM</name>
-      <Point>
-        <coordinates>-3.1502777778,44.0513888889,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
       <name>NEPAL</name>
       <Point>
         <coordinates>1.9247222222,40.6927777778,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
-      <name>NEPAP</name>
+      <name>NEVIC</name>
       <Point>
-        <coordinates>3.6794444444,46.9338888889,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>NETRO</name>
-      <Point>
-        <coordinates>1.5730555556,44.0508333333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>NEV</name>
-      <Point>
-        <coordinates>2.9294444444,47.1530555556,0</coordinates>
+        <coordinates>3.4322222222,39.3316666667,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -3007,27 +919,9 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>NG</name>
+      <name>NIBEN</name>
       <Point>
-        <coordinates>4.4063888889,43.8572222222,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>NG.aa</name>
-      <Point>
-        <coordinates>4.41289435,43.8555746333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>NILDU</name>
-      <Point>
-        <coordinates>3.8286111111,42.2602777778,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>NIMER</name>
-      <Point>
-        <coordinates>0.3569444444,47.4725,0</coordinates>
+        <coordinates>-0.2616666667,40.0561111111,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -3049,117 +943,9 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>NITEM</name>
+      <name>NOVAS</name>
       <Point>
-        <coordinates>-1.8063888889,47.4302777778,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>NOLSA</name>
-      <Point>
-        <coordinates>-1.9075,42.4275,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>NORMI</name>
-      <Point>
-        <coordinates>-2.0919444444,46.8961111111,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>NORON</name>
-      <Point>
-        <coordinates>0.6775,45.4847222222,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>NOVAN</name>
-      <Point>
-        <coordinates>-3.6991666667,46.3222222222,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>NTS</name>
-      <Point>
-        <coordinates>-1.6130555556,47.1608333333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>NTS.A</name>
-      <Point>
-        <coordinates>-1.6163421,47.1558157333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>NTS.D</name>
-      <Point>
-        <coordinates>-1.6067750667,47.1545760333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>NUBLO</name>
-      <Point>
-        <coordinates>-4.9888888889,42.6661111111,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>NURVI</name>
-      <Point>
-        <coordinates>-3.3169444444,43.2925,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>NVS</name>
-      <Point>
-        <coordinates>-4.2494444444,40.3686111111,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>NVS07</name>
-      <Point>
-        <coordinates>-4.2735200167,41.1388840833,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>OAN.A</name>
-      <Point>
-        <coordinates>1.7760571333,47.9886040333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>OAN.D</name>
-      <Point>
-        <coordinates>1.7730076167,47.9762150833,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>OBEPA</name>
-      <Point>
-        <coordinates>3.6183333333,45.5352777778,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>OBETO</name>
-      <Point>
-        <coordinates>-4.3333333333,43.4761111111,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>OBIKI</name>
-      <Point>
-        <coordinates>-2.8597222222,41.2272222222,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>OBUTO</name>
-      <Point>
-        <coordinates>0.0208333333,43.1591666667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>ODAPA</name>
-      <Point>
-        <coordinates>-4.1758333333,41.4397222222,0</coordinates>
+        <coordinates>1.7102777778,41.1822222222,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -3169,39 +955,9 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>OGRIL</name>
-      <Point>
-        <coordinates>1.235,43.2922222222,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>OKABI</name>
-      <Point>
-        <coordinates>1.4836111111,42.6161111111,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>OKEKO</name>
-      <Point>
-        <coordinates>3.1205555556,47.5402777778,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>OKEPI</name>
-      <Point>
-        <coordinates>3.365,47.1452777778,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
       <name>OKETA</name>
       <Point>
         <coordinates>2.9961111111,41.7236111111,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>OKIRA</name>
-      <Point>
-        <coordinates>3.4405555556,47.0219444444,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -3211,117 +967,21 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>OLEBA</name>
-      <Point>
-        <coordinates>-1.8480555556,47.1569444444,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>OLERO</name>
-      <Point>
-        <coordinates>-1.1502777778,45.9697222222,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>OLINO</name>
-      <Point>
-        <coordinates>1.0488888889,46.8825,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>OLIRI</name>
-      <Point>
-        <coordinates>3.4119444444,46.635,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
       <name>OLMIR</name>
       <Point>
         <coordinates>2.5180555556,38.5311111111,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
-      <name>OLOTI</name>
+      <name>OLUTO</name>
       <Point>
-        <coordinates>2.4666666667,42.2083333333,0</coordinates>
+        <coordinates>2.6125,39.6641666667,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
-      <name>OLPOS</name>
+      <name>OPERA</name>
       <Point>
-        <coordinates>-1.3422222222,38.7269444444,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>OLRAK</name>
-      <Point>
-        <coordinates>2.8372222222,44.7844444444,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>OMANI</name>
-      <Point>
-        <coordinates>3.7680555556,46.4572222222,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>OMARI</name>
-      <Point>
-        <coordinates>0.8247222222,47.1666666667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>OMILU</name>
-      <Point>
-        <coordinates>-3.7805555556,42.7372222222,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>ONZON</name>
-      <Point>
-        <coordinates>4.1083333333,45.835,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>ORBIL</name>
-      <Point>
-        <coordinates>2.4933333333,43.19,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>ORBIS</name>
-      <Point>
-        <coordinates>-4.1952777778,41.2658333333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>ORG.A</name>
-      <Point>
-        <coordinates>4.8693111167,44.1397642833,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>ORG.D</name>
-      <Point>
-        <coordinates>4.8642097333,44.1398630333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>ORS.A</name>
-      <Point>
-        <coordinates>2.1913795,47.92741605,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>ORS.D</name>
-      <Point>
-        <coordinates>2.1675783333,47.8979294333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>ORTEZ</name>
-      <Point>
-        <coordinates>-0.7166666667,43.3655555556,0</coordinates>
+        <coordinates>-0.7788888889,39.6227777778,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -3337,21 +997,9 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>OSKAM</name>
+      <name>OSPES</name>
       <Point>
-        <coordinates>1.2133333333,43.8316666667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>OSKIN</name>
-      <Point>
-        <coordinates>3.4347222222,47.7188888889,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>OSTIX</name>
-      <Point>
-        <coordinates>-3.1,41.5044444444,0</coordinates>
+        <coordinates>0.3469444444,40.3725,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -3361,27 +1009,15 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>OSVAN</name>
+      <name>OSVAK</name>
       <Point>
-        <coordinates>-0.5633333333,38.1166666667,0</coordinates>
+        <coordinates>0.5111111111,41.4875,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
-      <name>OTARO</name>
+      <name>PA</name>
       <Point>
-        <coordinates>4.685,39.0,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>OTROT</name>
-      <Point>
-        <coordinates>4.4455555556,45.1136111111,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>OVDIL</name>
-      <Point>
-        <coordinates>0.8880555556,44.0883333333,0</coordinates>
+        <coordinates>2.8211111111,39.5994444444,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -3397,27 +1033,21 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>PALIO</name>
-      <Point>
-        <coordinates>-3.0483333333,40.2622222222,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
       <name>PAPOS</name>
       <Point>
         <coordinates>1.4491666667,40.6211111111,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
-      <name>PAULI</name>
+      <name>PECES</name>
       <Point>
-        <coordinates>-4.6608333333,40.4147222222,0</coordinates>
+        <coordinates>3.9497222222,38.4802777778,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
-      <name>PDT</name>
+      <name>PEKIS</name>
       <Point>
-        <coordinates>-3.3480555556,40.2527777778,0</coordinates>
+        <coordinates>1.1252777778,41.6488888889,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -3433,33 +1063,21 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>PEPAX</name>
+      <name>PERAL</name>
       <Point>
-        <coordinates>0.4525,47.0813888889,0</coordinates>
+        <coordinates>2.0386111111,41.1883333333,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
-      <name>PEPET</name>
+      <name>PERUK</name>
       <Point>
-        <coordinates>-3.8672222222,45.0841666667,0</coordinates>
+        <coordinates>1.8330555556,41.1991666667,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
-      <name>PERDU</name>
+      <name>PETAM</name>
       <Point>
-        <coordinates>0.1511111111,42.7322222222,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>PERIG</name>
-      <Point>
-        <coordinates>0.9694444444,45.1172222222,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>PESAN</name>
-      <Point>
-        <coordinates>3.3872222222,46.1991666667,0</coordinates>
+        <coordinates>2.7525,39.6852777778,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -3469,57 +1087,9 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>PIBAT</name>
+      <name>PINTO</name>
       <Point>
-        <coordinates>4.2591666667,46.8058333333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>PIGUL</name>
-      <Point>
-        <coordinates>0.7716666667,45.5744444444,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>PIMAD</name>
-      <Point>
-        <coordinates>2.5,38.1666666667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>PIMAK</name>
-      <Point>
-        <coordinates>4.0147222222,45.3916666667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>PIMUP</name>
-      <Point>
-        <coordinates>3.3875,47.5402777778,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>PINAR</name>
-      <Point>
-        <coordinates>-2.5991666667,40.9802777778,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>PIPOR</name>
-      <Point>
-        <coordinates>-1.1080555556,43.0091666667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>PISUS</name>
-      <Point>
-        <coordinates>-1.455,41.1936111111,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>PITUL</name>
-      <Point>
-        <coordinates>-2.1933333333,42.7008333333,0</coordinates>
+        <coordinates>2.3241666667,39.8283333333,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -3535,27 +1105,9 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>PIXIS</name>
-      <Point>
-        <coordinates>3.7538888889,46.9402777778,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
       <name>PLANA</name>
       <Point>
         <coordinates>-0.3263888889,39.8905555556,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>PMR.A</name>
-      <Point>
-        <coordinates>1.6342473,43.0939158333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>PMR.D</name>
-      <Point>
-        <coordinates>1.6978912,43.0931356833,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -3565,51 +1117,21 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>PO</name>
+      <name>POBIL</name>
       <Point>
-        <coordinates>-0.1661111111,43.3141666667,0</coordinates>
+        <coordinates>1.8233333333,41.7661111111,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
-      <name>POBOS</name>
+      <name>POLOP</name>
       <Point>
-        <coordinates>-1.7688888889,38.7191666667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>PODUX</name>
-      <Point>
-        <coordinates>-1.8816666667,42.9011111111,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>POI</name>
-      <Point>
-        <coordinates>0.2980555556,46.5811111111,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>POKET</name>
-      <Point>
-        <coordinates>0.6180555556,45.1141666667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>POMTA</name>
-      <Point>
-        <coordinates>-3.6277777778,47.7863888889,0</coordinates>
+        <coordinates>-0.1786111111,38.3961111111,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>PONEN</name>
       <Point>
         <coordinates>-0.5475,41.3538888889,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>POPUL</name>
-      <Point>
-        <coordinates>-2.8402777778,43.9486111111,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -3625,57 +1147,9 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>POSSY</name>
-      <Point>
-        <coordinates>0.1572222222,42.0613888889,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>PPG</name>
-      <Point>
-        <coordinates>2.8672222222,42.7505555556,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>PPN</name>
-      <Point>
-        <coordinates>-1.7019444444,42.7338888889,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>PPN.A</name>
-      <Point>
-        <coordinates>-1.6454431333,42.7718839833,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>PPN.D</name>
-      <Point>
-        <coordinates>-1.6337247833,42.7365649833,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>PRADO</name>
-      <Point>
-        <coordinates>-2.0102777778,40.1475,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
       <name>PTC</name>
       <Point>
         <coordinates>3.2566666667,39.4272222222,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>PUMAL</name>
-      <Point>
-        <coordinates>2.0083333333,42.3669444444,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>QPR</name>
-      <Point>
-        <coordinates>-4.1847222222,47.9572222222,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -3685,57 +1159,15 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>RARAK</name>
-      <Point>
-        <coordinates>0.6925,44.0288888889,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>RARUS</name>
-      <Point>
-        <coordinates>4.7538888889,44.1202777778,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>RATAS</name>
-      <Point>
-        <coordinates>-4.0308333333,42.5744444444,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>RATRA</name>
-      <Point>
-        <coordinates>1.4775,44.7802777778,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
       <name>RAVAX</name>
       <Point>
         <coordinates>2.0880555556,40.9205555556,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
-      <name>RBO</name>
-      <Point>
-        <coordinates>-3.2466666667,40.8538888889,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>RBO01</name>
-      <Point>
-        <coordinates>-3.3848052833,40.7204721667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
       <name>REBUL</name>
       <Point>
         <coordinates>1.1136111111,41.6977777778,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>REPSI</name>
-      <Point>
-        <coordinates>4.2752777778,45.5225,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -3775,27 +1207,15 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>REVAT</name>
+      <name>RIBAS</name>
       <Point>
-        <coordinates>-2.9427777778,40.3830555556,0</coordinates>
+        <coordinates>1.6319444444,41.0352777778,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
-      <name>RHONE</name>
+      <name>RILUK</name>
       <Point>
-        <coordinates>4.8444444444,43.3861111111,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>RIBOU</name>
-      <Point>
-        <coordinates>1.9288888889,43.0797222222,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>RILON</name>
-      <Point>
-        <coordinates>-1.01,43.925,0</coordinates>
+        <coordinates>1.3522222222,41.4358333333,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -3805,93 +1225,15 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>RIMOR</name>
-      <Point>
-        <coordinates>3.48,46.0227777778,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>RIPAL</name>
-      <Point>
-        <coordinates>4.7713888889,39.9780555556,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
       <name>RIPUX</name>
       <Point>
         <coordinates>-0.4397222222,39.2466666667,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
-      <name>RISEP</name>
-      <Point>
-        <coordinates>4.9930555556,39.6066666667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>RISUN</name>
-      <Point>
-        <coordinates>2.6033333333,46.3655555556,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>RITOR</name>
-      <Point>
-        <coordinates>-1.5416666667,46.1841666667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>RIVEK</name>
-      <Point>
-        <coordinates>3.08,46.3366666667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>ROA</name>
-      <Point>
-        <coordinates>3.9991666667,46.0591666667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>ROC</name>
-      <Point>
-        <coordinates>-0.9861111111,45.8883333333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>ROCAN</name>
-      <Point>
-        <coordinates>1.9466666667,42.6733333333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
       <name>RODRA</name>
       <Point>
         <coordinates>1.7302777778,41.0513888889,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>ROLIR</name>
-      <Point>
-        <coordinates>4.8436111111,45.1744444444,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>ROM</name>
-      <Point>
-        <coordinates>2.6072222222,44.3319444444,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>ROMAK</name>
-      <Point>
-        <coordinates>2.4888888889,44.63,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>ROMGI</name>
-      <Point>
-        <coordinates>3.1127777778,46.1772222222,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -3907,39 +1249,15 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>RONKO</name>
+      <name>ROVAP</name>
       <Point>
-        <coordinates>-1.0305555556,42.4958333333,0</coordinates>
+        <coordinates>0.8161111111,41.6044444444,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
-      <name>RONSI</name>
+      <name>RUBEO</name>
       <Point>
-        <coordinates>-4.5036111111,43.4844444444,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>ROSPO</name>
-      <Point>
-        <coordinates>-3.7508333333,47.9616666667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>ROVOT</name>
-      <Point>
-        <coordinates>4.9288888889,43.3369444444,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>ROXIL</name>
-      <Point>
-        <coordinates>1.9672222222,47.1088888889,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>ROYAN</name>
-      <Point>
-        <coordinates>-1.0366666667,45.6666666667,0</coordinates>
+        <coordinates>-0.6863888889,40.9541666667,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -3955,21 +1273,9 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>RUMEL</name>
-      <Point>
-        <coordinates>0.9205555556,44.5,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
       <name>RUPIT</name>
       <Point>
         <coordinates>2.0269444444,39.4527777778,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>RUSIT</name>
-      <Point>
-        <coordinates>4.8905555556,45.6680555556,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -3979,27 +1285,9 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>RUXON</name>
-      <Point>
-        <coordinates>-1.7356467333,46.8270667667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>RZ</name>
-      <Point>
-        <coordinates>2.4372222222,44.4319444444,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
       <name>SABAS</name>
       <Point>
         <coordinates>2.4155555556,39.2338888889,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>SABLE</name>
-      <Point>
-        <coordinates>-0.25,47.8530555556,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -4021,27 +1309,9 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>SALIN</name>
-      <Point>
-        <coordinates>4.7302777778,43.2827777778,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
       <name>SALON</name>
       <Point>
         <coordinates>3.1872222222,41.4944444444,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>SALSI</name>
-      <Point>
-        <coordinates>2.3572222222,43.3477777778,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>SANCE</name>
-      <Point>
-        <coordinates>2.7416666667,47.2666666667,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -4057,39 +1327,9 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>SAU</name>
-      <Point>
-        <coordinates>-0.1530555556,44.6769444444,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>SAU04</name>
-      <Point>
-        <coordinates>-0.7131885333,44.6890844167,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
       <name>SAURA</name>
       <Point>
         <coordinates>-0.1833333333,40.2561111111,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>SECHE</name>
-      <Point>
-        <coordinates>0.5152777778,44.4386111111,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>SEDIL</name>
-      <Point>
-        <coordinates>-1.4327777778,41.3236111111,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>SEGRE</name>
-      <Point>
-        <coordinates>-2.3763888889,41.0227777778,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -4111,6 +1351,12 @@
       </Point>
     </Placemark>
     <Placemark>
+      <name>SERRA</name>
+      <Point>
+        <coordinates>-0.8569444444,39.2661111111,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
       <name>SGO</name>
       <Point>
         <coordinates>-0.2077777778,39.6741666667,0</coordinates>
@@ -4120,30 +1366,6 @@
       <name>SGO.2</name>
       <Point>
         <coordinates>-0.2225773167,39.68407415,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>SIJAN</name>
-      <Point>
-        <coordinates>2.9369444444,43.1975,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>SIMAR</name>
-      <Point>
-        <coordinates>3.7944444444,43.8108333333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>SINOP</name>
-      <Point>
-        <coordinates>3.28344605,46.3255408333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>SIRGU</name>
-      <Point>
-        <coordinates>-2.6002777778,40.2605555556,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -4171,33 +1393,9 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>SN</name>
-      <Point>
-        <coordinates>4.1213888889,46.2944444444,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>SNR</name>
-      <Point>
-        <coordinates>-3.9025,43.4497222222,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
       <name>SOBRO</name>
       <Point>
         <coordinates>-0.8961111111,39.4002777778,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>SOLSO</name>
-      <Point>
-        <coordinates>-0.4775,44.385,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>SOMTI</name>
-      <Point>
-        <coordinates>2.9330555556,45.4502777778,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -4207,87 +1405,21 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>SOPAD</name>
-      <Point>
-        <coordinates>4.2055555556,45.6533333333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
       <name>SOPET</name>
       <Point>
         <coordinates>-0.0047222222,39.8338888889,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
-      <name>SOPIL</name>
+      <name>SOTIL</name>
       <Point>
-        <coordinates>1.055,47.0258333333,0</coordinates>
+        <coordinates>2.2986111111,41.3588888889,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
-      <name>SOSAV</name>
+      <name>SUKOS</name>
       <Point>
-        <coordinates>-1.4955555556,39.2736111111,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>SOSUR</name>
-      <Point>
-        <coordinates>4.9975,42.5602777778,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>SOTAK</name>
-      <Point>
-        <coordinates>0.9422222222,43.8213888889,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>SOTAX</name>
-      <Point>
-        <coordinates>4.6666666667,39.5855555556,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>SOVAR</name>
-      <Point>
-        <coordinates>-0.2444444444,42.7880555556,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>SOVET</name>
-      <Point>
-        <coordinates>1.7808333333,44.1388888889,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>SOVOS</name>
-      <Point>
-        <coordinates>-0.9,43.3869444444,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>SSN</name>
-      <Point>
-        <coordinates>-1.8302777778,43.3111111111,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>SSY</name>
-      <Point>
-        <coordinates>-3.5752777778,40.5463888889,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>SSY01</name>
-      <Point>
-        <coordinates>-3.6712622,40.63979475,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>SUBAK</name>
-      <Point>
-        <coordinates>-1.4908333333,47.0691666667,0</coordinates>
+        <coordinates>2.2363888889,41.2844444444,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -4297,33 +1429,9 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>SULIT</name>
-      <Point>
-        <coordinates>1.2525,43.3836111111,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>SULOT</name>
-      <Point>
-        <coordinates>3.8163888889,45.6038888889,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
       <name>SUMMO</name>
       <Point>
         <coordinates>-0.2816666667,38.3602777778,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>SURAS</name>
-      <Point>
-        <coordinates>1.0627777778,43.6425,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>SURCO</name>
-      <Point>
-        <coordinates>-0.5680555556,42.3288888889,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -4333,39 +1441,9 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>TABIL</name>
-      <Point>
-        <coordinates>-0.94,47.9563888889,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>TAGOM</name>
-      <Point>
-        <coordinates>-3.4322222222,40.9836111111,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>TAKAT</name>
-      <Point>
-        <coordinates>2.6005555556,44.6266666667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>TALAR</name>
-      <Point>
-        <coordinates>4.6044444444,45.9563888889,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
       <name>TALEN</name>
       <Point>
         <coordinates>3.1313888889,39.1177777778,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>TALOL</name>
-      <Point>
-        <coordinates>0.5583333333,43.3211111111,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -4381,69 +1459,21 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>TBO</name>
-      <Point>
-        <coordinates>0.1458333333,43.3322222222,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>TBO.A</name>
-      <Point>
-        <coordinates>0.0026345833,43.1906523667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>TBO.D</name>
-      <Point>
-        <coordinates>-0.0061062,43.1856326,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>TBO01</name>
-      <Point>
-        <coordinates>0.9207309667,43.2877248333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>TBO02</name>
-      <Point>
-        <coordinates>1.05902555,43.2766623833,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
       <name>TEBLA</name>
       <Point>
         <coordinates>2.325,41.3811111111,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
-      <name>TEMTO</name>
+      <name>TETIS</name>
       <Point>
-        <coordinates>-0.615,47.595,0</coordinates>
+        <coordinates>3.9380555556,39.8972222222,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
-      <name>TEPRA</name>
+      <name>TILNO</name>
       <Point>
-        <coordinates>-2.4244444444,46.4958333333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>TERPO</name>
-      <Point>
-        <coordinates>-1.9288888889,47.3488888889,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>TERSA</name>
-      <Point>
-        <coordinates>-2.1377833333,40.725,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>THUNE</name>
-      <Point>
-        <coordinates>-1.5663888889,43.2538888889,0</coordinates>
+        <coordinates>1.0055555556,38.765,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -4459,75 +1489,15 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>TIRAV</name>
-      <Point>
-        <coordinates>-1.3908333333,46.5988888889,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
       <name>TIRGO</name>
       <Point>
         <coordinates>1.1261111111,41.7844444444,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
-      <name>TIRUM</name>
+      <name>TISGO</name>
       <Point>
-        <coordinates>-4.6627777778,47.8369444444,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>TIS</name>
-      <Point>
-        <coordinates>3.5536111111,45.8819444444,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>TITAN</name>
-      <Point>
-        <coordinates>-3.975,42.9577777778,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>TITOX</name>
-      <Point>
-        <coordinates>3.7180555556,46.5511111111,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>TLD</name>
-      <Point>
-        <coordinates>-4.3375,39.9694444444,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>TLD01</name>
-      <Point>
-        <coordinates>-4.0471143167,39.6384119833,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>TOBEK</name>
-      <Point>
-        <coordinates>-3.4244444444,40.1963888889,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>TOE</name>
-      <Point>
-        <coordinates>1.68,43.4811111111,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>TOL.A</name>
-      <Point>
-        <coordinates>-3.4619205667,40.4949041667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>TOL.D</name>
-      <Point>
-        <coordinates>-3.4508020667,40.49097665,0</coordinates>
+        <coordinates>2.6861111111,41.7066666667,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -4555,45 +1525,9 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>TOSTO</name>
+      <name>TUENT</name>
       <Point>
-        <coordinates>-1.9361111111,38.3641666667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>TOU</name>
-      <Point>
-        <coordinates>1.3097222222,43.6808333333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>TOU.A</name>
-      <Point>
-        <coordinates>1.3635596833,43.6363061167,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>TOU.D</name>
-      <Point>
-        <coordinates>1.3694255333,43.6347961833,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>TS</name>
-      <Point>
-        <coordinates>1.4879274167,43.5086672333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>TUDRA</name>
-      <Point>
-        <coordinates>0.7808333333,46.5388888889,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>TUGLI</name>
-      <Point>
-        <coordinates>1.5244444444,45.3772222222,0</coordinates>
+        <coordinates>2.6188888889,39.845,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -4609,69 +1543,9 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>TUNAX</name>
+      <name>TUNDI</name>
       <Point>
-        <coordinates>0.2016666667,47.9125,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>TUNOR</name>
-      <Point>
-        <coordinates>4.1411111111,47.8833333333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>TUPAR</name>
-      <Point>
-        <coordinates>-0.6627777778,46.4291666667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>TUR.A</name>
-      <Point>
-        <coordinates>0.7541672333,47.4240863333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>TUR.D</name>
-      <Point>
-        <coordinates>0.71579425,47.4324283,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>TURPU</name>
-      <Point>
-        <coordinates>-1.5425,42.6777777778,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>TURUV</name>
-      <Point>
-        <coordinates>0.475,42.3675,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>TUSAK</name>
-      <Point>
-        <coordinates>1.6761111111,44.6508333333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>TW</name>
-      <Point>
-        <coordinates>1.0252777778,43.5305555556,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>UNGAS</name>
-      <Point>
-        <coordinates>-3.6997222222,42.6822222222,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>UREKU</name>
-      <Point>
-        <coordinates>-1.3736111111,43.4769444444,0</coordinates>
+        <coordinates>1.5702777778,40.8188888889,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -4687,129 +1561,15 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>URUNA</name>
-      <Point>
-        <coordinates>-1.7402777778,43.355,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>USAKU</name>
-      <Point>
-        <coordinates>0.4722222222,43.6241666667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>UXANA</name>
-      <Point>
-        <coordinates>3.1791666667,45.2763888889,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>VAB</name>
-      <Point>
-        <coordinates>-1.8594444444,38.9472222222,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>VABAR</name>
-      <Point>
-        <coordinates>-2.6152777778,42.1711111111,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>VAGNA</name>
-      <Point>
-        <coordinates>-0.3372222222,45.0952777778,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
       <name>VAKIN</name>
       <Point>
         <coordinates>-0.3533333333,41.9047222222,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
-      <name>VAKSI</name>
+      <name>VARUT</name>
       <Point>
-        <coordinates>-1.2347222222,47.9991666667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>VALAG</name>
-      <Point>
-        <coordinates>3.4180555556,43.6777777778,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>VALKU</name>
-      <Point>
-        <coordinates>2.8180555556,45.9980555556,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>VAMUS</name>
-      <Point>
-        <coordinates>-3.5140535,43.1739889667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>VANAD</name>
-      <Point>
-        <coordinates>0.9072222222,47.8372222222,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>VASUM</name>
-      <Point>
-        <coordinates>-2.0111111111,42.2719444444,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>VATIR</name>
-      <Point>
-        <coordinates>4.1155555556,42.1722222222,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>VEGOB</name>
-      <Point>
-        <coordinates>1.4797222222,45.5794444444,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>VELIN</name>
-      <Point>
-        <coordinates>0.1555555556,44.98,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>VELIR</name>
-      <Point>
-        <coordinates>3.1825,45.4041666667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>VEMAK</name>
-      <Point>
-        <coordinates>-3.2863888889,40.6605555556,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>VERAC</name>
-      <Point>
-        <coordinates>0.1047222222,46.2902777778,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>VEROS</name>
-      <Point>
-        <coordinates>2.2016666667,47.34,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>VEROT</name>
-      <Point>
-        <coordinates>4.1772222222,45.2163888889,0</coordinates>
+        <coordinates>0.675,39.0222222222,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -4837,57 +1597,15 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>VILLA</name>
+      <name>VILGA</name>
       <Point>
-        <coordinates>-2.4105555556,40.2330555556,0</coordinates>
+        <coordinates>1.8947222222,40.7644444444,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>VILNA</name>
       <Point>
         <coordinates>-0.8166666667,38.5397222222,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>VISON</name>
-      <Point>
-        <coordinates>-3.5025,40.1611111111,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>VJ025</name>
-      <Point>
-        <coordinates>-2.8056998833,40.93833315,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>VJZ</name>
-      <Point>
-        <coordinates>-3.3602777778,40.5641666667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>VJZ.d</name>
-      <Point>
-        <coordinates>-3.3579743667,40.5557812167,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>VJZ01</name>
-      <Point>
-        <coordinates>-3.2478838,40.2422156,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>VJZ04</name>
-      <Point>
-        <coordinates>-3.6721250333,40.3291508833,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>VJZ08</name>
-      <Point>
-        <coordinates>-3.1042727667,39.7727199333,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -4921,27 +1639,9 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>VOGEL</name>
+      <name>VNv</name>
       <Point>
-        <coordinates>-2.0194768333,42.58932735,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>VRA</name>
-      <Point>
-        <coordinates>-2.8655555556,42.7319444444,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>VTA</name>
-      <Point>
-        <coordinates>-2.6797222222,42.9280555556,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>VTB</name>
-      <Point>
-        <coordinates>-3.4641666667,39.7808333333,0</coordinates>
+        <coordinates>1.6926711,41.2082893833,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -4957,15 +1657,15 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>XEBAR</name>
+      <name>XARON</name>
       <Point>
-        <coordinates>-2.0927777778,38.5211111111,0</coordinates>
+        <coordinates>2.8538888889,38.405,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
-      <name>XERAX</name>
+      <name>XEPLA</name>
       <Point>
-        <coordinates>2.0,44.9652777833,0</coordinates>
+        <coordinates>2.0725,41.6872222222,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -4975,27 +1675,15 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>XORNA</name>
+      <name>XOSTA</name>
       <Point>
-        <coordinates>-3.4516666667,43.8125,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>XUPAL</name>
-      <Point>
-        <coordinates>2.6227777778,45.0405555556,0</coordinates>
+        <coordinates>0.7416666667,39.1330555556,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>XURAL</name>
       <Point>
         <coordinates>2.7211111111,39.2872222222,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>YES</name>
-      <Point>
-        <coordinates>-2.3525,38.3608333333,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
@@ -5011,33 +1699,15 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>ZARKO</name>
+      <name>ZORIN</name>
       <Point>
-        <coordinates>-0.7927777778,42.005,0</coordinates>
+        <coordinates>-0.9813888889,38.2919444444,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
-      <name>ZEBRA</name>
+      <name>ZURDO</name>
       <Point>
-        <coordinates>4.96,43.6158333333,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>ZR</name>
-      <Point>
-        <coordinates>3.2830555556,43.3269444444,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>ZRZ</name>
-      <Point>
-        <coordinates>-1.1933333333,41.7305555556,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>ZURIA</name>
-      <Point>
-        <coordinates>-2.4497222222,42.8175,0</coordinates>
+        <coordinates>1.445,39.1108333333,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>

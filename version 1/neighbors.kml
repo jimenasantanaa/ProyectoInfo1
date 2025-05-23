@@ -1,29 +1,41 @@
 <kml xmlns='http://www.opengis.net/kml/2.2'>
   <Document>
     <Placemark>
-      <name>NEXAS (Central)</name>
+      <name>SARGO (Central)</name>
       <Point>
-        <coordinates>-0.7927777778,40.8711111111,0</coordinates>
+        <coordinates>3.9919444444,40.5,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
-      <name>CRETA</name>
+      <name>DIPES</name>
       <Point>
-        <coordinates>0.0616666667,40.8722222222,0</coordinates>
+        <coordinates>3.54,41.0630555556,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
-      <name>RAMON</name>
+      <name>DUNES</name>
       <Point>
-        <coordinates>-0.2852777778,41.0091666667,0</coordinates>
+        <coordinates>3.1575,40.8638888889,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>MHN</name>
+      <Point>
+        <coordinates>4.2163888889,39.8636111111,0</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>TOSNU</name>
+      <Point>
+        <coordinates>3.8069444444,41.0152777778,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <LineString>
         <tessellate>1</tessellate>
         <coordinates>
-          0.0616666667,40.8722222222,0
-          -0.7927777778,40.8711111111,0
+          3.54,41.0630555556,0
+          3.9919444444,40.5,0
         </coordinates>
       </LineString>
     </Placemark>
@@ -31,8 +43,35 @@
       <LineString>
         <tessellate>1</tessellate>
         <coordinates>
-          -0.2852777778,41.0091666667,0
-          -0.7927777778,40.8711111111,0
+          3.1575,40.8638888889,0
+          3.9919444444,40.5,0
+        </coordinates>
+      </LineString>
+    </Placemark>
+    <Placemark>
+      <LineString>
+        <tessellate>1</tessellate>
+        <coordinates>
+          3.9919444444,40.5,0
+          4.2163888889,39.8636111111,0
+        </coordinates>
+      </LineString>
+    </Placemark>
+    <Placemark>
+      <LineString>
+        <tessellate>1</tessellate>
+        <coordinates>
+          3.9919444444,40.5,0
+          3.8069444444,41.0152777778,0
+        </coordinates>
+      </LineString>
+    </Placemark>
+    <Placemark>
+      <LineString>
+        <tessellate>1</tessellate>
+        <coordinates>
+          3.8069444444,41.0152777778,0
+          3.9919444444,40.5,0
         </coordinates>
       </LineString>
     </Placemark>

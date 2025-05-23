@@ -1,10 +1,10 @@
+# Importaciones
 import tkinter as tk
 from tkinter import messagebox, simpledialog
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import matplotlib.pyplot as plt
 import math
 from collections import deque
-
 from navPoint import *
 from navSegment import *
 from path import *
@@ -23,7 +23,70 @@ origin_node = None
 waiting_for_neighbor_selection = False
 waiting_for_path_selection = 0
 
-# Mostrar vecinos
+# Función para dibujar el gráfico completo
+def draw_graph(g):
+    global canvas, fig, ax
+
+    if canvas:
+        canvas.get_tk_widget().destroy()
+
+    fig, ax = plt.subplots(figsize=(8, 6))
+
+    for seg in g.navSegment:
+        origin = next((n for n in g.navPoint if n.number == seg.origin_number), None)
+        destination = next((n for n in g.navPoint if n.number == seg.destination_number), None)
+        if origin and destination:
+            ax.plot([origin.longitude, destination.longitude], [origin.latitude, destination.latitude], 'k-', linewidth=0.5)
+
+    for n in g.navPoint:
+        ax.scatter(n.longitude, n.latitude, color='blue', s=10)
+        ax.text(n.longitude, n.latitude, n.name, fontsize=6, alpha=0.6)
+
+    ax.set_title("Gráfico")
+    ax.set_xlabel("Longitud")
+    ax.set_ylabel("Latitud")
+    ax.grid(True)
+
+    canvas = FigureCanvasTkAgg(fig, master=plot_frame)
+    canvas.draw()
+    canvas.get_tk_widget().pack(fill=tk.BOTH, expand=True)
+
+    canvas.mpl_connect("button_press_event", on_click)
+
+# Función para hacer click en el gráfico
+def on_click(event):
+    global waiting_for_neighbor_selection, waiting_for_path_selection, selected_node, origin_node
+
+    if grafo is None:
+        return
+    x, y = event.xdata, event.ydata
+    if x is None or y is None:
+        return
+
+    closest = min(grafo.navPoint, key=lambda n: math.hypot(n.longitude - x, n.latitude - y))
+    selected_node[0] = closest
+
+    if waiting_for_neighbor_selection:
+        waiting_for_neighbor_selection = False
+        mostrar_vecinos()
+    elif waiting_for_path_selection == 1:
+        origin_node = closest
+        waiting_for_path_selection = 2
+        messagebox.showinfo("Destino", f"Nodo origen seleccionado: {closest.name}. Ahora selecciona el nodo destino.")
+    elif waiting_for_path_selection == 2:
+        destino_node = closest
+        waiting_for_path_selection = 0
+        mostrar_camino_mas_corto(origin_node, destino_node)
+    else:
+        messagebox.showinfo("Nodo seleccionado", f"Has seleccionado el nodo: {closest.name}")
+
+# Función para activar el modo "mostrar vecinos"
+def preparar_mostrar_vecinos():
+    global waiting_for_neighbor_selection
+    waiting_for_neighbor_selection = True
+    messagebox.showinfo("Selecciona nodo", "Haz clic en un nodo para mostrar sus vecinos.")
+
+# Función para mostrar vecinos
 def mostrar_vecinos():
     if selected_node[0] is None:
         messagebox.showwarning("Advertencia", "Por favor selecciona un nodo haciendo clic en el gráfico.")
@@ -62,73 +125,13 @@ def mostrar_vecinos():
     export_neighbors_to_kml(nodo, vecinos, grafo.navSegment)
     messagebox.showinfo("Exportación KML", "Se ha modificado 'neighbors.kml' con el nodo y los vecinos actuales.")
 
-
-
-def preparar_mostrar_vecinos():
-    global waiting_for_neighbor_selection
-    waiting_for_neighbor_selection = True
-    messagebox.showinfo("Selecciona nodo", "Haz clic en un nodo para mostrar sus vecinos.")
-
+# Función para activar el modo "camino más corto"
 def preparar_camino_mas_corto():
     global waiting_for_path_selection
     waiting_for_path_selection = 1
     messagebox.showinfo("Selecciona origen", "Haz clic en el nodo de origen del camino más corto.")
 
-def on_click(event):
-    global waiting_for_neighbor_selection, waiting_for_path_selection, selected_node, origin_node
-
-    if grafo is None:
-        return
-    x, y = event.xdata, event.ydata
-    if x is None or y is None:
-        return
-
-    closest = min(grafo.navPoint, key=lambda n: math.hypot(n.longitude - x, n.latitude - y))
-    selected_node[0] = closest
-
-    if waiting_for_neighbor_selection:
-        waiting_for_neighbor_selection = False
-        mostrar_vecinos()
-    elif waiting_for_path_selection == 1:
-        origin_node = closest
-        waiting_for_path_selection = 2
-        messagebox.showinfo("Destino", f"Nodo origen seleccionado: {closest.name}. Ahora selecciona el nodo destino.")
-    elif waiting_for_path_selection == 2:
-        destino_node = closest
-        waiting_for_path_selection = 0
-        mostrar_camino_mas_corto(origin_node, destino_node)
-    else:
-        messagebox.showinfo("Nodo seleccionado", f"Has seleccionado el nodo: {closest.name}")
-
-def draw_graph(g):
-    global canvas, fig, ax
-
-    if canvas:
-        canvas.get_tk_widget().destroy()
-
-    fig, ax = plt.subplots(figsize=(8, 6))
-
-    for seg in g.navSegment:
-        origin = next((n for n in g.navPoint if n.number == seg.origin_number), None)
-        destination = next((n for n in g.navPoint if n.number == seg.destination_number), None)
-        if origin and destination:
-            ax.plot([origin.longitude, destination.longitude], [origin.latitude, destination.latitude], 'k-', linewidth=0.5)
-
-    for n in g.navPoint:
-        ax.scatter(n.longitude, n.latitude, color='blue', s=10)
-        ax.text(n.longitude, n.latitude, n.name, fontsize=6, alpha=0.6)
-
-    ax.set_title("Gráfico")
-    ax.set_xlabel("Longitud")
-    ax.set_ylabel("Latitud")
-    ax.grid(True)
-
-    canvas = FigureCanvasTkAgg(fig, master=plot_frame)
-    canvas.draw()
-    canvas.get_tk_widget().pack(fill=tk.BOTH, expand=True)
-
-    canvas.mpl_connect("button_press_event", on_click)
-
+# Función para mostrar el camino más corto (con clicks)
 def mostrar_camino_mas_corto(origen, destino):
     ruta = FindShortestPath(grafo, origen, destino)
 
@@ -153,6 +156,7 @@ def mostrar_camino_mas_corto(origen, destino):
     export_path_to_kml(ruta)
     messagebox.showinfo("KML generado", "Se ha modificado 'shortest_path.kml' con el camino más corto actual.")
 
+# Función para mostrar el camino más corto (por aeropuerto)
 def camino_mas_corto_por_aeropuerto():
     global airports, grafo
 
@@ -209,7 +213,7 @@ def camino_mas_corto_por_aeropuerto():
     export_path_to_kml(ruta, "shortest_path.kml")
     messagebox.showinfo("KML generado", "Se ha modificado 'shortest_path.kml' con el camino actual.")
 
-
+# Interfaz principal despúes de seleccionar el espacio aéreo
 def main_interface(prefix):
     global root, plot_frame
     global grafo, airports
@@ -232,13 +236,13 @@ def main_interface(prefix):
     tk.Button(button_frame, text="Volver gráfico completo", command=lambda: draw_graph(grafo) if grafo else None).pack(side=tk.LEFT, padx=5)
     tk.Button(button_frame, text="Camino más corto (por aeropuerto)", command=camino_mas_corto_por_aeropuerto).pack(side=tk.LEFT, padx=5)
 
-
     plot_frame = tk.Frame(root)
     plot_frame.pack(fill=tk.BOTH, expand=True)
 
     draw_graph(grafo)
     root.mainloop()
 
+# Ventana inicial para elegir el espacio aéreo
 def seleccionar_espacio_aereo():
     seleccion = tk.Tk()
     seleccion.title("Selecciona el espacio aéreo")
