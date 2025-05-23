@@ -22,6 +22,7 @@ selected_node = [None]
 origin_node = None
 waiting_for_neighbor_selection = False
 waiting_for_path_selection = 0
+segment_color = 'black'  # Color por defecto para los segmentos
 
 # Función para dibujar el gráfico completo
 def draw_graph(g):
@@ -36,7 +37,7 @@ def draw_graph(g):
         origin = next((n for n in g.navPoint if n.number == seg.origin_number), None)
         destination = next((n for n in g.navPoint if n.number == seg.destination_number), None)
         if origin and destination:
-            ax.plot([origin.longitude, destination.longitude], [origin.latitude, destination.latitude], 'k-', linewidth=0.5)
+            ax.plot([origin.longitude, destination.longitude], [origin.latitude, destination.latitude], color=segment_color, linewidth=0.5)
 
     for n in g.navPoint:
         ax.scatter(n.longitude, n.latitude, color='blue', s=10)
@@ -236,6 +237,17 @@ def main_interface(prefix):
     tk.Button(button_frame, text="Volver gráfico completo", command=lambda: draw_graph(grafo) if grafo else None).pack(side=tk.LEFT, padx=5)
     tk.Button(button_frame, text="Camino más corto (por aeropuerto)", command=camino_mas_corto_por_aeropuerto).pack(side=tk.LEFT, padx=5)
 
+    color_frame = tk.Frame(button_frame)
+    color_frame.pack(side=tk.LEFT, padx=10)
+
+    def crear_circulo_color(frame, color):
+        canvas_color = tk.Canvas(frame, width=20, height=20, highlightthickness=0, bg=root.cget("bg"))
+        canvas_color.pack(side=tk.LEFT)
+        circle = canvas_color.create_oval(2, 2, 18, 18, fill=color, outline=color)
+        canvas_color.bind("<Button-1>", lambda e: cambiar_color_segmento(color))
+
+    crear_circulo_color(color_frame, "red")
+
     plot_frame = tk.Frame(root)
     plot_frame.pack(fill=tk.BOTH, expand=True)
 
@@ -265,3 +277,9 @@ def seleccionar_espacio_aereo():
     seleccion.mainloop()
 
 seleccionar_espacio_aereo()
+
+def cambiar_color_segmento(color):
+    global segment_color
+    segment_color = color
+    if grafo:
+        draw_graph(grafo)
