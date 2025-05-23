@@ -5,28 +5,21 @@
       <LineString>
         <tessellate>1</tessellate>
         <coordinates>
-          -0.7927777778,40.8711111111,0
-          -0.2852777778,41.0091666667,0
-          0.4763888889,41.1097222222,0
+          1.28,40.3547222222,0
+          1.4108333333,39.3725,0
         </coordinates>
       </LineString>
     </Placemark>
     <Placemark>
-      <name>NEXAS</name>
+      <name>MARTA</name>
       <Point>
-        <coordinates>-0.7927777778,40.8711111111,0</coordinates>
+        <coordinates>1.28,40.3547222222,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
-      <name>RAMON</name>
+      <name>GODOX</name>
       <Point>
-        <coordinates>-0.2852777778,41.0091666667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>SALAS</name>
-      <Point>
-        <coordinates>0.4763888889,41.1097222222,0</coordinates>
+        <coordinates>1.4108333333,39.3725,0</coordinates>
       </Point>
     </Placemark>
   </Document>
