@@ -33,7 +33,6 @@ esperando_ruta_manual = False
 selected_node_color_canvas = None
 selected_segment_color_canvas = None
 
-
 # Añadir imagen del avión
 def añadir_icono(ax, image_path, x, y, zoom=0.1, rotation=0, flip=False):
     pil_img = Image.open(image_path).convert("RGBA")
