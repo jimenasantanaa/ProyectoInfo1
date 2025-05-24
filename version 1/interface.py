@@ -139,7 +139,6 @@ def on_click(event):
     else:
         messagebox.showinfo("Nodo seleccionado", f"Has seleccionado el nodo: {closest.name}")
 
-
 # Función para activar el modo mostrar vecinos
 def preparar_mostrar_vecinos():
     global waiting_for_neighbor_selection
@@ -206,7 +205,7 @@ def draw_nodes_only(g):
         ax.scatter(n.longitude, n.latitude, color=node_color, s=10)
         ax.text(n.longitude, n.latitude, n.name, fontsize=6, alpha=0.6)
 
-
+# Función para mostrar el camino más corto (con clicks)
 def mostrar_camino_mas_corto(origen, destino):
     global modo_visualizacion
     modo_visualizacion = "camino"
@@ -268,26 +267,25 @@ def preparar_creacion_ruta_manual():
         # Modo escribiendo nombres
         introducir_ruta_manual_por_nombres()
 
-
+# Función para pedir el origen y el destino en el camino más corto
 def pedir_origen_y_destino(opciones):
     top = tk.Toplevel(root)
     top.title("Seleccionar aeropuertos")
     top.transient(root)
     top.grab_set()
 
-    # Etiqueta y entrada para origen
     tk.Label(top, text=" Elige el aeropuerto de origen: ").pack(pady=(10, 0))
     entry_origen = tk.Entry(top)
     entry_origen.pack(pady=(0, 10))
     entry_origen.focus()
 
-    # Etiqueta y entrada para destino
     tk.Label(top, text=" Elige el aeropuerto de destino: ").pack(pady=(10, 0))
     entry_destino = tk.Entry(top)
     entry_destino.pack(pady=(0, 10))
 
     resultado = {}
 
+    # Función para confirmar que el aeropuerto existe
     def confirmar():
         origen = entry_origen.get()
         destino = entry_destino.get()
@@ -305,7 +303,6 @@ def pedir_origen_y_destino(opciones):
 
     tk.Button(top, text="Aceptar", command=confirmar).pack(pady=10)
 
-    # Centrar la ventana
     top.update_idletasks()
     x = root.winfo_x() + (root.winfo_width() - top.winfo_width()) // 2
     y = root.winfo_y() + (root.winfo_height() - top.winfo_height()) // 2
@@ -314,6 +311,7 @@ def pedir_origen_y_destino(opciones):
     top.wait_window()
     return resultado.get("origen"), resultado.get("destino")
 
+# Función para mostrar el camino más corto (aeropuertos)
 def camino_mas_corto_por_aeropuerto():
     global airports, grafo
 
@@ -349,10 +347,8 @@ def camino_mas_corto_por_aeropuerto():
         messagebox.showerror("Error", "No se encontró camino entre los aeropuertos seleccionados.")
         return
 
-    # Dibuja solo nodos sin segmentos normales
     draw_nodes_only(grafo)
 
-    # Dibuja el camino resaltado
     for i in range(len(ruta.navPoints) - 1):
         n1, n2 = ruta.navPoints[i], ruta.navPoints[i + 1]
         ax.plot([n1.longitude, n2.longitude], [n1.latitude, n2.latitude], 'r-', linewidth=3, zorder=5)
@@ -385,6 +381,7 @@ def camino_mas_corto_por_aeropuerto():
     export_path_to_kml(ruta, "path.kml")
     messagebox.showinfo("KML generado", "Se ha modificado 'path.kml' con el camino actual.")
 
+# Función para seleccionar colores y el espacio aéreo
 def seleccionar_espacio_aereo_con_colores():
     seleccion = tk.Tk()
     seleccion.title("Opciones iniciales")
@@ -394,15 +391,16 @@ def seleccionar_espacio_aereo_con_colores():
     node_color = "black"
     segment_color = "black"
 
-    # === 1. Color de puntos ===
     tk.Label(seleccion, text="1. Elige el color de los puntos:").pack()
     color_punto_frame = tk.Frame(seleccion)
     color_punto_frame.pack()
 
+    # Función para establecer como predeterminado el color negro para puntos
     def set_node_color(color):
         global node_color
         node_color = color
 
+    # Función para seleccionar el color del punto
     def crear_selector_color_punto(frame, color):
         canvas = tk.Canvas(frame, width=30, height=30, highlightthickness=0, bg=seleccion["bg"])
         canvas.pack(side=tk.LEFT, padx=5)
@@ -412,15 +410,16 @@ def seleccionar_espacio_aereo_con_colores():
     for color in ["red", "orange", "yellow","green", "blue", "purple"]:
         crear_selector_color_punto(color_punto_frame, color)
 
-    # === 2. Color de segmentos ===
     tk.Label(seleccion, text="2. Elige el color de los segmentos:").pack(pady=(10, 0))
     color_segmento_frame = tk.Frame(seleccion)
     color_segmento_frame.pack()
 
+    # Función para establecer como predeterminado el color negro para segmentos
     def set_segment_color(color):
         global segment_color
         segment_color = color
 
+    # Función para seleccionar el color del segmento
     def crear_selector_color_segmento(frame, color):
         canvas = tk.Canvas(frame, width=30, height=30, highlightthickness=0, bg=seleccion["bg"])
         canvas.pack(side=tk.LEFT, padx=5)
@@ -430,7 +429,6 @@ def seleccionar_espacio_aereo_con_colores():
     for color in ["red", "orange", "yellow", "green", "blue", "purple"]:
         crear_selector_color_segmento(color_segmento_frame, color)
 
-    # === 3. Selección del espacio aéreo ===
     tk.Label(seleccion, text="3. Elige el espacio aéreo que quieres ver:").pack(pady=(10, 0))
     espacio_frame = tk.Frame(seleccion)
     espacio_frame.pack(pady=5)
@@ -445,6 +443,7 @@ def seleccionar_espacio_aereo_con_colores():
 
     seleccion.mainloop()
 
+# Función para escribir la ruta manual
 def introducir_ruta_manual_por_nombres():
     global ruta_manual, grafo
 
@@ -457,6 +456,7 @@ def introducir_ruta_manual_por_nombres():
     entrada.pack(pady=5)
     entrada.focus()
 
+    # Función para confirmar que los puntos existe
     def confirmar():
         nombres = entrada.get().split(',')
         nombres = [n.strip().upper() for n in nombres]
@@ -475,6 +475,7 @@ def introducir_ruta_manual_por_nombres():
 
     tk.Button(ventana, text="Aceptar", command=confirmar).pack(pady=15)
 
+# Función para mostrar la ruta manual
 def mostrar_ruta_manual():
     global ruta_manual
 
@@ -495,7 +496,6 @@ def mostrar_ruta_manual():
         ax.scatter(n.longitude, n.latitude, color=segment_color, s=40, zorder=11)
         ax.text(n.longitude, n.latitude, n.name, fontsize=9, color=segment_color, zorder=12)
 
-    # Avión en origen y destino
     origen = ruta_manual[0]
     destino = ruta_manual[-1]
     flip = destino.longitude < origen.longitude
@@ -519,7 +519,7 @@ def mostrar_ruta_manual():
     export_path_to_kml(ruta, "ruta_manual.kml")
     messagebox.showinfo("KML generado", "Se ha actualizado 'ruta_manual.kml' con la ruta manual escrita.")
 
-
+# Interfaz principal
 def main_interface(prefix):
     global root, plot_frame, grafo, airports
     grafo, airports_dict = load_airspace(prefix)
@@ -529,6 +529,7 @@ def main_interface(prefix):
     root.title("Visualizador")
     root.geometry("900x700")
 
+    # Función para finalizar la ruta con esc
     def finalizar_ruta_manual(event=None):
         global esperando_ruta_manual, ruta_manual
         if esperando_ruta_manual:
@@ -539,7 +540,6 @@ def main_interface(prefix):
                 destino = ruta_manual[-1]
                 flip = destino.longitude < origen.longitude
 
-                # Añadir iconos de avión
                 añadir_icono(ax, "avion.png", origen.longitude, origen.latitude, zoom=0.06, flip=flip)
                 pil_img = Image.open("avion.png").convert("RGBA")
                 pil_img = pil_img.rotate(310, expand=True)
@@ -550,7 +550,6 @@ def main_interface(prefix):
                 ab = AnnotationBbox(imagebox, (destino.longitude, destino.latitude), frameon=False, zorder=999)
                 ax.add_artist(ab)
 
-                # Convertir lista de puntos a objeto Path y exportar
                 ruta = Path(ruta_manual[0])
                 for punto in ruta_manual[1:]:
                     ruta.AddNodeToPath(punto)
@@ -582,7 +581,4 @@ def main_interface(prefix):
     draw_graph(grafo)
     root.mainloop()
 
-
-
-# Lanzar la interfaz inicial
 seleccionar_espacio_aereo_con_colores()
