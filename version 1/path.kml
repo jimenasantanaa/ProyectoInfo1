@@ -5,42 +5,21 @@
       <LineString>
         <tessellate>1</tessellate>
         <coordinates>
-          2.0768662333,41.2972901333,0
-          2.0225334833,41.5145652667,0
-          2.1097222222,41.52,0
-          1.5477777778,41.3427777778,0
-          1.1869708,41.1431879333,0
+          4.7491666667,47.4963888889,0
+          4.1411111111,47.8833333333,0
         </coordinates>
       </LineString>
     </Placemark>
     <Placemark>
-      <name>BCN.D</name>
+      <name>ALARO</name>
       <Point>
-        <coordinates>2.0768662333,41.2972901333,0</coordinates>
+        <coordinates>4.7491666667,47.4963888889,0</coordinates>
       </Point>
     </Placemark>
     <Placemark>
-      <name>SLL.A</name>
+      <name>TUNOR</name>
       <Point>
-        <coordinates>2.0225334833,41.5145652667,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>SLL</name>
-      <Point>
-        <coordinates>2.1097222222,41.52,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>VLA</name>
-      <Point>
-        <coordinates>1.5477777778,41.3427777778,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>RES.A</name>
-      <Point>
-        <coordinates>1.1869708,41.1431879333,0</coordinates>
+        <coordinates>4.1411111111,47.8833333333,0</coordinates>
       </Point>
     </Placemark>
   </Document>
