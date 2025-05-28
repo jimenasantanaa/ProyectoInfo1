@@ -92,7 +92,11 @@ def on_click(event):
     if x is None or y is None:
         return
 
-    closest = min(grafo.navPoint, key=lambda n: math.hypot(n.longitude - x, n.latitude - y))
+    if not grafo.navPoint:
+        closest = None
+    else:
+        closest = min(grafo.navPoint, key=lambda n: math.hypot(n.longitude - x, n.latitude - y))
+
     selected_node[0] = closest
 
     if esperando_eliminar_navpoint:
@@ -510,6 +514,7 @@ def seleccionar_espacio_aereo_con_colores():
     tk.Button(espacio_frame, text="Cataluña", command=lambda: elegir("Cat")).pack(side=tk.LEFT, padx=5)
     tk.Button(espacio_frame, text="España", command=lambda: elegir("Spain")).pack(side=tk.LEFT, padx=5)
     tk.Button(espacio_frame, text="Europa", command=lambda: elegir("ECAC")).pack(side=tk.LEFT, padx=5)
+    tk.Button(espacio_frame, text="Crear gráfico", command=lambda: (seleccion.destroy(), crear_grafo_vacio())).pack(side=tk.LEFT, padx=5)
 
     seleccion.mainloop()
 
@@ -672,9 +677,15 @@ def guardar_txt():
         messagebox.showwarning("Advertencia", "No hay grafo cargado.")
         return
 
+    # Guardar .txt
     export_navpoints_to_txt(grafo.navPoint, "navpoint_new.txt")
     export_navsegments_to_txt(grafo.navSegment, "navsegment_new.txt")
-    messagebox.showinfo("Guardado", "Se han guardado los archivos 'navpoint_new.txt' y 'navsegment_new.txt'.")
+
+    # Guardar .kml
+    export_navpoints_to_kml(grafo.navPoint, "points.kml")
+    export_navsegments_to_kml(grafo.navSegment, grafo.navPoint, "segments.kml")
+
+    messagebox.showinfo("Guardado", "Se han guardado los archivos:\n- navpoint_new.txt\n- navsegment_new.txt\n- points.kml\n- segments.kml")
 
 
 def cargar_grafo_desde_txt():
@@ -707,11 +718,20 @@ def cargar_grafo_desde_txt():
     except FileNotFoundError:
         messagebox.showerror("Error", "No se encontraron los archivos 'navpoint_new.txt' y 'navsegment_new.txt'.")
 
+def crear_grafo_vacio():
+    global grafo
+    grafo = Graph()
+    main_interface(None)
+
 
 def main_interface(prefix):
     global root, plot_frame, grafo, airports
-    grafo, airports_dict = load_airspace(prefix)
-    airports = list(airports_dict.values())
+    if prefix is not None:
+        grafo, airports_dict = load_airspace(prefix)
+        airports = list(airports_dict.values())
+    else:
+        grafo = Graph()
+        airports = []
 
     root = tk.Tk()
     root.title("Visualizador")
