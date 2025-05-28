@@ -811,4 +811,3 @@ def main_interface(prefix):
 
 # Interfaz inicial
 seleccionar_espacio_aereo_con_colores()
-#
