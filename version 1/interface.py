@@ -160,6 +160,8 @@ def on_click(event):
 
         añadiendo_navpoint = False
         messagebox.showinfo("NavPoint creado", f"'{nombre}' ha sido añadido correctamente.")
+        export_navpoints_to_kml(grafo.navPoint)
+        export_navsegments_to_kml(grafo.navSegment, grafo.navPoint)
         return
 
 
@@ -177,6 +179,7 @@ def on_click(event):
         canvas.draw()
         añadiendo_navsegment = 0
         messagebox.showinfo("Segmento creado",f"Segmento añadido entre {navsegment_origen.name} y {navsegment_destino.name}.")
+        export_navsegments_to_kml(grafo.navSegment, grafo.navPoint)
         return
 
     else:
