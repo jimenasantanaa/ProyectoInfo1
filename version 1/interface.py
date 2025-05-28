@@ -1,6 +1,6 @@
 # Importaciones
 import tkinter as tk
-from tkinter import messagebox, simpledialog
+from tkinter import messagebox, simpledialog, filedialog
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import matplotlib.pyplot as plt
 import math
@@ -691,32 +691,44 @@ def guardar_txt():
 def cargar_grafo_desde_txt():
     global grafo
 
-    grafo = Graph()
+    navpoint_file = filedialog.askopenfilename(title="Selecciona archivo de NavPoints (.txt)", filetypes=[("Text files", "*.txt")])
+    if not navpoint_file:
+        return
+
+    navsegment_file = filedialog.askopenfilename(title="Selecciona archivo de NavSegments (.txt)", filetypes=[("Text files", "*.txt")])
+    if not navsegment_file:
+        return
+
+    nuevo_grafo = Graph()
 
     try:
-        # Cargar NavPoints
-        with open("navpoint_new.txt", "r") as f:
+        with open(navpoint_file, "r") as f:
             for line in f:
                 parts = line.strip().split()
-                number = int(float(parts[0]))
+                if len(parts) != 4:
+                    raise ValueError("Formato incorrecto en navpoint.")
+                number = int(parts[0])
                 name = parts[1]
                 latitude = float(parts[2])
                 longitude = float(parts[3])
-                grafo.navPoint.append(NavPoint(number, name, latitude, longitude))
+                nuevo_grafo.navPoint.append(NavPoint(number, name, latitude, longitude))
 
-        # Cargar NavSegments
-        with open("navsegment_new.txt", "r") as f:
+        with open(navsegment_file, "r") as f:
             for line in f:
                 parts = line.strip().split()
+                if len(parts) != 3:
+                    raise ValueError("Formato incorrecto en navsegment.")
                 origin = int(parts[0])
                 destination = int(parts[1])
                 distance = float(parts[2])
-                grafo.navSegment.append(NavSegment(origin, destination, distance))
+                nuevo_grafo.navSegment.append(NavSegment(origin, destination, distance))
 
+        grafo = nuevo_grafo
         draw_graph(grafo)
-        messagebox.showinfo("Cargado", "Se ha cargado el grafo desde los archivos .txt.")
-    except FileNotFoundError:
-        messagebox.showerror("Error", "No se encontraron los archivos 'navpoint_new.txt' y 'navsegment_new.txt'.")
+        messagebox.showinfo("Cargado", "Se ha cargado el grafo desde los archivos seleccionados.")
+
+    except Exception as e:
+        messagebox.showerror("Error", f"Ocurrió un error al cargar los archivos:\n{str(e)}")
 
 def crear_grafo_vacio():
     global grafo
