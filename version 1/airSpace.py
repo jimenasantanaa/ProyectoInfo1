@@ -137,3 +137,14 @@ def export_path_to_kml(path, filename="path.kml"):
 
         f.write("  </Document>\n")
         f.write("</kml>\n")
+
+
+def export_navpoints_to_txt(navpoints, filename="navpoint_new.txt"):
+    with open(filename, "w") as f:
+        for p in navpoints:
+            f.write(f"{p.number} {p.name} {p.latitude} {p.longitude}\n")
+
+def export_navsegments_to_txt(navsegments, filename="navsegment_new.txt"):
+    with open(filename, "w") as f:
+        for s in navsegments:
+            f.write(f"{s.origin_number} {s.destination_number} {s.distance}\n")

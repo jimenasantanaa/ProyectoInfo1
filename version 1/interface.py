@@ -667,6 +667,46 @@ def navsegment_por_nombres():
 
     top.wait_window()
 
+def guardar_txt():
+    if grafo is None:
+        messagebox.showwarning("Advertencia", "No hay grafo cargado.")
+        return
+
+    export_navpoints_to_txt(grafo.navPoint, "navpoint_new.txt")
+    export_navsegments_to_txt(grafo.navSegment, "navsegment_new.txt")
+    messagebox.showinfo("Guardado", "Se han guardado los archivos 'navpoint_new.txt' y 'navsegment_new.txt'.")
+
+
+def cargar_grafo_desde_txt():
+    global grafo
+
+    grafo = Graph()
+
+    try:
+        # Cargar NavPoints
+        with open("navpoint_new.txt", "r") as f:
+            for line in f:
+                parts = line.strip().split()
+                number = int(float(parts[0]))
+                name = parts[1]
+                latitude = float(parts[2])
+                longitude = float(parts[3])
+                grafo.navPoint.append(NavPoint(number, name, latitude, longitude))
+
+        # Cargar NavSegments
+        with open("navsegment_new.txt", "r") as f:
+            for line in f:
+                parts = line.strip().split()
+                origin = int(parts[0])
+                destination = int(parts[1])
+                distance = float(parts[2])
+                grafo.navSegment.append(NavSegment(origin, destination, distance))
+
+        draw_graph(grafo)
+        messagebox.showinfo("Cargado", "Se ha cargado el grafo desde los archivos .txt.")
+    except FileNotFoundError:
+        messagebox.showerror("Error", "No se encontraron los archivos 'navpoint_new.txt' y 'navsegment_new.txt'.")
+
 
 def main_interface(prefix):
     global root, plot_frame, grafo, airports
@@ -727,6 +767,8 @@ def main_interface(prefix):
     tk.Button(button_frame, text="Añadir NavSegment", command=activar_modo_navsegment).pack(side=tk.LEFT, padx=5)
     tk.Button(button_frame, text="Añadir Segmento (por nombre)", command=navsegment_por_nombres).pack(side=tk.LEFT,padx=5)
     tk.Button(button_frame, text="Eliminar NavPoint", command=eliminar_navpoint).pack(side=tk.LEFT, padx=5)
+    tk.Button(button_frame, text="Guardar gráfico", command=guardar_txt).pack(side=tk.LEFT, padx=5)
+    tk.Button(button_frame, text="Cargar gráfico", command=cargar_grafo_desde_txt).pack(side=tk.LEFT, padx=5)
 
     plot_frame = tk.Frame(root)
     plot_frame.pack(fill=tk.BOTH, expand=True)
