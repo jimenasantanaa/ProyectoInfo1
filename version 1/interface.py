@@ -157,11 +157,11 @@ def on_click(event):
         ax.scatter(x, y, color=node_color, s=10)
         ax.text(x, y, nombre, fontsize=6, alpha=0.6)
         canvas.draw()
+        export_navpoints_to_kml(grafo.navPoint)
+        export_navsegments_to_kml(grafo.navSegment, grafo.navPoint)
 
         añadiendo_navpoint = False
         messagebox.showinfo("NavPoint creado", f"'{nombre}' ha sido añadido correctamente.")
-        export_navpoints_to_kml(grafo.navPoint)
-        export_navsegments_to_kml(grafo.navSegment, grafo.navPoint)
         return
 
 
@@ -177,9 +177,10 @@ def on_click(event):
         ax.plot([navsegment_origen.longitude, navsegment_destino.longitude],
                 [navsegment_origen.latitude, navsegment_destino.latitude], color=segment_color, linewidth=0.5)
         canvas.draw()
+        export_navsegments_to_kml(grafo.navSegment, grafo.navPoint)
+
         añadiendo_navsegment = 0
         messagebox.showinfo("Segmento creado",f"Segmento añadido entre {navsegment_origen.name} y {navsegment_destino.name}.")
-        export_navsegments_to_kml(grafo.navSegment, grafo.navPoint)
         return
 
     else:
@@ -603,7 +604,8 @@ def eliminar_navpoint():
 
     # Eliminar el navpoint del grafo
     grafo.navPoint = [n for n in grafo.navPoint if n.number != navpoint.number]
-
+    export_navpoints_to_kml(grafo.navPoint)
+    export_navsegments_to_kml(grafo.navSegment, grafo.navPoint)
     selected_node[0] = None
     draw_graph(grafo)
     messagebox.showinfo("Eliminado", f"NavPoint '{navpoint.name}' y sus segmentos han sido eliminados.")
