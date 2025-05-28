@@ -575,6 +575,35 @@ def activar_modo_navsegment():
     añadiendo_navsegment = 1
     messagebox.showinfo("Modo activo", "Haz clic en el origen del nuevo NavSegment.")
 
+#Eleminar navpoint
+def eliminar_navpoint():
+    global grafo, selected_node, canvas
+
+    if grafo is None:
+        messagebox.showwarning("Advertencia", "Primero carga un grafo.")
+        return
+
+    if selected_node[0] is None:
+        messagebox.showwarning("Advertencia", "Selecciona un NavPoint haciendo clic en el gráfico.")
+        return
+
+    navpoint = selected_node[0]
+    confirm = messagebox.askyesno("Confirmar eliminación",
+                                  f"¿Estás seguro de que quieres eliminar el NavPoint '{navpoint.name}' y todos sus segmentos asociados?")
+
+    if not confirm:
+        return
+
+    # Eliminar los segmentos que tienen como origen o destino ese punto
+    grafo.navSegment = [s for s in grafo.navSegment
+                        if s.origin_number != navpoint.number and s.destination_number != navpoint.number]
+
+    # Eliminar el navpoint del grafo
+    grafo.navPoint = [n for n in grafo.navPoint if n.number != navpoint.number]
+
+    selected_node[0] = None
+    draw_graph(grafo)
+    messagebox.showinfo("Eliminado", f"NavPoint '{navpoint.name}' y sus segmentos han sido eliminados.")
 
 def main_interface(prefix):
     global root, plot_frame, grafo, airports
@@ -633,6 +662,7 @@ def main_interface(prefix):
     tk.Button(button_frame, text="Volver gráfico completo", command=lambda: draw_graph(grafo)).pack(side=tk.LEFT, padx=5)
     tk.Button(button_frame, text="Añadir NavPoint", command=activar_modo_navpoint).pack(side=tk.LEFT, padx=5)
     tk.Button(button_frame, text="Añadir NavSegment", command=activar_modo_navsegment).pack(side=tk.LEFT, padx=5)
+    tk.Button(button_frame, text="Eliminar NavPoint", command=eliminar_navpoint).pack(side=tk.LEFT, padx=5)
 
     plot_frame = tk.Frame(root)
     plot_frame.pack(fill=tk.BOTH, expand=True)
