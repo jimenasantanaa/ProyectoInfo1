@@ -32,6 +32,9 @@ ruta_manual = []
 esperando_ruta_manual = False
 selected_node_color_canvas = None
 selected_segment_color_canvas = None
+añadiendo_navpoint = False
+añadiendo_navsegment = 0  # 0 = inactivo, 1 = esperando origen, 2 = esperando destino
+navsegment_origen = None
 
 
 # Añadir imagen del avión
@@ -80,7 +83,7 @@ def draw_graph(g):
 
 # Función para hacer click en el gráfico
 def on_click(event):
-    global waiting_for_neighbor_selection, waiting_for_path_selection, selected_node, origin_node, ruta_manual
+    global waiting_for_neighbor_selection, waiting_for_path_selection, selected_node, origin_node, ruta_manual, añadiendo_navpoint, navsegment_origen, añadiendo_navsegment
 
     if grafo is None:
         return
@@ -134,6 +137,46 @@ def on_click(event):
                 ax.text(punto.longitude, punto.latitude, punto.name, fontsize=9, color=segment_color, zorder=11)
 
         canvas.draw()
+        return
+    elif añadiendo_navpoint:
+        nombre = simpledialog.askstring("Nombre", "Introduce el nombre del NavPoint:")
+        if not nombre:
+            return
+
+        nombre = nombre.strip().upper()
+
+        # Verifica que no existe ya un punto con ese nombre
+        if any(p.name.upper() == nombre for p in grafo.navPoint):
+            messagebox.showwarning("Nombre duplicado", f"Ya existe un NavPoint con el nombre '{nombre}'.")
+            return
+
+        nuevo_numero = max((n.number for n in grafo.navPoint), default=0) + 1
+        nuevo = NavPoint(nombre, nuevo_numero, latitude=y, longitude=x)
+        grafo.navPoint.append(nuevo)
+
+        ax.scatter(x, y, color=node_color, s=10)
+        ax.text(x, y, nombre, fontsize=6, alpha=0.6)
+        canvas.draw()
+
+        añadiendo_navpoint = False
+        messagebox.showinfo("NavPoint creado", f"'{nombre}' ha sido añadido correctamente.")
+        return
+
+
+    elif añadiendo_navsegment == 1:
+        navsegment_origen = closest
+        añadiendo_navsegment = 2
+        messagebox.showinfo("Destino", f"Origen: {closest.name}. Ahora haz clic en el destino.")
+        return
+    elif añadiendo_navsegment == 2:
+        navsegment_destino = closest
+        nuevo = NavSegment(navsegment_origen.number, navsegment_destino.number, Distance(navsegment_origen, navsegment_destino))
+        grafo.navSegment.append(nuevo)
+        ax.plot([navsegment_origen.longitude, navsegment_destino.longitude],
+                [navsegment_origen.latitude, navsegment_destino.latitude], color=segment_color, linewidth=0.5)
+        canvas.draw()
+        añadiendo_navsegment = 0
+        messagebox.showinfo("Segmento creado",f"Segmento añadido entre {navsegment_origen.name} y {navsegment_destino.name}.")
         return
 
     else:
@@ -519,6 +562,18 @@ def mostrar_ruta_manual():
     export_path_to_kml(ruta, "ruta_manual.kml")
     messagebox.showinfo("KML generado", "Se ha actualizado 'ruta_manual.kml' con la ruta manual escrita.")
 
+#Añadir nodo
+def activar_modo_navpoint():
+    global añadiendo_navpoint
+    añadiendo_navpoint = True
+    messagebox.showinfo("Modo activo", "Haz clic donde quieras añadir un nuevo NavPoint.")
+
+#Añadir segmento
+def activar_modo_navsegment():
+    global añadiendo_navsegment
+    añadiendo_navsegment = 1
+    messagebox.showinfo("Modo activo", "Haz clic en el origen del nuevo NavSegment.")
+
 
 def main_interface(prefix):
     global root, plot_frame, grafo, airports
@@ -575,6 +630,8 @@ def main_interface(prefix):
     tk.Button(button_frame, text="Camino más corto (por aeropuerto)", command=camino_mas_corto_por_aeropuerto).pack(side=tk.LEFT, padx=5)
     tk.Button(button_frame, text="Crear ruta manual", command=preparar_creacion_ruta_manual).pack(side=tk.LEFT, padx=5)
     tk.Button(button_frame, text="Volver gráfico completo", command=lambda: draw_graph(grafo)).pack(side=tk.LEFT, padx=5)
+    tk.Button(button_frame, text="Añadir NavPoint", command=activar_modo_navpoint).pack(side=tk.LEFT, padx=5)
+    tk.Button(button_frame, text="Añadir NavSegment", command=activar_modo_navsegment).pack(side=tk.LEFT, padx=5)
 
     plot_frame = tk.Frame(root)
     plot_frame.pack(fill=tk.BOTH, expand=True)
