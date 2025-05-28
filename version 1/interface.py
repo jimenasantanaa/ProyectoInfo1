@@ -151,7 +151,7 @@ def on_click(event):
             return
 
         nuevo_numero = max((n.number for n in grafo.navPoint), default=0) + 1
-        nuevo = NavPoint(nombre, nuevo_numero, latitude=y, longitude=x)
+        nuevo = NavPoint(nuevo_numero, nombre, latitude=y, longitude=x)
         grafo.navPoint.append(nuevo)
 
         ax.scatter(x, y, color=node_color, s=10)
