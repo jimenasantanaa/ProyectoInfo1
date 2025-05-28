@@ -1,6 +1,6 @@
 # Importaciones
 import tkinter as tk
-from tkinter import messagebox, simpledialog
+from tkinter import messagebox, simpledialog, filedialog
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import matplotlib.pyplot as plt
 import math
@@ -162,6 +162,7 @@ def on_click(event):
 
         canvas.draw()
         return
+
     elif añadiendo_navpoint:
         nombre = simpledialog.askstring("Nombre", "Introduce el nombre del NavPoint:")
         if not nombre:
@@ -188,12 +189,12 @@ def on_click(event):
         messagebox.showinfo("NavPoint creado", f"'{nombre}' ha sido añadido correctamente.")
         return
 
-
     elif añadiendo_navsegment == 1:
         navsegment_origen = closest
         añadiendo_navsegment = 2
         messagebox.showinfo("Destino", f"Origen: {closest.name}. Ahora haz clic en el destino.")
         return
+
     elif añadiendo_navsegment == 2:
         navsegment_destino = closest
         nuevo = NavSegment(navsegment_origen.number, navsegment_destino.number, Distance(navsegment_origen, navsegment_destino))
@@ -210,14 +211,13 @@ def on_click(event):
     else:
         messagebox.showinfo("Nodo seleccionado", f"Has seleccionado el nodo: {closest.name}")
 
-
 # Función para activar el modo mostrar vecinos
 def preparar_mostrar_vecinos():
     global waiting_for_neighbor_selection
     waiting_for_neighbor_selection = True
     messagebox.showinfo("Selecciona nodo", "Haz clic en un nodo para mostrar sus vecinos.")
 
-# Función para activar el modo camino más corto
+# Función para mostrar vecinos de un punto
 def mostrar_vecinos():
     global modo_visualizacion
     modo_visualizacion = "vecinos"
@@ -259,7 +259,7 @@ def mostrar_vecinos():
     export_neighbors_to_kml(nodo, vecinos, grafo.navSegment)
     messagebox.showinfo("Exportación KML", "Se ha modificado 'neighbors.kml' con el nodo y los vecinos actuales.")
 
-# Función para activar el camino más corto
+# Función para activar el modo camino más corto
 def preparar_camino_mas_corto():
     global waiting_for_path_selection
     waiting_for_path_selection = 1
@@ -277,7 +277,7 @@ def draw_nodes_only(g):
         ax.scatter(n.longitude, n.latitude, color=node_color, s=10)
         ax.text(n.longitude, n.latitude, n.name, fontsize=6, alpha=0.6)
 
-
+# Función para mostrar el camino más corto con clicks
 def mostrar_camino_mas_corto(origen, destino):
     global modo_visualizacion
     modo_visualizacion = "camino"
@@ -320,7 +320,6 @@ def mostrar_camino_mas_corto(origen, destino):
     export_path_to_kml(ruta)
     messagebox.showinfo("KML generado", "Se ha modificado 'path.kml' con el camino más corto actual.")
 
-
 # Función para activar ruta manual
 def preparar_creacion_ruta_manual():
     global esperando_ruta_manual, ruta_manual
@@ -332,34 +331,31 @@ def preparar_creacion_ruta_manual():
         "¿Cómo quieres introducir los navpoints de la ruta?\n\nSí = Clics en el gráfico\nNo = Escribir nombres")
 
     if respuesta == "yes":
-        # Modo con clics
         esperando_ruta_manual = True
         ruta_manual = []
         messagebox.showinfo("Ruta manual", "Haz clic en los navpoints para construir la ruta.\nPulsa ESC para terminar.")
     else:
-        # Modo escribiendo nombres
         introducir_ruta_manual_por_nombres()
 
-
+# Función para pedir los aeropuertos de origen y destino
 def pedir_origen_y_destino(opciones):
     top = tk.Toplevel(root)
     top.title("Seleccionar aeropuertos")
     top.transient(root)
     top.grab_set()
 
-    # Etiqueta y entrada para origen
     tk.Label(top, text=" Elige el aeropuerto de origen: ").pack(pady=(10, 0))
     entry_origen = tk.Entry(top)
     entry_origen.pack(pady=(0, 10))
     entry_origen.focus()
 
-    # Etiqueta y entrada para destino
     tk.Label(top, text=" Elige el aeropuerto de destino: ").pack(pady=(10, 0))
     entry_destino = tk.Entry(top)
     entry_destino.pack(pady=(0, 10))
 
     resultado = {}
 
+    # Función para pedir los aeropuertos de origen y destino
     def confirmar():
         origen = entry_origen.get()
         destino = entry_destino.get()
@@ -377,7 +373,6 @@ def pedir_origen_y_destino(opciones):
 
     tk.Button(top, text="Aceptar", command=confirmar).pack(pady=10)
 
-    # Centrar la ventana
     top.update_idletasks()
     x = root.winfo_x() + (root.winfo_width() - top.winfo_width()) // 2
     y = root.winfo_y() + (root.winfo_height() - top.winfo_height()) // 2
@@ -386,6 +381,7 @@ def pedir_origen_y_destino(opciones):
     top.wait_window()
     return resultado.get("origen"), resultado.get("destino")
 
+# Función para mostrar el camino más corto por aeropuerto
 def camino_mas_corto_por_aeropuerto():
     global airports, grafo
 
@@ -421,10 +417,8 @@ def camino_mas_corto_por_aeropuerto():
         messagebox.showerror("Error", "No se encontró camino entre los aeropuertos seleccionados.")
         return
 
-    # Dibuja solo nodos sin segmentos normales
     draw_nodes_only(grafo)
 
-    # Dibuja el camino resaltado
     for i in range(len(ruta.navPoints) - 1):
         n1, n2 = ruta.navPoints[i], ruta.navPoints[i + 1]
         ax.plot([n1.longitude, n2.longitude], [n1.latitude, n2.latitude], 'r-', linewidth=3, zorder=5)
@@ -457,6 +451,7 @@ def camino_mas_corto_por_aeropuerto():
     export_path_to_kml(ruta, "path.kml")
     messagebox.showinfo("KML generado", "Se ha modificado 'path.kml' con el camino actual.")
 
+# Función para seleccionar colores y espacio aéreo/crear gráfico
 def seleccionar_espacio_aereo_con_colores():
     seleccion = tk.Tk()
     seleccion.title("Opciones iniciales")
@@ -466,15 +461,16 @@ def seleccionar_espacio_aereo_con_colores():
     node_color = "black"
     segment_color = "black"
 
-    # === 1. Color de puntos ===
     tk.Label(seleccion, text="1. Elige el color de los puntos:").pack()
     color_punto_frame = tk.Frame(seleccion)
     color_punto_frame.pack()
 
+    # Función para poner predetemrminado el color negro en puntos
     def set_node_color(color):
         global node_color
         node_color = color
 
+    # Función para escoger el color de los puntos
     def crear_selector_color_punto(frame, color):
         canvas = tk.Canvas(frame, width=30, height=30, highlightthickness=0, bg=seleccion["bg"])
         canvas.pack(side=tk.LEFT, padx=5)
@@ -484,15 +480,16 @@ def seleccionar_espacio_aereo_con_colores():
     for color in ["red", "orange", "yellow","green", "blue", "purple"]:
         crear_selector_color_punto(color_punto_frame, color)
 
-    # === 2. Color de segmentos ===
     tk.Label(seleccion, text="2. Elige el color de los segmentos:").pack(pady=(10, 0))
     color_segmento_frame = tk.Frame(seleccion)
     color_segmento_frame.pack()
 
+    # Función para poner predetemrminado el color negro en segmentos
     def set_segment_color(color):
         global segment_color
         segment_color = color
 
+    # Función para escoger el color de los segmentos
     def crear_selector_color_segmento(frame, color):
         canvas = tk.Canvas(frame, width=30, height=30, highlightthickness=0, bg=seleccion["bg"])
         canvas.pack(side=tk.LEFT, padx=5)
@@ -502,11 +499,11 @@ def seleccionar_espacio_aereo_con_colores():
     for color in ["red", "orange", "yellow", "green", "blue", "purple"]:
         crear_selector_color_segmento(color_segmento_frame, color)
 
-    # === 3. Selección del espacio aéreo ===
     tk.Label(seleccion, text="3. Elige el espacio aéreo que quieres ver:").pack(pady=(10, 0))
     espacio_frame = tk.Frame(seleccion)
     espacio_frame.pack(pady=5)
 
+    # Función para escoger espacio aéreo o gráfico nuevo
     def elegir(prefix):
         seleccion.destroy()
         main_interface(prefix)
@@ -518,6 +515,7 @@ def seleccionar_espacio_aereo_con_colores():
 
     seleccion.mainloop()
 
+# Función para crear ruta manual escrita
 def introducir_ruta_manual_por_nombres():
     global ruta_manual, grafo
 
@@ -530,6 +528,7 @@ def introducir_ruta_manual_por_nombres():
     entrada.pack(pady=5)
     entrada.focus()
 
+    # Función para confirmar que los puntos escritos existen
     def confirmar():
         nombres = entrada.get().split(',')
         nombres = [n.strip().upper() for n in nombres]
@@ -548,6 +547,7 @@ def introducir_ruta_manual_por_nombres():
 
     tk.Button(ventana, text="Aceptar", command=confirmar).pack(pady=15)
 
+# Función para crear ruta manual con clicks
 def mostrar_ruta_manual():
     global ruta_manual
 
@@ -568,7 +568,6 @@ def mostrar_ruta_manual():
         ax.scatter(n.longitude, n.latitude, color=segment_color, s=40, zorder=11)
         ax.text(n.longitude, n.latitude, n.name, fontsize=9, color=segment_color, zorder=12)
 
-    # Avión en origen y destino
     origen = ruta_manual[0]
     destino = ruta_manual[-1]
     flip = destino.longitude < origen.longitude
@@ -592,19 +591,19 @@ def mostrar_ruta_manual():
     export_path_to_kml(ruta, "ruta_manual.kml")
     messagebox.showinfo("KML generado", "Se ha actualizado 'ruta_manual.kml' con la ruta manual escrita.")
 
-#Añadir nodo
+# Función para activar el modo añadir navpoint
 def activar_modo_navpoint():
     global añadiendo_navpoint
     añadiendo_navpoint = True
     messagebox.showinfo("Modo activo", "Haz clic donde quieras añadir un nuevo NavPoint.")
 
-#Añadir segmento
+# Función para activar el modo añadir segmento
 def activar_modo_navsegment():
     global añadiendo_navsegment
     añadiendo_navsegment = 1
     messagebox.showinfo("Modo activo", "Haz clic en el origen del nuevo NavSegment.")
 
-#Eleminar navpoint
+# Función para eliminar navpoint
 def eliminar_navpoint():
     global esperando_eliminar_navpoint
 
@@ -615,7 +614,7 @@ def eliminar_navpoint():
     esperando_eliminar_navpoint = True
     messagebox.showinfo("Modo activo", "Haz clic en el NavPoint que quieres eliminar.")
 
-
+# Función para añadir un segmento escrito
 def navsegment_por_nombres():
     global grafo
 
@@ -640,6 +639,7 @@ def navsegment_por_nombres():
     entry_destino = tk.Entry(top)
     entry_destino.pack(pady=5)
 
+    # Función para confirmar que los puntos existen
     def confirmar():
         origen = entry_origen.get().strip().upper()
         destino = entry_destino.get().strip().upper()
@@ -672,58 +672,70 @@ def navsegment_por_nombres():
 
     top.wait_window()
 
+# Función para guardar el gráfico actual
 def guardar_txt():
     if grafo is None:
         messagebox.showwarning("Advertencia", "No hay grafo cargado.")
         return
 
-    # Guardar .txt
     export_navpoints_to_txt(grafo.navPoint, "navpoint_new.txt")
     export_navsegments_to_txt(grafo.navSegment, "navsegment_new.txt")
 
-    # Guardar .kml
     export_navpoints_to_kml(grafo.navPoint, "points.kml")
     export_navsegments_to_kml(grafo.navSegment, grafo.navPoint, "segments.kml")
 
     messagebox.showinfo("Guardado", "Se han guardado los archivos:\n- navpoint_new.txt\n- navsegment_new.txt\n- points.kml\n- segments.kml")
 
-
+# Función para cargar un gráfico desde archivos
 def cargar_grafo_desde_txt():
     global grafo
 
-    grafo = Graph()
+    navpoint_file = filedialog.askopenfilename(title="Selecciona archivo de NavPoints (.txt)", filetypes=[("Text files", "*.txt")])
+    if not navpoint_file:
+        return
+
+    navsegment_file = filedialog.askopenfilename(title="Selecciona archivo de NavSegments (.txt)", filetypes=[("Text files", "*.txt")])
+    if not navsegment_file:
+        return
+
+    nuevo_grafo = Graph()
 
     try:
-        # Cargar NavPoints
-        with open("navpoint_new.txt", "r") as f:
+        with open(navpoint_file, "r") as f:
             for line in f:
                 parts = line.strip().split()
-                number = int(float(parts[0]))
+                if len(parts) != 4:
+                    raise ValueError("Formato incorrecto en navpoint.")
+                number = int(parts[0])
                 name = parts[1]
                 latitude = float(parts[2])
                 longitude = float(parts[3])
-                grafo.navPoint.append(NavPoint(number, name, latitude, longitude))
+                nuevo_grafo.navPoint.append(NavPoint(number, name, latitude, longitude))
 
-        # Cargar NavSegments
-        with open("navsegment_new.txt", "r") as f:
+        with open(navsegment_file, "r") as f:
             for line in f:
                 parts = line.strip().split()
+                if len(parts) != 3:
+                    raise ValueError("Formato incorrecto en navsegment.")
                 origin = int(parts[0])
                 destination = int(parts[1])
                 distance = float(parts[2])
-                grafo.navSegment.append(NavSegment(origin, destination, distance))
+                nuevo_grafo.navSegment.append(NavSegment(origin, destination, distance))
 
+        grafo = nuevo_grafo
         draw_graph(grafo)
-        messagebox.showinfo("Cargado", "Se ha cargado el grafo desde los archivos .txt.")
-    except FileNotFoundError:
-        messagebox.showerror("Error", "No se encontraron los archivos 'navpoint_new.txt' y 'navsegment_new.txt'.")
+        messagebox.showinfo("Cargado", "Se ha cargado el grafo desde los archivos seleccionados.")
 
+    except Exception as e:
+        messagebox.showerror("Error", f"Ocurrió un error al cargar los archivos:\n{str(e)}")
+
+# Función para crear un gráfico inicial vacío
 def crear_grafo_vacio():
     global grafo
     grafo = Graph()
     main_interface(None)
 
-
+# Interfaz interactiva
 def main_interface(prefix):
     global root, plot_frame, grafo, airports
     if prefix is not None:
@@ -737,6 +749,7 @@ def main_interface(prefix):
     root.title("Visualizador")
     root.geometry("900x700")
 
+    # Función para acabar la ruta manual con ESC
     def finalizar_ruta_manual(event=None):
         global esperando_ruta_manual, ruta_manual
         if esperando_ruta_manual:
@@ -778,17 +791,17 @@ def main_interface(prefix):
     button_frame = tk.Frame(root)
     button_frame.pack(anchor='nw', pady=5, padx=5)
 
-    tk.Button(button_frame, text="Mostrar vecinos", command=preparar_mostrar_vecinos).pack(side=tk.LEFT, padx=5)
-    tk.Button(button_frame, text="Camino más corto (con clicks)", command=preparar_camino_mas_corto).pack(side=tk.LEFT, padx=5)
-    tk.Button(button_frame, text="Camino más corto (por aeropuerto)", command=camino_mas_corto_por_aeropuerto).pack(side=tk.LEFT, padx=5)
-    tk.Button(button_frame, text="Crear ruta manual", command=preparar_creacion_ruta_manual).pack(side=tk.LEFT, padx=5)
-    tk.Button(button_frame, text="Volver gráfico completo", command=lambda: draw_graph(grafo)).pack(side=tk.LEFT, padx=5)
-    tk.Button(button_frame, text="Añadir NavPoint", command=activar_modo_navpoint).pack(side=tk.LEFT, padx=5)
-    tk.Button(button_frame, text="Añadir NavSegment", command=activar_modo_navsegment).pack(side=tk.LEFT, padx=5)
-    tk.Button(button_frame, text="Añadir Segmento (por nombre)", command=navsegment_por_nombres).pack(side=tk.LEFT,padx=5)
-    tk.Button(button_frame, text="Eliminar NavPoint", command=eliminar_navpoint).pack(side=tk.LEFT, padx=5)
-    tk.Button(button_frame, text="Guardar gráfico", command=guardar_txt).pack(side=tk.LEFT, padx=5)
-    tk.Button(button_frame, text="Cargar gráfico", command=cargar_grafo_desde_txt).pack(side=tk.LEFT, padx=5)
+    tk.Button(button_frame, text="Vecinos", command=preparar_mostrar_vecinos).pack(side=tk.LEFT, padx=5)
+    tk.Button(button_frame, text="Camino más corto (clicks)", command=preparar_camino_mas_corto).pack(side=tk.LEFT, padx=5)
+    tk.Button(button_frame, text="Camino más corto (aeropuerto)", command=camino_mas_corto_por_aeropuerto).pack(side=tk.LEFT, padx=5)
+    tk.Button(button_frame, text="Ruta manual", command=preparar_creacion_ruta_manual).pack(side=tk.LEFT, padx=5)
+    tk.Button(button_frame, text="Gráfico completo", command=lambda: draw_graph(grafo)).pack(side=tk.LEFT, padx=5)
+    tk.Button(button_frame, text="Añadir punto", command=activar_modo_navpoint).pack(side=tk.LEFT, padx=5)
+    tk.Button(button_frame, text="Añadir segmento (clicks)", command=activar_modo_navsegment).pack(side=tk.LEFT, padx=5)
+    tk.Button(button_frame, text="Añadir segmento (puntos)", command=navsegment_por_nombres).pack(side=tk.LEFT,padx=5)
+    tk.Button(button_frame, text="Eliminar punto", command=eliminar_navpoint).pack(side=tk.LEFT, padx=5)
+    tk.Button(button_frame, text="Guardar", command=guardar_txt).pack(side=tk.LEFT, padx=5)
+    tk.Button(button_frame, text="Cargar", command=cargar_grafo_desde_txt).pack(side=tk.LEFT, padx=5)
 
     plot_frame = tk.Frame(root)
     plot_frame.pack(fill=tk.BOTH, expand=True)
@@ -796,7 +809,5 @@ def main_interface(prefix):
     draw_graph(grafo)
     root.mainloop()
 
-
-
-# Lanzar la interfaz inicial
+# Interfaz inicial
 seleccionar_espacio_aereo_con_colores()
