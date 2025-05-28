@@ -35,6 +35,7 @@ selected_segment_color_canvas = None
 añadiendo_navpoint = False
 añadiendo_navsegment = 0  # 0 = inactivo, 1 = esperando origen, 2 = esperando destino
 navsegment_origen = None
+esperando_eliminar_navpoint = False
 
 
 # Añadir imagen del avión
@@ -83,7 +84,7 @@ def draw_graph(g):
 
 # Función para hacer click en el gráfico
 def on_click(event):
-    global waiting_for_neighbor_selection, waiting_for_path_selection, selected_node, origin_node, ruta_manual, añadiendo_navpoint, navsegment_origen, añadiendo_navsegment
+    global waiting_for_neighbor_selection, waiting_for_path_selection, selected_node, origin_node, ruta_manual, añadiendo_navpoint, navsegment_origen, añadiendo_navsegment, esperando_eliminar_navpoint
 
     if grafo is None:
         return
@@ -94,7 +95,26 @@ def on_click(event):
     closest = min(grafo.navPoint, key=lambda n: math.hypot(n.longitude - x, n.latitude - y))
     selected_node[0] = closest
 
-    if waiting_for_neighbor_selection:
+    if esperando_eliminar_navpoint:
+        esperando_eliminar_navpoint = False
+        navpoint = closest
+
+        confirm = messagebox.askyesno("Confirmar eliminación",
+                                      f"¿Eliminar '{navpoint.name}' y sus segmentos?")
+        if not confirm:
+            return
+
+        grafo.navSegment = [s for s in grafo.navSegment
+                            if s.origin_number != navpoint.number and s.destination_number != navpoint.number]
+        grafo.navPoint = [n for n in grafo.navPoint if n.number != navpoint.number]
+        selected_node[0] = None
+        export_navpoints_to_kml(grafo.navPoint)
+        export_navsegments_to_kml(grafo.navSegment, grafo.navPoint)
+        draw_graph(grafo)
+        messagebox.showinfo("Eliminado", f"'{navpoint.name}' y sus segmentos han sido eliminados.")
+        return
+
+    elif waiting_for_neighbor_selection:
         waiting_for_neighbor_selection = False
         mostrar_vecinos()
 
@@ -581,34 +601,72 @@ def activar_modo_navsegment():
 
 #Eleminar navpoint
 def eliminar_navpoint():
-    global grafo, selected_node, canvas
+    global esperando_eliminar_navpoint
 
     if grafo is None:
         messagebox.showwarning("Advertencia", "Primero carga un grafo.")
         return
 
-    if selected_node[0] is None:
-        messagebox.showwarning("Advertencia", "Selecciona un NavPoint haciendo clic en el gráfico.")
+    esperando_eliminar_navpoint = True
+    messagebox.showinfo("Modo activo", "Haz clic en el NavPoint que quieres eliminar.")
+
+
+def navsegment_por_nombres():
+    global grafo
+
+    if grafo is None:
+        messagebox.showwarning("Advertencia", "Primero debes cargar un espacio aéreo.")
         return
 
-    navpoint = selected_node[0]
-    confirm = messagebox.askyesno("Confirmar eliminación",
-                                  f"¿Estás seguro de que quieres eliminar el NavPoint '{navpoint.name}' y todos sus segmentos asociados?")
+    navpoints_dict = {n.name.upper(): n for n in grafo.navPoint}
 
-    if not confirm:
-        return
+    top = tk.Toplevel(root)
+    top.title("Crear segmento por nombre")
+    top.geometry("300x180")
+    top.transient(root)
+    top.grab_set()
 
-    # Eliminar los segmentos que tienen como origen o destino ese punto
-    grafo.navSegment = [s for s in grafo.navSegment
-                        if s.origin_number != navpoint.number and s.destination_number != navpoint.number]
+    tk.Label(top, text="Nombre del punto de origen:").pack(pady=(10, 0))
+    entry_origen = tk.Entry(top)
+    entry_origen.pack(pady=5)
+    entry_origen.focus()
 
-    # Eliminar el navpoint del grafo
-    grafo.navPoint = [n for n in grafo.navPoint if n.number != navpoint.number]
-    export_navpoints_to_kml(grafo.navPoint)
-    export_navsegments_to_kml(grafo.navSegment, grafo.navPoint)
-    selected_node[0] = None
-    draw_graph(grafo)
-    messagebox.showinfo("Eliminado", f"NavPoint '{navpoint.name}' y sus segmentos han sido eliminados.")
+    tk.Label(top, text="Nombre del punto de destino:").pack(pady=(10, 0))
+    entry_destino = tk.Entry(top)
+    entry_destino.pack(pady=5)
+
+    def confirmar():
+        origen = entry_origen.get().strip().upper()
+        destino = entry_destino.get().strip().upper()
+
+        if origen not in navpoints_dict or destino not in navpoints_dict:
+            messagebox.showerror("Error", "Alguno de los nombres no existe.")
+            return
+
+        nodo_origen = navpoints_dict[origen]
+        nodo_destino = navpoints_dict[destino]
+
+        nuevo_segmento = NavSegment(nodo_origen.number, nodo_destino.number, Distance(nodo_origen, nodo_destino))
+        grafo.navSegment.append(nuevo_segmento)
+
+        ax.plot([nodo_origen.longitude, nodo_destino.longitude],
+                [nodo_origen.latitude, nodo_destino.latitude],
+                color=segment_color, linewidth=0.5)
+        canvas.draw()
+
+        export_navsegments_to_kml(grafo.navSegment, grafo.navPoint)
+        messagebox.showinfo("Segmento creado", f"Segmento añadido entre {origen} y {destino}.")
+        top.destroy()
+
+    tk.Button(top, text="Aceptar", command=confirmar).pack(pady=10)
+
+    top.update_idletasks()
+    x = root.winfo_x() + (root.winfo_width() - top.winfo_width()) // 2
+    y = root.winfo_y() + (root.winfo_height() - top.winfo_height()) // 2
+    top.geometry(f"+{x}+{y}")
+
+    top.wait_window()
+
 
 def main_interface(prefix):
     global root, plot_frame, grafo, airports
@@ -667,6 +725,7 @@ def main_interface(prefix):
     tk.Button(button_frame, text="Volver gráfico completo", command=lambda: draw_graph(grafo)).pack(side=tk.LEFT, padx=5)
     tk.Button(button_frame, text="Añadir NavPoint", command=activar_modo_navpoint).pack(side=tk.LEFT, padx=5)
     tk.Button(button_frame, text="Añadir NavSegment", command=activar_modo_navsegment).pack(side=tk.LEFT, padx=5)
+    tk.Button(button_frame, text="Añadir Segmento (por nombre)", command=navsegment_por_nombres).pack(side=tk.LEFT,padx=5)
     tk.Button(button_frame, text="Eliminar NavPoint", command=eliminar_navpoint).pack(side=tk.LEFT, padx=5)
 
     plot_frame = tk.Frame(root)

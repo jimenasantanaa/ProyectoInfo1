@@ -781,12 +781,6 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>MARTA</name>
-      <Point>
-        <coordinates>1.28,40.3547222222,0</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
       <name>MATEX</name>
       <Point>
         <coordinates>0.2655555556,40.5566666667,0</coordinates>

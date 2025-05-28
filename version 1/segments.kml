@@ -1220,15 +1220,6 @@
         <tessellate>1</tessellate>
         <coordinates>
           1.4108333333,39.3725,0
-          1.28,40.3547222222,0
-        </coordinates>
-      </LineString>
-    </Placemark>
-    <Placemark>
-      <LineString>
-        <tessellate>1</tessellate>
-        <coordinates>
-          1.4108333333,39.3725,0
           2.0269444444,39.4527777778,0
         </coordinates>
       </LineString>
@@ -1797,24 +1788,6 @@
         <coordinates>
           3.8602777778,41.6055555556,0
           3.7569444444,41.1530555556,0
-        </coordinates>
-      </LineString>
-    </Placemark>
-    <Placemark>
-      <LineString>
-        <tessellate>1</tessellate>
-        <coordinates>
-          1.28,40.3547222222,0
-          1.2316666667,40.7086111111,0
-        </coordinates>
-      </LineString>
-    </Placemark>
-    <Placemark>
-      <LineString>
-        <tessellate>1</tessellate>
-        <coordinates>
-          1.28,40.3547222222,0
-          1.9247222222,40.6927777778,0
         </coordinates>
       </LineString>
     </Placemark>
