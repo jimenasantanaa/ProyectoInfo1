@@ -292,6 +292,7 @@ def mostrar_camino_mas_corto(origen, destino):
     export_path_to_kml(ruta)
     messagebox.showinfo("KML generado", "Se ha modificado 'path.kml' con el camino más corto actual.")
 
+
 # Función para activar ruta manual
 def preparar_creacion_ruta_manual():
     global esperando_ruta_manual, ruta_manual
